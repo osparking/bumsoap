@@ -11,8 +11,8 @@
 </head>
 <body>
 	<div class="jumbotron">
-		<h1> ${greeting} </h1>
 		<p> ${tagline} </p>
+		<h1> ${greeting} </h1>
 	</div>
 </body>
 </html>
