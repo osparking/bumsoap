@@ -4,7 +4,13 @@ div#nav {
 	padding-top:3px;
     width: 100%;
     text-align: center;
+    max-height: 40px;
 }
+
+div#nav, div#slogan_div {
+    min-width: 770px;
+}
+
 div#nav ul {
     list-style-type: none;
     justify-content: center;
@@ -36,7 +42,7 @@ div#nav ul li a#home {
 }
 
 div#nav ul li a {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Noto Sans",Helvetica,Arial,sans-serif;
     font-size: 1.1em;
     font-weight: 900;
     text-decoration: none;

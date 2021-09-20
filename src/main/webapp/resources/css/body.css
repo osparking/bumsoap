@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Noto Sans",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	line-height: 1.43;
 }
@@ -10,6 +10,14 @@ div#slogan_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
 	height: 100%;
+}
+
+.notice {
+/* 	position: fixed;
+	top: 35; */
+	position: absolute;
+	padding-left: 0.5em;
+	font-size: 13px;
 }
 
 div#slogan_text {
@@ -23,11 +31,4 @@ div#slogan_text {
   top: 55%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-.notice {
-	position: fixed;
-	top: 35;
-	padding-left: 0.5em;
-	font-size: 13px;
 }

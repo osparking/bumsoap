@@ -11,14 +11,13 @@
 <body>
 	<div id="slogan_div">
 	<jsp:include page="top_menu.jsp"/>
+		<div class="notice">
+			<p>홈-Icon: <a href="https://www.iconsdb.com/white-icons/home-icon.html">
+				iconsdb.com</a></p>
+		</div>
 		<div id="slogan_text">
 			<p>${tagline}</p>
 			<h1>${greeting}</h1>
-		</div>
-		<div class="notice">
-			<p>
-				홈-Icon: <a href="https://www.iconsdb.com/white-icons/home-icon.html">iconsdb.com</a>
-			</p>
 		</div>
 	</div>
 </body>
