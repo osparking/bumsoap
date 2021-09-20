@@ -6,19 +6,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>범이비누</title>
-<link rel="stylesheet" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="resources/css/header.css">	
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>
+	<div id="slogan_div">
 	<jsp:include page="top_menu.jsp"/>
-	<div class="jumbotron">
-		<p> ${tagline} </p>
-		<h1> ${greeting} </h1>
-		<p class="notice">
-			<img alt="범이홈" height="20" src="<c:url value='/img/home32.png'/>"/>
-			:&nbsp;<a href="http://www.rawshorts.com">Designed by Raw Shorts</a></p>
+		<div id="slogan_text">
+			<p>${tagline}</p>
+			<h1>${greeting}</h1>
+		</div>
+		<div class="notice">
+			<p>
+				<a href="http://www.rawshorts.com">Designed by Raw Shorts</a>
+			</p>
+		</div>
 	</div>
 </body>
 </html>

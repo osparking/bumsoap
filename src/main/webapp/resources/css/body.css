@@ -1,5 +1,33 @@
 @charset "UTF-8";
 
-p.notice {
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.43;
+}
+
+div#slogan_div {
+	margin: 0 .15em;
+	background-color: #DFffff;
+	height: 100%;
+}
+
+div#slogan_text {
+	font-size: 1.3em;
+	display: table;
+	padding: 48px 0;
+	margin: 0 auto;
+	text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notice {
+	position: fixed;
+	top: 35;
+	padding-left: 0.5em;
 	font-size: 11px;
 }

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 div#nav {
-	margin-top:3px;
+	padding-top:3px;
     width: 100%;
     text-align: center;
 }
@@ -14,8 +14,8 @@ div#nav ul {
     zoom: 1;
     *display: inline-block;
 }
+
 div#nav ul li {
-    width: 19%;
     background-color: navy;
     text-decoration: none;
     text-align: center;
@@ -23,7 +23,17 @@ div#nav ul li {
     color: white;
     display: inline;
     float: left;
+    width: 100%;
 }
+
+div#nav ul li#home {
+    background-color: #000045;
+}
+
+div#nav ul li a#home {
+    display: block;
+}
+
 div#nav ul li a {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
