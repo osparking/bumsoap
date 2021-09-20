@@ -13,7 +13,7 @@
 <body>
 	<div id="nav">
 		<ul>
-			<li><a href="http://localhost:8080/store/" target="_blank">Home</a></li>
+			<li><a href='<c:url value="/"/>'>홈</a></li>
 			<li><a href="">범이 소개</a></li>
 			<li><a href="">판매 상품</a></li>
 			<li><a href="">질문 응답</a></li>
@@ -24,6 +24,7 @@
 	<div class="jumbotron">
 		<p> ${tagline} </p>
 		<h1> ${greeting} </h1>
+		<P><a href="http://www.rawshorts.com">Designed by Raw Shorts</a></P>
 	</div>
 </body>
 </html>
