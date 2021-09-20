@@ -1,59 +1,68 @@
 @charset "UTF-8";
 
+.dropbtn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	width: 100%;
+}
+
+div#home {
+	top: 6px;
+}
+
+button#home {
+	padding: 14px;
+}
+
+.homeBtn {
+	background: url(/store/resources/images/home-24.png) no-repeat;
+	cursor: pointer;
+	border: none;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+	width: 16%;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+
 div#nav {
-	padding-top:3px;
-    width: 100%;
-    text-align: center;
-    max-height: 40px;
+	width: 100%;
+	text-align: center;
+	max-height: 53px;
 }
 
 div#nav, div#slogan_div {
-    min-width: 770px;
-}
-
-div#nav ul {
-    list-style-type: none;
-    justify-content: center;
-    display: flex;
-    margin: 0 auto 0 auto;
-    padding: 0;
-    zoom: 1;
-    *display: inline-block;
-}
-
-div#nav ul li.changing:hover {
-    background-color: blue;
-}
-
-div#nav ul li.changing:active {
-    background-color: deeppink;
-}
-
-div#nav ul li.changing {
-    background-color: navy;
-}
-
-div#nav ul li {
-    text-decoration: none;
-    text-align: center;
-    margin: 0 .3em;
-    color: white;
-    display: inline;
-    float: left;
-    width: 100%;
-}
-
-div#nav ul li a#home {
-    display: block;
-}
-
-div#nav ul li a {
-    font-family: "Noto Sans",Helvetica,Arial,sans-serif;
-    font-size: 1.1em;
-    font-weight: 900;
-    text-decoration: none;
-    color: ivory;
-    display: inline-block;
-    padding: .35em 1.5em;
-    letter-spacing: .05em;
+	min-width: 770px;
 }
