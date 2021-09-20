@@ -11,8 +11,15 @@
 </head>
 <body>
 	<div id="slogan_div">
-	<jsp:include page="top_menu.jsp" />
-	
+		<jsp:include page="top_menu.jsp" />
+		<div>
+			<p>범이는 이런 사람입니다.</p>
+			<p>범이 비누를 만들게 된 동기입니다.</p>
+			<p>범이 비누를 만드는 과정입니다.</p>
+			<p>비누에 들어가는 모든 재료입니다.</p>
+			<p>비누에 들어가는 모든 재료입니다.</p>
+			<p>비누에 제조 및 판매 원가입니다.</p>
+		</div>
 	</div>
 </body>
 </html>

@@ -5,10 +5,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>범이비누</title>
-<!-- <link rel="stylesheet" 
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="resources/css/header.css">	
+<title>범이비누</title>	
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>
@@ -20,7 +17,7 @@
 		</div>
 		<div class="notice">
 			<p>
-				<a href="http://www.rawshorts.com">Designed by Raw Shorts</a>
+				홈-Icon: <a href="https://www.iconsdb.com/white-icons/home-icon.html">iconsdb.com</a>
 			</p>
 		</div>
 	</div>
