@@ -13,8 +13,6 @@ div#slogan_div {
 }
 
 .notice {
-/* 	position: fixed;
-	top: 35; */
 	position: absolute;
 	padding-left: 0.5em;
 	font-size: 13px;

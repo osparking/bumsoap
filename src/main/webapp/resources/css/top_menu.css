@@ -21,8 +21,19 @@ div#nav ul {
     *display: inline-block;
 }
 
-div#nav ul li {
+div#nav ul li.changing:hover {
+    background-color: blue;
+}
+
+div#nav ul li.changing:active {
+    background-color: deeppink;
+}
+
+div#nav ul li.changing {
     background-color: navy;
+}
+
+div#nav ul li {
     text-decoration: none;
     text-align: center;
     margin: 0 .3em;
@@ -30,11 +41,6 @@ div#nav ul li {
     display: inline;
     float: left;
     width: 100%;
-}
-
-div#nav ul li#home {
-    background-color: #000045;
-    /* background-color: #8c5928; */
 }
 
 div#nav ul li a#home {
