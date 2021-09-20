@@ -1,5 +1,5 @@
 @charset "UTF-8";
 
-.notice {
-	font-size: 11pt;
+p.notice {
+	font-size: 11px;
 }
