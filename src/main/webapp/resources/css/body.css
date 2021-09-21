@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	font-family: "Noto Sans",Helvetica,Arial,sans-serif;
+	font-family: "Noto Sans", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.43;
 }
@@ -10,6 +10,10 @@ div#body_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
 	height: 100%;
+}
+
+.container {
+	margin: 0 10%;
 }
 
 .notice {
@@ -24,9 +28,34 @@ div#slogan_text {
 	padding: 48px 0;
 	margin: 0 auto;
 	text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 40%;
+}
+
+th, td {
+	border: 1px solid green;
+	padding: 8px 5px;
+}
+
+th {
+	text-align: right;
+}
+
+textarea {
+	width: 45em;
+	height: 5em;
+}
+
+tr th {
+	width: 1%;
+	white-space: nowrap;
 }

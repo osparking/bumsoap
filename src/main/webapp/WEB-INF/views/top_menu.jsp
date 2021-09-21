@@ -27,9 +27,11 @@
 		</div>
 	</div>
 	<div class="dropdown">
-		<button class="dropbtn">판매 비누</button>
+		<a href="<c:url value='bumsoaps'/>">
+			<button class="dropbtn">판매 비누</button>
+		</a>
 		<div class="dropdown-content">
-			<a href="<c:url value='bumsoaps'/>">Link 1</a> 
+			<a href="<c:url value='bumsoaps'/>">상세정보</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
 		</div>

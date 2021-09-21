@@ -16,9 +16,9 @@ public class BumSoap implements Serializable{
 	private int BSSN;
 	private String bs_Name;
 	private String ingridi_1;
-	private String mall_Name;
 	private String fragrance;
 	private String descrip;
-	private String spec_func;
+	private String spec_Func;
 	private Target target;
+	private String mall_Link;
 }

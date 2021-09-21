@@ -40,9 +40,9 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 			bumSoap.setIngridi_1(rs.getString("ingridi_1"));
 			bumSoap.setFragrance(rs.getString("fragrance"));
 			bumSoap.setTarget(Target.values()[rs.getInt("target")]);
-			bumSoap.setMall_Name(rs.getString("mall_name"));
 			bumSoap.setDescrip(rs.getString("descrip"));
-			bumSoap.setSpec_func(rs.getString("spec_func"));
+			bumSoap.setSpec_Func(rs.getString("spec_func"));
+			bumSoap.setMall_Link(rs.getString("mall_link"));
 			return bumSoap;
 		}
 		
