@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Welcome {
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "환영합니다!");
-        model.addAttribute("tagline", "모범적인 수제 범이비누 방문을...");
+        model.addAttribute("greeting",
+        		"환영합니다!");
+        model.addAttribute("tagline", 
+        		"모범적인 수제 범이비누 방문을...");
         return "welcome";
     }
     

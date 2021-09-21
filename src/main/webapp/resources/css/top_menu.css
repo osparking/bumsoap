@@ -57,6 +57,10 @@ button#home {
 	background-color: #3e8e41;
 }
 
+.dropdown:active {
+	background-color: deeppink;
+}
+
 div#nav {
 	width: 100%;
 	text-align: center;
