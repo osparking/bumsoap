@@ -6,7 +6,7 @@ CREATE TABLE `bumsoap` (
   `fragrance` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `desc` varchar(400) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `function` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '특징-기능',
-  `target` tinyint(4) DEFAULT 1 COMMENT '용도(1-인체, 2-식기, 3-세탁)',
+  `target` tinyint(4) DEFAULT 0 COMMENT '용도(0-인체, 1-식기, 2-세탁)',
   PRIMARY KEY (`BSSN`),
-  CONSTRAINT `check_soap_target` CHECK (`target` in (1,2,3))
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+  CONSTRAINT `check_soap_target` CHECK (`target` in (0,1,2))
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
