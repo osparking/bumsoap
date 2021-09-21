@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">
 </head>
 <body>
-	<div id="slogan_div">
+	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		<div>
 			<p>범이는 이런 사람입니다.</p>

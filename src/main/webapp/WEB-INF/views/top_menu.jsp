@@ -5,8 +5,7 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
 	crossorigin="anonymous">
 </script>
-<link rel="stylesheet" type="text/css" 
-	href="resources/css/top_menu.css">
+<link rel="stylesheet" type="text/css" href="resources/css/top_menu.css">
 <div id="nav">
 	<div class="dropdown" id="home">
 		<a href="<c:url value='/'/>">
@@ -30,7 +29,7 @@
 	<div class="dropdown">
 		<button class="dropbtn">판매 비누</button>
 		<div class="dropdown-content">
-			<a href="<c:url value='intro'/>">Link 1</a> 
+			<a href="<c:url value='bumsoaps'/>">Link 1</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
 		</div>

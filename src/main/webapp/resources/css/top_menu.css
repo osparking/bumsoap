@@ -57,7 +57,7 @@ button#home {
 	background-color: #3e8e41;
 }
 
-.dropdown:active {
+.dropdown:active .dropbtn {
 	background-color: deeppink;
 }
 
@@ -67,6 +67,6 @@ div#nav {
 	max-height: 53px;
 }
 
-div#nav, div#slogan_div {
+div#nav, div#body_div {
 	min-width: 770px;
 }

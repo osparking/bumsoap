@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>
-	<div id="slogan_div">
+	<div id="body_div">
 	<jsp:include page="top_menu.jsp"/>
 		<div class="notice">
 			<p>홈-Icon: <a href="https://www.iconsdb.com/white-icons/home-icon.html">
