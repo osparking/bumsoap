@@ -41,7 +41,7 @@ CREATE TABLE `soap_pic` (
   `PIC_SN` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '영상 일련번호',
   `BSSN` int(10) unsigned DEFAULT NULL COMMENT '비누번호-외래키',
   `PICTURE` mediumblob NOT NULL COMMENT '사진 영상 자체',
-  `ORDER` tinyint(4) NOT NULL DEFAULT 1 COMMENT '표시 순서',
+  `DP_ORDER` tinyint(4) NOT NULL DEFAULT 1 COMMENT '표시 순서',
   `EXT_NAME` char(4) CHARACTER SET ascii DEFAULT 'jpg' COMMENT '영상 파일 확장자 이름',
   PRIMARY KEY (`PIC_SN`),
   KEY `soap_SN_FK` (`BSSN`),

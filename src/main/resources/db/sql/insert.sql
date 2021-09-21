@@ -1,3 +1,10 @@
+/* 새 명령 위에 삽입 */
+
+/* root 로써 실행해야 됨 */
+insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
+values (1, 1, 'jpg',
+  load_file('D:\\ws\\bumsoap\\image\\im_soap\\_DSC2579.jpg'));
+
 INSERT INTO `bumsoap`(bs_name, ingridi_1, mall_name, fragrance, 
   `desc`, 
   `function`, target)
