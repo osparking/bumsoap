@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.bumsoap.store.domain.BumSoap;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.repo.BumSoapRepo;
+import com.bumsoap.store.types.IncType;
 import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
 import com.bumsoap.store.types.Target;
@@ -41,12 +42,15 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 	 * returns 변화된 레코드 개수
 	 */
 	@Override
-	public int updateStock(Shapes shape, Shape_w shape_w, 
-			int incBy) {
+	public int updateStock(SoapStock soapStock) {
 		var sql = new StringBuilder();
 		
 		sql.append("update soap_stock");
-		sql.append(" set stock = stock + :incBy ");
+		if (soapStock.getIncType() == IncType.Absolute) {
+			sql.append(" set stock = :stockAmt ");
+		} else {
+			sql.append(" set stock = stock + :stockAmt ");
+		}
 		sql.append("where STOCK_SN in");
 		sql.append(" (select ss.STOCK_SN");
 		sql.append("  from soap_stock ss");
@@ -57,9 +61,9 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 		
 		var params = new HashMap<String, Integer>();
 		
-		params.put("incBy", incBy); 
-		params.put("shape_w", shape_w.getOrdVal()); 
-		params.put("shape", shape.getOrdVal()); 
+		params.put("stockAmt", soapStock.getStock()); 
+		params.put("shape_w", soapStock.getShape_w().getOrdVal()); 
+		params.put("shape", soapStock.getShape().getOrdVal()); 
 
 		return jdbcTemplate.update(sql.toString(), params);
 	}
@@ -119,5 +123,5 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 			
 			return bumSoap;
 		}
-	}	
+	}
 }

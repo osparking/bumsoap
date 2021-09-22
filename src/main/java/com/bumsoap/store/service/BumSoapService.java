@@ -9,7 +9,6 @@ import com.bumsoap.store.types.Shapes;
 
 public interface BumSoapService {
 	List<BumSoap> getBumSoaps();
-	int updateStock(Shapes shape, Shape_w shape_w, 
-			int incBy);
+	int updateStock(SoapStock soapStock);
 	List<SoapStock> getSoapStocks();
 }

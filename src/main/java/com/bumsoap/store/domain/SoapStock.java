@@ -2,6 +2,7 @@ package com.bumsoap.store.domain;
 
 import java.text.DecimalFormat;
 
+import com.bumsoap.store.types.IncType;
 import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
 
@@ -17,6 +18,7 @@ public class SoapStock {
 	private double price;
 	private String priceStr;
 	private int stock;
+	private IncType incType;
 	
 	public void setPrice(double price) {
 		this.price = price;

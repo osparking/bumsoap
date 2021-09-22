@@ -24,9 +24,8 @@ public class BumSoapServiceImpl implements BumSoapService{
 	}
 
 	@Override
-	public int updateStock(Shapes shape, Shape_w shape_w, 
-			int incBy) {
-		return bumSoapRepo.updateStock(shape, shape_w, incBy);
+	public int updateStock(SoapStock soapStock) {
+		return bumSoapRepo.updateStock(soapStock);
 	}
 
 	@Override

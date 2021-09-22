@@ -5,6 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page import="com.bumsoap.store.types.Shapes"%>
 <%@ page import="com.bumsoap.store.types.Shape_w"%>
+<%@ page import="com.bumsoap.store.types.IncType"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,12 @@
 		<jsp:include page="top_menu.jsp" />
 		<div class="container">
 			<h1>범이비누</h1>
-			<p>상세정보</p>
+			<p>재고 수량(개)</p>
 		</div>
 
 		<table>
 			<tr>
-				<th>가격(재고)</th>
+				<th>구분</th>
 				<th>${Shapes.NORMAL.descrp}</th>
 				<th>${Shapes.MEAJOO.descrp}</th>
 				<th>${Shapes.WHITE.descrp}</th>
@@ -57,39 +58,25 @@
 							${shape_w.descrp}</form:option>
 					</c:forEach>
 				</form:select>
+				
+				<label for="incType0">${IncType.values()[0].descrp}</label>
+				<form:radiobutton name="incType0" checked="checked" 
+					path="incType" value="${IncType.values()[0]}"/>
+					
+				<label for="incType1">${IncType.values()[1].descrp}</label>
+				<form:radiobutton name="incType1"  
+					path="incType" value="${IncType.values()[1]}"/>
+					
 				<div>
-					<label for="stock">증감량(음수:감소, 양수: 증가)</label>
-					<form:input name="stock" id="stock" path="stock" type="text" />
+					<label for="stock">재고</label>
+					<form:input name="stock" id="stock" 
+						path="stock" type="text" />
 				</div>
 				<input type="submit" id="btnAdd" value="갱신" />
 			</fieldset>
 		</form:form>
 	</div>
 	<script>
-/*  		document.updateForm.addEventListener("submit", function(e){
-			var stockField = document.getElementById("stock");
-			var stockStr = stockField.value;
-			
-			if (stockStr.trim().length === 0) {
-				e.preventDefault();
-				alert("증감량이 없습니다.")
-				stockText.focus();
-				return false;
-			} 
-			
-			var value = Number(stockStr);
-			
-			if (Math.floor(value) == value) {
-				return true;
-			} else {
-				e.preventDefault();				
-				alert("증감량은 정수만 가능합니다.")
-				stockText.focus();
-				return false;
-			}
-			
-		}); */
-		
 		function checkStockValue() {
  			var stockField = document.getElementById("stock");
 			var stockStr = stockField.value;

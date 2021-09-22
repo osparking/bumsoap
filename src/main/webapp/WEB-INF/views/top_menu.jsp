@@ -7,7 +7,6 @@
 </script>
 <link rel="stylesheet" type="text/css" 
 		href="<c:url value='/resources/css/top_menu.css'/>">
-<!-- <link rel="stylesheet" type="text/css" href="/resources/css/top_menu.css"> -->
 <div id="nav">
 	<div class="dropdown" id="home">
 		<a href="<c:url value='/'/>">
@@ -18,25 +17,26 @@
 		</a> 
 	</div>
 	<div class="dropdown">
-		<a href="<c:url value='intro'/>">
+		<a href="<c:url value='/intro'/>">
 			<button class="dropbtn" id="intro">
 				범이 소개</button>
 		</a>
 		<div class="dropdown-content">
 			<a href="#">공개 자료</a> 
 			<a href="#">수제비누란?</a>
-			<a href="<c:url value='intro'/>">개발 취지</a> 
+			<a href="<c:url value='/intro'/>">개발 취지</a> 
 		</div>
 	</div>
 	<div class="dropdown">
-		<a href="<c:url value='bumsoaps'/>">
+		<a href="<c:url value='/soaps'/>">
 			<button class="dropbtn">판매 비누</button>
 		</a>
 		<div class="dropdown-content">
-			<a href="<c:url value='bumsoaps'/>">상세정보</a> 
+			<a href="<c:url value='/soaps'/>">상세정보</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
-			<a href="<c:url value='update/stock'/>">갱신</a>
+			<a href="<c:url value='/soaps/update/stock'/>">
+				재고 갱신</a>
 		</div>
 	</div>
 	<div class="dropdown">

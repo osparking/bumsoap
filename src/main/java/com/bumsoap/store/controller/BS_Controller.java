@@ -16,11 +16,12 @@ import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
 
 @Controller
+@RequestMapping("soaps")
 public class BS_Controller {
 	@Autowired
 	private BumSoapService service;
 	
-	@RequestMapping("/bumsoaps")
+	@RequestMapping
 	public String list(Model model) {
 		model.addAttribute("bumsoaps", service.getBumSoaps());
 		addPriceStock(model);
@@ -53,9 +54,8 @@ public class BS_Controller {
 	public String updateStockProcess(@ModelAttribute("soapStock")
 				SoapStock soapStock) {
 		
-		int rc = service.updateStock(soapStock.getShape(), 
-				soapStock.getShape_w(), soapStock.getStock());
+		int rc = service.updateStock(soapStock);
 		System.out.println("갱신 행 수: " + rc);
-		return "redirect:/bumsoaps";
+		return "redirect:/soaps";
 	}
 }
