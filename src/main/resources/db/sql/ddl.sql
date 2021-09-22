@@ -59,3 +59,14 @@ CREATE TABLE `soap_price` (
   `INS_TIME` datetime DEFAULT current_timestamp() COMMENT '가격 삽입 일시',
   PRIMARY KEY (`Price_SN`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- bumsoap.soap_stock definition
+CREATE TABLE `soap_stock` (
+  `STOCK_SN` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `PRICE_SN` int(10) unsigned NOT NULL,
+  `SHAPE_W` tinyint(4) NOT NULL DEFAULT 0 COMMENT '중량형태(정상중량,작은두개)',
+  `STOCK` mediumint(8) unsigned NOT NULL DEFAULT 0 COMMENT '재고 수량(개)',
+  PRIMARY KEY (`STOCK_SN`),
+  KEY `soap_stock_FK` (`PRICE_SN`),
+  CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_price` (`Price_SN`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
