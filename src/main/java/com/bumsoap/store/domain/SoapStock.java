@@ -14,15 +14,25 @@ import lombok.Setter;
 public class SoapStock {
 	private Shape_w shape_w;
 	private Shapes shape;
+	
 	@Setter(AccessLevel.NONE)
 	private double price;
 	private String priceStr;
+	
+	@Setter(AccessLevel.NONE)
 	private int stock;
+	private String stockStr;
 	private IncType incType;
+	
+	private static DecimalFormat df = new DecimalFormat("#,###");
 	
 	public void setPrice(double price) {
 		this.price = price;
-		DecimalFormat df = new DecimalFormat("#,###");
 		this.setPriceStr(df.format(price));
-	}	
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+		this.setStockStr(df.format(stock));
+	}
 }

@@ -62,14 +62,14 @@
 				</tr>
 				<tr>
 					<th>${Shape_w.NORMAL.descrp}</th>
-					<c:forEach items="${normals}" var="stock">
-						<td>${stock.price}원(${stock.stock}개)</td>
+					<c:forEach items="${normals}" var="normal">
+						<td>${normal.priceStr}원(${normal.stockStr}개)</td>
 					</c:forEach>
 				</tr>
 				<tr>
 					<th>${Shape_w.SMALL2.descrp}</th>
-					<c:forEach items="${smalls}" var="stock">
-						<td>${stock.price}원(${stock.stock}개)</td>
+					<c:forEach items="${smalls}" var="small">
+						<td>${small.priceStr}원(${small.stockStr}개)</td>
 					</c:forEach>
 				</tr>
 			</table>

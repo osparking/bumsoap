@@ -32,13 +32,13 @@
 			<tr>
 				<th>${Shape_w.NORMAL.descrp}</th>
 				<c:forEach items="${normals}" var="normal">
-					<td>${normal.stock}</td>
+					<td>${normal.stockStr}</td>
 				</c:forEach>
 			</tr>
 			<tr>
-				<th>${Shape_w.NORMAL.descrp}</th>
+				<th>${Shape_w.SMALL2.descrp}</th>
 				<c:forEach items="${smalls}" var="small">
-					<td>${small.stock}</td>
+					<td>${small.stockStr}</td>
 				</c:forEach>
 			</tr>
 		</table>
