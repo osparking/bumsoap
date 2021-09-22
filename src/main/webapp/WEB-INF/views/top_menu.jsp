@@ -5,7 +5,9 @@
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
 	crossorigin="anonymous">
 </script>
-<link rel="stylesheet" type="text/css" href="resources/css/top_menu.css">
+<link rel="stylesheet" type="text/css" 
+		href="<c:url value='/resources/css/top_menu.css'/>">
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/top_menu.css"> -->
 <div id="nav">
 	<div class="dropdown" id="home">
 		<a href="<c:url value='/'/>">
