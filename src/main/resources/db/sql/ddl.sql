@@ -43,7 +43,19 @@ CREATE TABLE `soap_pic` (
   `PICTURE` mediumblob NOT NULL COMMENT '사진 영상 자체',
   `DP_ORDER` tinyint(4) NOT NULL DEFAULT 1 COMMENT '표시 순서',
   `EXT_NAME` char(4) CHARACTER SET ascii DEFAULT 'jpg' COMMENT '영상 파일 확장자 이름',
+  `SHAPE` tinyint(4) DEFAULT 0 COMMENT '백설공주, 메주비누, 등',
   PRIMARY KEY (`PIC_SN`),
   KEY `soap_SN_FK` (`BSSN`),
-  CONSTRAINT `soap_SN_FK` FOREIGN KEY (`BSSN`) REFERENCES `bumsoap` (`BSSN`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `soap_SN_FK` FOREIGN KEY (`BSSN`) REFERENCES `bumsoap` (`BSSN`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `soap_shape_check` CHECK (`SHAPE` in (0,1,2))
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- bumsoap.soap_price definition
+CREATE TABLE `soap_price` (
+  `Price_SN` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '일련번호',
+  `BSSN` int(10) unsigned NOT NULL,
+  `SHAPE` tinyint(4) DEFAULT NULL COMMENT '백설공주 등',
+  `PRICE` double DEFAULT NULL COMMENT '비누 가격',
+  `INS_TIME` datetime DEFAULT current_timestamp() COMMENT '가격 삽입 일시',
+  PRIMARY KEY (`Price_SN`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
