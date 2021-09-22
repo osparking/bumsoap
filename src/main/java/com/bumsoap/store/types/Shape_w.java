@@ -3,14 +3,14 @@ package com.bumsoap.store.types;
 import lombok.Getter;
 
 @Getter
-public enum Shapes {
-	NORMAL(0, "보통비누"),
-	MEAJOO(1, "메주비누"),
-	WHITE(2, "백설공주");
-	
+public enum Shape_w {
+	NORMAL(0, "정상중량"), 
+	SMALL2(1, "백설공주");
+
 	private final int ordVal;
 	private final String descrp;
-	private Shapes(final Integer ordVal, 
+
+	private Shape_w(final Integer ordVal, 
 			final String descrp) {
 	    this.ordVal = ordVal;
 	    this.descrp = descrp;
