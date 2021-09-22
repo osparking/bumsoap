@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum Shape_w {
 	NORMAL(0, "정상중량"), 
-	SMALL2(1, "백설공주");
+	SMALL2(1, "작은2개");
 
 	private final int ordVal;
 	private final String descrp;

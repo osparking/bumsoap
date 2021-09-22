@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bumsoap.store.domain.BumSoap;
+import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.repo.BumSoapRepo;
 import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
@@ -81,20 +82,42 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 			return bumSoap;
 		}
 	}
+
+	@Override
+	public List<SoapStock> getSoapStocks() {
+		var sql = new StringBuilder();
+		sql.append("select ss.SHAPE_W, sp.SHAPE");
+		sql.append(", sp.price, ss.stock ");
+		sql.append("from soap_stock ss");
+		sql.append(" join soap_price sp");
+		sql.append(" on sp.Price_SN = ss.PRICE_SN ");
+		sql.append("order by ss.SHAPE_W, sp.SHAPE;");
+		
+	    var params = new HashMap<String, Object>();
+	    var result = jdbcTemplate.query(sql.toString(), 
+	    		params, new SoapStockMapper());
+	    return result;
+	}
+	
+	private static final class SoapStockMapper 
+			implements RowMapper<SoapStock> {
+
+		@Override
+		public SoapStock mapRow(ResultSet rs, int rowNum) 
+				throws SQLException {
+			
+			var bumSoap = new SoapStock();
+			
+			int ord = rs.getInt("SHAPE_W");
+			bumSoap.setShape_w(Shape_w.values()[ord]);
+			
+			ord = rs.getInt("SHAPE");
+			bumSoap.setShape(Shapes.values()[ord]);
+			
+			bumSoap.setPrice(rs.getDouble("price"));
+			bumSoap.setStock(rs.getInt("stock"));
+			
+			return bumSoap;
+		}
+	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

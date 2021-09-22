@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter 
 public enum Target {
-	HUMAN(0, "피부 및 두피"),
+	HUMAN(0, "건성 및 지성, 피부 및 두피"),
 	KITCHEN(1, "식기세척"),
 	LAUNDRY(2, "일반세탁");
 	
