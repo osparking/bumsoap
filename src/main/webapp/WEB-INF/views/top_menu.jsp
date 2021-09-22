@@ -34,6 +34,7 @@
 			<a href="<c:url value='bumsoaps'/>">상세정보</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
+			<a href="<c:url value='update/stock'/>">갱신</a>
 		</div>
 	</div>
 	<div class="dropdown">
