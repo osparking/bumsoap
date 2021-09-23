@@ -62,7 +62,9 @@
 							<div class="thumb">
 								<a onclick="return changeMainPic('${pic.FName}')">
 								  <img class="thumb" 
-								  	   src="<c:url value='/img/${pic.FName}'/>">				  
+								  	   src="<c:url value='/img/${pic.FName}'/>"
+								  	   onmouseover=
+								  	   	"changeMainPic('${pic.FName}')">				  
 								</a>
 							</div>						
 						</c:forEach>

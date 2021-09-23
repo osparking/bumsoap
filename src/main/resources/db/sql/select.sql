@@ -1,7 +1,9 @@
 /* 새 명령 위에 삽입 */
 
-SELECT so.*, sp.*
-FROM soap so join soap_pic sp on sp.BSSN = so.BSSN;
+SELECT * FROM soap;  so join soap_pic sp on sp.BSSN = so.BSSN;
+
+SELECT *
+FROM soap_pic sp where BSSN = 1;
 
 select * from ingredients i where i.BSSN = 1;
 
