@@ -17,10 +17,6 @@ class TestUpdateStock {
 	
 	@Test
 	void test() {
-		soapRepo = new MariaBumSoapRepo();
-		int rc = soapRepo.updateStock(Shapes.NORMAL, 
-				Shape_w.NORMAL, 1);
-		assertEquals(rc, 1);
 	}
 
 }

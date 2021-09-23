@@ -1,6 +1,7 @@
 package com.bumsoap.store.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.bumsoap.store.types.Target;
 
@@ -13,12 +14,13 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class Soap implements Serializable{
 	private static final long serialVersionUID = -2297070845238815421L;
-	private int BSSN;
-	private String bs_Name;
-	private String ingridi_1;
+	private int bssn;
+	private String bsName;
+	private String ingridi1;
 	private String fragrance;
 	private String descrip;
-	private String spec_Func;
+	private String specFunc;
 	private Target target;
-	private String mall_Link;
+	private String mallLink;
+	private List<SoapPic> pics;
 }

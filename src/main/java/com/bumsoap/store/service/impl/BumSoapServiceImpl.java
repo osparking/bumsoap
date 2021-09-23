@@ -20,8 +20,8 @@ public class BumSoapServiceImpl implements BumSoapService{
 	BumSoapRepo bumSoapRepo;
 	
 	@Override
-	public List<Soap> getBumSoaps() {
-		return bumSoapRepo.getBumSoaps();
+	public List<Soap> getSoaps(String root) {
+		return bumSoapRepo.getSoaps(root);
 	}
 
 	@Override

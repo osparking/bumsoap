@@ -1,5 +1,10 @@
 package com.bumsoap.store.repo.impl;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -13,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bumsoap.store.domain.Ingredient;
 import com.bumsoap.store.domain.Soap;
+import com.bumsoap.store.domain.SoapPic;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.repo.BumSoapRepo;
 import com.bumsoap.store.types.IncType;
@@ -27,10 +33,11 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<Soap> getBumSoaps() {
+	public List<Soap> getSoaps(String root) {
 	    Map<String, Object> params = new HashMap<String, Object>();
-	    List<Soap> result = jdbcTemplate.query(
-	        "SELECT * FROM bumsoap", params, new BumSoapMapper());
+	    List<Soap> result = jdbcTemplate.query("SELECT * FROM soap"
+	    		+ " so join soap_pic sp on sp.BSSN = so.BSSN",
+	    		params, new SoapMapper(root));
 	    return result;
 	}
 
@@ -69,25 +76,91 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 		return jdbcTemplate.update(sql.toString(), params);
 	}
 
-	private static final class BumSoapMapper 
-		implements RowMapper<Soap> {
+	private final class SoapMapper implements RowMapper<Soap> {
+		String root;
+		SoapMapper(String root) {
+			this.root = root;
+		}
 
 		@Override
 		public Soap mapRow(ResultSet rs, int rowNum) 
 				throws SQLException {
-			var bumSoap = new Soap();
-			bumSoap.setBs_Name(rs.getString("bs_name"));
-			bumSoap.setBSSN(rs.getInt("BSSN"));
-			bumSoap.setIngridi_1(rs.getString("ingridi_1"));
-			bumSoap.setFragrance(rs.getString("fragrance"));
-			bumSoap.setTarget(Target.values()[rs.getInt("target")]);
-			bumSoap.setDescrip(rs.getString("descrip"));
-			bumSoap.setSpec_Func(rs.getString("spec_func"));
-			bumSoap.setMall_Link(rs.getString("mall_link"));
-			return bumSoap;
+			var soap = new Soap();
+			soap.setBsName(rs.getString("bs_name"));
+			
+			int bssn = rs.getInt("BSSN");
+			soap.setBssn(bssn);
+			soap.setIngridi1(rs.getString("ingridi_1"));
+			soap.setFragrance(rs.getString("fragrance"));
+			soap.setTarget(Target.values()[rs.getInt("target")]);
+			soap.setDescrip(rs.getString("descrip"));
+			soap.setSpecFunc(rs.getString("spec_func"));
+			soap.setMallLink(rs.getString("mall_link"));
+			soap.setPics(getPics(bssn, root));
+			
+			return soap;
 		}
 	}
 
+	private List<SoapPic> getPics(int bssn, String root) {
+		var sql = "SELECT * FROM soap_pic sp where BSSN = :bssn";
+		var params = new HashMap<String, Integer>();
+		params.put("bssn", bssn); 
+		var result = jdbcTemplate.query(sql, params, 
+				new RowMapper<SoapPic>() {
+
+			@Override
+			public SoapPic mapRow(ResultSet rs, int rowNum) 
+					throws SQLException {
+				var soapPic = new SoapPic();
+				
+				soapPic.setPicSn(rs.getInt("PIC_SN"));
+				soapPic.setBssn(rs.getInt("BSSN"));
+				soapPic.setDpOrder((short)rs.getInt("DP_ORDER"));
+				soapPic.setExtName(rs.getString("EXT_NAME"));
+				int idx = rs.getInt("SHAPE");
+				soapPic.setShape(Shapes.values()[idx]);
+				
+				var blob = rs.getBlob("PICTURE");
+				if (blob != null && root != null) {
+					writeBytesToFile(root, 
+							blob.getBinaryStream(), 
+							soapPic);
+				}
+				
+				return soapPic;
+			}
+
+			private void writeBytesToFile(String root, 
+					InputStream in, SoapPic soapPic) {
+				String dirPath = root + "resources\\images\\"; 
+				
+				File directory = new File(dirPath);
+				if (! directory.exists()) {
+					directory.mkdirs();
+				}
+				StringBuilder fPath = new StringBuilder(dirPath);
+				fPath.append(soapPic.getFName());
+
+				FileOutputStream out;
+				
+				try {
+					out = new FileOutputStream(fPath.toString());
+					byte [] buff = new byte[4096];
+					int len = 0;
+					while ((len = in.read(buff)) != -1) {
+						out.write(buff, 0, len);
+					}
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		return result;
+	}
+	
 	@Override
 	public List<SoapStock> getSoapStocks() {
 		var sql = new StringBuilder();
@@ -141,21 +214,21 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 	}
 	
 	private static final class IngredientMapper 
-	implements RowMapper<Ingredient> {
-
-	@Override
-	public Ingredient mapRow(ResultSet rs, int rowNum) 
-			throws SQLException {
-		
-		var ingredent = new Ingredient();
-		
-		ingredent.setEffects(rs.getString("effects"));
-		ingredent.setIng_Name(rs.getString("ing_name"));
-		ingredent.setIng_SN(rs.getInt("Ing_SN"));
-		ingredent.setPercent(rs.getFloat("percent"));
-		ingredent.setWeight(rs.getFloat("weight"));
-		
-		return ingredent;
-	}
-}	
+		implements RowMapper<Ingredient> {
+	
+		@Override
+		public Ingredient mapRow(ResultSet rs, int rowNum) 
+				throws SQLException {
+			
+			var ingredent = new Ingredient();
+			
+			ingredent.setEffects(rs.getString("effects"));
+			ingredent.setIng_Name(rs.getString("ing_name"));
+			ingredent.setIng_SN(rs.getInt("Ing_SN"));
+			ingredent.setPercent(rs.getFloat("percent"));
+			ingredent.setWeight(rs.getFloat("weight"));
+			
+			return ingredent;
+		}
+	}	
 }

@@ -3,6 +3,8 @@ package com.bumsoap.store.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,11 @@ public class BS_Controller {
 	private BumSoapService service;
 	
 	@RequestMapping
-	public String list(Model model) {
-		model.addAttribute("bumsoaps", service.getBumSoaps());
+	public String list(HttpServletRequest request, Model model) {
+		String root = request.getSession().
+				getServletContext().getRealPath("/");
+		
+		model.addAttribute("soaps", service.getSoaps(root));
 		addPriceStock(model);
 		model.addAttribute("ingredients", service.getIngredients());
 		return "soaps";

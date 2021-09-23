@@ -1,6 +1,9 @@
 /* 새 명령 위에 삽입 */
 
-select * from ingridients i where i.BSSN = 1;
+SELECT so.*, sp.*
+FROM soap so join soap_pic sp on sp.BSSN = so.BSSN;
+
+select * from ingredients i where i.BSSN = 1;
 
 /* 전성분 중량 합, %합 계산 */
 select sum(weight), sum(percent)

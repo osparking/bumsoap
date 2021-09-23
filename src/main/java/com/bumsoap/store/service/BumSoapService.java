@@ -7,7 +7,7 @@ import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
 
 public interface BumSoapService {
-	List<Soap> getBumSoaps();
+	List<Soap> getSoaps(String root);
 	int updateStock(SoapStock soapStock);
 	List<SoapStock> getSoapStocks();
 	List<Ingredient> getIngredients();
