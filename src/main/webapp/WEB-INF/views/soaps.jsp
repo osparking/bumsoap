@@ -22,7 +22,7 @@
 			<c:forEach items="${soaps}" var="soap">
 				<div class="soapImg" style="width: 35%; float: left;">
 					<img src="<c:url value='/img/${soap.pics[0].FName}'/>"
-						alt="상품 사진" class="soapImg" 
+						alt="상품 사진" class="soapImg" id="mainPic"
 						style="width:100%"/>
 				</div>
 				<div class="soapTxt">
@@ -60,8 +60,7 @@
 					<div class="thumbbox">
 						<c:forEach items="${soap.pics}" var="pic">
 							<div class="thumb">
-								<a target="_blank" 
-									 href="<c:url value='/img/${pic.FName}'/>">
+								<a onclick="return changeMainPic('${pic.FName}')">
 								  <img class="thumb" 
 								  	   src="<c:url value='/img/${pic.FName}'/>">				  
 								</a>
@@ -119,5 +118,12 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function changeMainPic(fileName) {
+			var mainPic = document.getElementById("mainPic");
+			mainPic.src = "<c:url value='/img/" + fileName + "'/>";
+			return false;
+		}
+	</script>
 </body>
 </html>
