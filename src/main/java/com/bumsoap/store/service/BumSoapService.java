@@ -2,13 +2,13 @@ package com.bumsoap.store.service;
 
 import java.util.List;
 
-import com.bumsoap.store.domain.BumSoap;
+import com.bumsoap.store.domain.Ingredient;
+import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
-import com.bumsoap.store.types.Shape_w;
-import com.bumsoap.store.types.Shapes;
 
 public interface BumSoapService {
-	List<BumSoap> getBumSoaps();
+	List<Soap> getBumSoaps();
 	int updateStock(SoapStock soapStock);
 	List<SoapStock> getSoapStocks();
+	List<Ingredient> getIngredients();
 }

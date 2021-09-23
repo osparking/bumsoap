@@ -11,7 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.bumsoap.store.domain.BumSoap;
+import com.bumsoap.store.domain.Ingredient;
+import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.repo.BumSoapRepo;
 import com.bumsoap.store.types.IncType;
@@ -26,9 +27,9 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<BumSoap> getBumSoaps() {
+	public List<Soap> getBumSoaps() {
 	    Map<String, Object> params = new HashMap<String, Object>();
-	    List<BumSoap> result = jdbcTemplate.query(
+	    List<Soap> result = jdbcTemplate.query(
 	        "SELECT * FROM bumsoap", params, new BumSoapMapper());
 	    return result;
 	}
@@ -69,12 +70,12 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 	}
 
 	private static final class BumSoapMapper 
-		implements RowMapper<BumSoap> {
+		implements RowMapper<Soap> {
 
 		@Override
-		public BumSoap mapRow(ResultSet rs, int rowNum) 
+		public Soap mapRow(ResultSet rs, int rowNum) 
 				throws SQLException {
-			var bumSoap = new BumSoap();
+			var bumSoap = new Soap();
 			bumSoap.setBs_Name(rs.getString("bs_name"));
 			bumSoap.setBSSN(rs.getInt("BSSN"));
 			bumSoap.setIngridi_1(rs.getString("ingridi_1"));
@@ -124,4 +125,37 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 			return bumSoap;
 		}
 	}
+
+	@Override
+	public List<Ingredient> getIngredients() {
+		var sql = new StringBuilder();
+		sql.append("select * from ingredients i ");
+		sql.append("where i.BSSN = :BSSN");
+		
+	    var params = new HashMap<String, Object>();
+	    params.put("BSSN", 1);
+	    
+	    var result = jdbcTemplate.query(sql.toString(), 
+	    		params, new IngredientMapper());
+	    return result;
+	}
+	
+	private static final class IngredientMapper 
+	implements RowMapper<Ingredient> {
+
+	@Override
+	public Ingredient mapRow(ResultSet rs, int rowNum) 
+			throws SQLException {
+		
+		var ingredent = new Ingredient();
+		
+		ingredent.setEffects(rs.getString("effects"));
+		ingredent.setIng_Name(rs.getString("ing_name"));
+		ingredent.setIng_SN(rs.getInt("Ing_SN"));
+		ingredent.setPercent(rs.getFloat("percent"));
+		ingredent.setWeight(rs.getFloat("weight"));
+		
+		return ingredent;
+	}
+}	
 }

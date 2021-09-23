@@ -25,7 +25,8 @@ public class BS_Controller {
 	public String list(Model model) {
 		model.addAttribute("bumsoaps", service.getBumSoaps());
 		addPriceStock(model);
-		return "bumsoaps";
+		model.addAttribute("ingredients", service.getIngredients());
+		return "soaps";
 	}
 	
 	private void addPriceStock(Model model) {

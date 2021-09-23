@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
 @EqualsAndHashCode
-public class BumSoap implements Serializable{
+public class Soap implements Serializable{
 	private static final long serialVersionUID = -2297070845238815421L;
 	private int BSSN;
 	private String bs_Name;

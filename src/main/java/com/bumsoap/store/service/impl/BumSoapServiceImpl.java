@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bumsoap.store.domain.BumSoap;
+import com.bumsoap.store.domain.Ingredient;
+import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.repo.BumSoapRepo;
 import com.bumsoap.store.service.BumSoapService;
@@ -19,7 +20,7 @@ public class BumSoapServiceImpl implements BumSoapService{
 	BumSoapRepo bumSoapRepo;
 	
 	@Override
-	public List<BumSoap> getBumSoaps() {
+	public List<Soap> getBumSoaps() {
 		return bumSoapRepo.getBumSoaps();
 	}
 
@@ -31,5 +32,10 @@ public class BumSoapServiceImpl implements BumSoapService{
 	@Override
 	public List<SoapStock> getSoapStocks() {
 		return bumSoapRepo.getSoapStocks();
+	}
+
+	@Override
+	public List<Ingredient> getIngredients() {
+		return bumSoapRepo.getIngredients();
 	}
 }

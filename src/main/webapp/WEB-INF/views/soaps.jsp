@@ -8,9 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>범이비누 목록</title>
-<link rel="stylesheet" type="text/css" 
-	<%-- href="<c:url value='resources/css/body.css'/>"> --%>
-	href="resources/css/body.css">
+<link rel="stylesheet" type="text/css" href="resources/css/body.css">
 </head>
 <body>
 	<div id="body_div">
@@ -52,7 +50,7 @@
 				</table>
 			</c:forEach>
 			
-			<p>가격 및 재고</p>
+			<h4><a id="price_stock">가격 및 재고</a></h4>			
 			<table>
 				<tr>
 					<th>가격(재고)</th>
@@ -71,6 +69,30 @@
 					<c:forEach items="${smalls}" var="small">
 						<td>${small.priceStr}원(${small.stockStr}개)</td>
 					</c:forEach>
+				</tr>
+			</table>
+		
+			<h4><a id="ingredients">전 성분(All Ingredients)</a></h4>
+			<table class="bumsoap">
+				<tr>
+					<th>재료명</th>
+					<th>중량(g)</th>
+					<th>함유비율(%)</th>
+					<th>특징 혹은 효능</th>
+				</tr>
+				<c:forEach items="${ingredients}" var="ing">
+					<tr>
+						<td>${ing.ing_Name}</td>
+						<td>${ing.weightStr}</td>
+						<td>${ing.percentStr}</td>
+						<td>${ing.effects}</td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td>합</td>
+					<td>126.3(g)</td>
+					<td>100(%)</td>
+					<td></td>
 				</tr>
 			</table>
 		</div>
