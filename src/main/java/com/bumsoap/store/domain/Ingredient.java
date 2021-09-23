@@ -20,7 +20,7 @@ public class Ingredient {
 	private float percent;
 	private String percentStr;
 	
-	private static DecimalFormat df = new DecimalFormat("#,###.00");
+	private static DecimalFormat df = new DecimalFormat("#,##0.00");
 
 	public void setWeight(float weight) {
 		this.weight = weight;

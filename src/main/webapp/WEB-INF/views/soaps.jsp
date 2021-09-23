@@ -117,6 +117,22 @@
 						<td></td>
 					</tr>
 				</table>
+			
+				<h4><a id="sell_price">판매 원가</a></h4>
+				<table class="bumsoap">
+					<tr>
+						<td><img alt="판매 원가표"
+							src="<c:url value='/img/soap/price_sell.png'/>"/></td>
+					</tr>
+					<tr>
+						<td><img alt="전자상거래 비용"
+							src="<c:url value='/img/soap/price_elec.png'/>"/></td>
+					</tr>
+					<tr>
+						<td><img alt="투입 재료비"
+							src="<c:url value='/img/soap/price_mete.png'/>"/></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>

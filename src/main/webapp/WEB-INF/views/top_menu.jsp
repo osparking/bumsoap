@@ -35,7 +35,7 @@
 			<a href="<c:url value='/soaps'/>">상세정보</a> 
 			<a href="<c:url value='/soaps#price_stock'/>">가격(재고)</a> 
 			<a href="<c:url value='/soaps#ingredients'/>">전 성분</a> 
-			<a href="#">판매 원가</a>
+			<a href="<c:url value='/soaps#sell_price'/>">판매 원가</a>
 			<a href="#">제조 공정</a>
 			<a href="<c:url value='/soaps/update/stock'/>">재고 갱신</a>
 		</div>
