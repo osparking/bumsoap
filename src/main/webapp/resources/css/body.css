@@ -12,10 +12,6 @@ div#body_div {
 	height: 100%;
 }
 
-.container {
-	margin: 0 10%;
-}
-
 .notice {
 	position: absolute;
 	padding-left: 0.5em;
@@ -58,4 +54,27 @@ textarea {
 tr th {
 	width: 1%;
 	white-space: nowrap;
+}
+
+div.container {
+	margin: 0 10%;
+	overflow: hidden;
+}
+
+img.soapImg {
+	width: 100%;
+}
+
+div.soapImg {
+	width: 35%;
+	float: left;
+	border:solid red 2px;
+}
+
+div.soapTxt {
+	margin-left: 600px;
+}
+
+div.below {
+	clear: both;
 }
