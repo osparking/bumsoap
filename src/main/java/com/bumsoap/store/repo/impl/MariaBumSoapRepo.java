@@ -34,10 +34,11 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 
 	@Override
 	public List<Soap> getSoaps(String root) {
-	    Map<String, Object> params = new HashMap<String, Object>();
-	    List<Soap> result = jdbcTemplate.query("SELECT * FROM soap"
-	    		+ " so join soap_pic sp on sp.BSSN = so.BSSN",
-	    		params, new SoapMapper(root));
+	    Map<String, Object> params = 
+	    		new HashMap<String, Object>();
+	    List<Soap> result = jdbcTemplate.query(
+	    		"SELECT * FROM soap", params, 
+	    		new SoapMapper(root));
 	    return result;
 	}
 

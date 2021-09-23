@@ -78,3 +78,17 @@ div.soapTxt {
 div.below {
 	clear: both;
 }
+
+div.thumbbox {
+	margin: 20px;
+	padding: 5px;
+	border: solid pink 2px;
+	float: left;
+}
+
+div.thumb, img.thumb {
+	float: left;
+	width: 100px;
+	height: 100px;
+	border: solid black 1px;
+}

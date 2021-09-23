@@ -26,35 +26,48 @@
 						style="width:100%"/>
 				</div>
 				<div class="soapTxt">
-					<table class="bumsoap">
-						<tr>
-							<th>상품 번호</th><td>${soap.bssn}</td>
-						</tr>
-						<tr>
-							<th>상품명</th><td>${soap.bsName}</td>
-						</tr>
-						<tr>
-							<th>주재료</th><td>${soap.ingridi1}</td>
-						</tr>
-						<tr>
-							<th>비누 향</th><td>${soap.fragrance}</td>
-						</tr>
-						<tr>
-							<th>용도</th><td>${soap.target.descrp}</td>
-						</tr>
-						<tr>
-							<th>효과</th><td>${soap.specFunc}</td>
-						</tr>
-						<tr>
-							<th>설명문</th>
-							<td><textarea>${soap.descrip}</textarea></td>
-						</tr>
-						<tr>
-							<th>쇼핑몰</th>
-							<td><a href="${soap.mallLink}" target="blank">
-								네이버 쇼핑</a></td>
-						</tr>
-					</table>
+					<div>
+						<table class="bumsoap">
+							<tr>
+								<th>상품 번호</th><td>${soap.bssn}</td>
+							</tr>
+							<tr>
+								<th>상품명</th><td>${soap.bsName}</td>
+							</tr>
+							<tr>
+								<th>주재료</th><td>${soap.ingridi1}</td>
+							</tr>
+							<tr>
+								<th>비누 향</th><td>${soap.fragrance}</td>
+							</tr>
+							<tr>
+								<th>용도</th><td>${soap.target.descrp}</td>
+							</tr>
+							<tr>
+								<th>효과</th><td>${soap.specFunc}</td>
+							</tr>
+							<tr>
+								<th>설명문</th>
+								<td><textarea>${soap.descrip}</textarea></td>
+							</tr>
+							<tr>
+								<th>쇼핑몰</th>
+								<td><a href="${soap.mallLink}" target="blank">
+									네이버 쇼핑</a></td>
+							</tr>
+						</table>
+					</div>
+					<div class="thumbbox">
+						<c:forEach items="${soap.pics}" var="pic">
+							<div class="thumb">
+								<a target="_blank" 
+									 href="<c:url value='/img/${pic.FName}'/>">
+								  <img class="thumb" 
+								  	   src="<c:url value='/img/${pic.FName}'/>">				  
+								</a>
+							</div>						
+						</c:forEach>
+					</div>
 				</div>
 			</c:forEach>
 			<div class="below" style="clear:both">

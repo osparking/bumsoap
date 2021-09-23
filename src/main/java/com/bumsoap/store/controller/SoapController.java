@@ -19,7 +19,7 @@ import com.bumsoap.store.types.Shapes;
 
 @Controller
 @RequestMapping("soaps")
-public class BS_Controller {
+public class SoapController {
 	@Autowired
 	private BumSoapService service;
 	
