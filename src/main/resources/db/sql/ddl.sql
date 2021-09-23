@@ -70,3 +70,16 @@ CREATE TABLE `soap_stock` (
   KEY `soap_stock_FK` (`PRICE_SN`),
   CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_price` (`Price_SN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- bumsoap.ingrids definition
+CREATE TABLE `ingrids` (
+  `Ing_SN` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '일련번호',
+  `BSSN` int(10) unsigned NOT NULL,
+  `ing_name` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '재료 이름',
+  `weight` float DEFAULT NULL COMMENT '중량(g)',
+  `percent` float DEFAULT NULL COMMENT '함유비율',
+  `effects` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '특징, 효능',
+  PRIMARY KEY (`Ing_SN`),
+  KEY `ingrids_FK` (`BSSN`),
+  CONSTRAINT `ingrids_FK` FOREIGN KEY (`BSSN`) REFERENCES `bumsoap` (`BSSN`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='비누 제품 별 전 성분(ingridients)';
