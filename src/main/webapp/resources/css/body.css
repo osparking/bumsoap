@@ -75,6 +75,10 @@ div.soapTxt {
 	margin-left: 600px;
 }
 
+.updateSoap {
+	width: 500px;
+}
+
 div.below {
 	clear: both;
 }

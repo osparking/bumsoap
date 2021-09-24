@@ -65,7 +65,13 @@ div#nav {
 	width: 100%;
 	text-align: center;
 	max-height: 53px;
+  position: fixed;
 }
+	
+div.sticky {
+  position: fixed;
+  top: 0;
+}	
 
 div#nav, div#body_div {
 	min-width: 770px;
