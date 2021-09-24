@@ -109,13 +109,13 @@ INSERT INTO `soap_pic` VALUES (5,1,'����\0JFIF\0\0`\0`\0\0��\0FExif\0\0MM\0*
 UNLOCK TABLES;
 
 --
--- Table structure for table `soap_price`
+-- Table structure for table `soap_shape`
 --
 
-DROP TABLE IF EXISTS `soap_price`;
+DROP TABLE IF EXISTS `soap_shape`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `soap_price` (
+CREATE TABLE `soap_shape` (
   `Price_SN` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '일련번호',
   `BSSN` int(10) unsigned NOT NULL,
   `SHAPE` tinyint(4) DEFAULT NULL COMMENT '백설공주 등',
@@ -128,41 +128,41 @@ CREATE TABLE `soap_price` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `soap_price`
+-- Dumping data for table `soap_shape`
 --
 
-LOCK TABLES `soap_price` WRITE;
-/*!40000 ALTER TABLE `soap_price` DISABLE KEYS */;
-INSERT INTO `soap_price` VALUES (1,1,0,4460,'2021-09-24 17:43:18'),(2,1,1,4360,'2021-09-24 17:43:39'),(3,1,2,4260,'2021-09-24 17:54:37');
-/*!40000 ALTER TABLE `soap_price` ENABLE KEYS */;
+LOCK TABLES `soap_shape` WRITE;
+/*!40000 ALTER TABLE `soap_shape` DISABLE KEYS */;
+INSERT INTO `soap_shape` VALUES (1,1,0,4460,'2021-09-24 17:43:18'),(2,1,1,4360,'2021-09-24 17:43:39'),(3,1,2,4260,'2021-09-24 17:54:37');
+/*!40000 ALTER TABLE `soap_shape` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `soap_stock`
+-- Table structure for table `soap_weight`
 --
 
-DROP TABLE IF EXISTS `soap_stock`;
+DROP TABLE IF EXISTS `soap_weight`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `soap_stock` (
+CREATE TABLE `soap_weight` (
   `STOCK_SN` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `PRICE_SN` int(10) unsigned NOT NULL,
   `SHAPE_W` tinyint(4) NOT NULL DEFAULT 0 COMMENT '중량형태(정상중량,작은두개)',
   `STOCK` mediumint(8) unsigned NOT NULL DEFAULT 0 COMMENT '재고 수량(개)',
   PRIMARY KEY (`STOCK_SN`),
   KEY `soap_stock_FK` (`PRICE_SN`),
-  CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_price` (`Price_SN`)
+  CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_shape` (`Price_SN`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `soap_stock`
+-- Dumping data for table `soap_weight`
 --
 
-LOCK TABLES `soap_stock` WRITE;
-/*!40000 ALTER TABLE `soap_stock` DISABLE KEYS */;
-INSERT INTO `soap_stock` VALUES (7,1,0,800),(8,2,0,80),(9,3,0,800),(10,1,1,0),(11,2,1,0),(12,3,1,0);
-/*!40000 ALTER TABLE `soap_stock` ENABLE KEYS */;
+LOCK TABLES `soap_weight` WRITE;
+/*!40000 ALTER TABLE `soap_weight` DISABLE KEYS */;
+INSERT INTO `soap_weight` VALUES (7,1,0,800),(8,2,0,80),(9,3,0,800),(10,1,1,0),(11,2,1,0),(12,3,1,0);
+/*!40000 ALTER TABLE `soap_weight` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -178,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-24 18:27:36
+-- Dump completed on 2021-09-24 21:28:06
