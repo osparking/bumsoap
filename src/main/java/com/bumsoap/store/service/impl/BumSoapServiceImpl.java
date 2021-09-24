@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bumsoap.store.domain.Ingredient;
 import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
-import com.bumsoap.store.repo.BumSoapRepo;
+import com.bumsoap.store.repo.SoapRepo;
 import com.bumsoap.store.service.BumSoapService;
 import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
@@ -17,7 +17,7 @@ import com.bumsoap.store.types.Shapes;
 public class BumSoapServiceImpl implements BumSoapService{
 
 	@Autowired
-	BumSoapRepo bumSoapRepo;
+	SoapRepo bumSoapRepo;
 	
 	@Override
 	public List<Soap> getSoaps(String root) {
@@ -38,4 +38,9 @@ public class BumSoapServiceImpl implements BumSoapService{
 	public List<Ingredient> getIngredients() {
 		return bumSoapRepo.getIngredients();
 	}
+
+  @Override
+  public void updateSoap(Soap soap) {
+    bumSoapRepo.updateSoap(soap);
+  }
 }

@@ -11,4 +11,5 @@ public interface BumSoapService {
 	int updateStock(SoapStock soapStock);
 	List<SoapStock> getSoapStocks();
 	List<Ingredient> getIngredients();
+  void updateSoap(Soap soap);
 }

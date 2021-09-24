@@ -18,6 +18,10 @@ div#body_div {
 	font-size: 13px;
 }
 
+.submitBtn {
+	text-align: center;
+}
+
 div#slogan_text {
 	font-size: 1.3em;
 	display: table;

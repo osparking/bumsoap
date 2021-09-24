@@ -20,14 +20,14 @@ import com.bumsoap.store.domain.Ingredient;
 import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapPic;
 import com.bumsoap.store.domain.SoapStock;
-import com.bumsoap.store.repo.BumSoapRepo;
+import com.bumsoap.store.repo.SoapRepo;
 import com.bumsoap.store.types.IncType;
 import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
 import com.bumsoap.store.types.Target;
 
 @Repository
-public class MariaBumSoapRepo implements BumSoapRepo {
+public class SoapRepoMaria implements SoapRepo {
 
 	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
@@ -231,5 +231,35 @@ public class MariaBumSoapRepo implements BumSoapRepo {
 			
 			return ingredent;
 		}
-	}	
+	}
+
+  @Override
+  public void updateSoap(Soap soap) {
+    var sql = new StringBuilder("UPDATE soap ");
+    sql.append("SET bs_name=:bs_name,");
+    sql.append(" ingridi_1=:ingridi_1,");
+    sql.append(" fragrance=:fragrance, descrip=:descrip,");
+    sql.append(" spec_func=:spec_func, target=:target,");
+    sql.append(" mall_link=:mall_link ");
+    sql.append("WHERE BSSN=:BSSN");
+
+    var params = new HashMap<String, Object>();
+    
+    params.put("bs_name", soap.getBsName()); 
+    params.put("ingridi_1", soap.getIngridi1()); 
+    params.put("fragrance", soap.getFragrance()); 
+    params.put("descrip", soap.getDescrip()); 
+    params.put("spec_func", soap.getSpecFunc()); 
+    params.put("target", soap.getTarget().getOrdVal()); 
+    params.put("mall_link", soap.getMallLink()); 
+    params.put("BSSN", soap.getBssn()); 
+
+    jdbcTemplate.update(sql.toString(), params);
+  }	
 }
+
+
+
+
+
+

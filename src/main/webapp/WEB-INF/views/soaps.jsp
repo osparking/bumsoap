@@ -20,7 +20,7 @@
 			<h1>범이비누</h1>
 			<h4 id="info">상세정보(
 				<a href="<c:url 
-					value='/soaps/update/info?bssn=${soap.bssn}'/>">
+					value='/soaps/update/soap?bssn=${soap.bssn}'/>">
 				정보갱신</a>)</h4>
 		</div>
 		<div class="container">

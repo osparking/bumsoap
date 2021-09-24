@@ -5,8 +5,7 @@
 	uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" 
 	uri="http://www.springframework.org/tags/form"%>
-<%@ page import="com.bumsoap.store.types.Shapes" %>
-<%@ page import="com.bumsoap.store.types.Shape_w" %>
+<%@ page import="com.bumsoap.store.types.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +16,9 @@
 <link rel="stylesheet" type="text/css" 
 	href="<c:url value='/resources/css/top_menu.css'/>">
 </head>
+<%
+    request.setCharacterEncoding("utf-8");
+%>
 <body onload="changeText('${soapBfr.descrip}');">
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
@@ -61,9 +63,26 @@
 							</tr>
 							<tr>
 								<th><label for="target">용도</label></th>
-								<td><form:input name="target" 
-									value="${soapBfr.target.descrp}"
-									path="target" type="text" />
+								<td>
+									<form:select path="target">
+										<c:forEach items="${Target.values()}" 
+																var="target">
+											<c:choose>
+												<c:when test=
+														"${target eq soapBfr.target}">
+													<form:option value="${target}"
+															selected="true">
+														${target.descrp}
+													</form:option>
+												</c:when>
+												<c:otherwise>
+														<form:option value="${target}">
+															${target.descrp}
+														</form:option>
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</form:select>
 								</td>
 							</tr>
 							<tr>
@@ -85,6 +104,11 @@
 									value="${soapBfr.mallLink}"	path="mallLink" 
 									type="text" size="80"/>
 								</td>
+							</tr>
+							<tr>
+								<th colspan="2" class="submitBtn">
+									<input type="submit" id="btnAdd" value="갱신" />
+								</th>
 							</tr>
 						</table>
 					</fieldset>

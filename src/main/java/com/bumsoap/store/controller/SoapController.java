@@ -49,9 +49,9 @@ public class SoapController {
 		model.addAttribute("smalls", smallList);
 	}
 	
-	@RequestMapping(value="/update/info", 
+	@RequestMapping(value="/update/soap", 
 	    method = RequestMethod.GET)
-	public String updateInfo(@ModelAttribute Soap soap, 
+	public String updateSoap(@ModelAttribute Soap soap, 
 	    @RequestParam String bssn, Model model) {
 	  var soaps = service.getSoaps(null);
 	  Soap soapBfr = soaps.get(0);
@@ -59,7 +59,14 @@ public class SoapController {
 	  if (Integer.valueOf(bssn) == soap.getBssn()) {
 	    model.addAttribute("soapBfr", soapBfr);
 	  } 
-	  return "update_info";
+	  return "updateSoap";
+	}
+	
+	@RequestMapping(value="/update/soap", 
+	    method = RequestMethod.POST)
+	public String updateSoap(@ModelAttribute Soap soap) {
+	  service.updateSoap(soap);
+	  return "redirect:/soaps";
 	}
 
 	@RequestMapping(value="/update/stock", 
