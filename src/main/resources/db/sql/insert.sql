@@ -5,6 +5,11 @@ insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
 values (1, 2, 'jpg',
   load_file('D:\\ws\\bumsoap\\image\\im_soap\\two-soaps.jpg'));
 
+/* root 로써 실행해야 됨 */
+insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
+values (1, 2, 'jpg', 
+  load_file('D:\\ws\\bumsoap\\image\\im_soap\\_DSC2579.jpg'));
+
 INSERT INTO `soap`(bs_name, ingridi_1, mall_link, fragrance, 
   descrip , 
   spec_func, target)

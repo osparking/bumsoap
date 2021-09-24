@@ -50,8 +50,8 @@ CREATE TABLE `soap_pic` (
   CONSTRAINT `soap_shape_check` CHECK (`SHAPE` in (0,1,2))
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- bumsoap.soap_price definition
-CREATE TABLE `soap_price` (
+-- bumsoap.soap_shape definition
+CREATE TABLE `soap_shape` (
   `Price_SN` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '일련번호',
   `BSSN` int(10) unsigned NOT NULL,
   `SHAPE` tinyint(4) DEFAULT NULL COMMENT '백설공주 등',
@@ -68,7 +68,7 @@ CREATE TABLE `soap_stock` (
   `STOCK` mediumint(8) unsigned NOT NULL DEFAULT 0 COMMENT '재고 수량(개)',
   PRIMARY KEY (`STOCK_SN`),
   KEY `soap_stock_FK` (`PRICE_SN`),
-  CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_price` (`Price_SN`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `soap_stock_FK` FOREIGN KEY (`PRICE_SN`) REFERENCES `soap_shape` (`Price_SN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- bumsoap.ingrids definition

@@ -79,7 +79,7 @@ public class SoapController {
 	
 	@RequestMapping(value="/update/stock", 
 			method = RequestMethod.POST)
-	public String updateStockProcess(@ModelAttribute("soapStock")
+	public String updateStock(@ModelAttribute("soapStock")
 				SoapStock soapStock) {
 		
 		int rc = service.updateStock(soapStock);

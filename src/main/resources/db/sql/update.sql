@@ -13,5 +13,5 @@ WHERE BSSN=1; /* BSSN */
 update soap_stock set
 	stock = stock + 1
 where STOCK_SN in (select ss.STOCK_SN from soap_stock ss
-join soap_price sp on sp.price_sn = ss.PRICE_SN 
+join soap_shape sp on sp.price_sn = ss.PRICE_SN 
 	and ss.SHAPE_W = 0 and sp.SHAPE = 0);
