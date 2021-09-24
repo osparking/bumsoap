@@ -54,7 +54,7 @@ public class SoapRepoMaria implements SoapRepo {
 	public int updateStock(SoapStock soapStock) {
 		var sql = new StringBuilder();
 		
-		sql.append("update soap_stock");
+		sql.append("update soap_weight");
 		if (soapStock.getIncType() == IncType.Absolute) {
 			sql.append(" set stock = :stockAmt ");
 		} else {
@@ -62,7 +62,7 @@ public class SoapRepoMaria implements SoapRepo {
 		}
 		sql.append("where STOCK_SN in");
 		sql.append(" (select ss.STOCK_SN");
-		sql.append("  from soap_stock ss");
+		sql.append("  from soap_weight ss");
 		sql.append("  join soap_shape sp");
 		sql.append("  on sp.price_sn = ss.PRICE_SN");
 		sql.append("  and ss.SHAPE_W = :shape_w");
@@ -167,7 +167,7 @@ public class SoapRepoMaria implements SoapRepo {
 		var sql = new StringBuilder();
 		sql.append("select ss.SHAPE_W, sp.SHAPE");
 		sql.append(", sp.price, ss.stock ");
-		sql.append("from soap_stock ss");
+		sql.append("from soap_weight ss");
 		sql.append(" join soap_shape sp");
 		sql.append(" on sp.Price_SN = ss.PRICE_SN ");
 		sql.append("order by ss.SHAPE_W, sp.SHAPE;");

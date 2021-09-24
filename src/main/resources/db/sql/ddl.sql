@@ -60,8 +60,8 @@ CREATE TABLE `soap_shape` (
   PRIMARY KEY (`Price_SN`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- bumsoap.soap_stock definition
-CREATE TABLE `soap_stock` (
+-- bumsoap.soap_weight definition
+CREATE TABLE `soap_weight` (
   `STOCK_SN` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `PRICE_SN` int(10) unsigned NOT NULL,
   `SHAPE_W` tinyint(4) NOT NULL DEFAULT 0 COMMENT '중량형태(정상중량,작은두개)',

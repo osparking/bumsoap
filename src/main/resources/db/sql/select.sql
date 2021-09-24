@@ -13,11 +13,11 @@ from ingrids;
 
 /* price and stock for each <shape,weight> pair */
 select ss.SHAPE_W, sp.SHAPE, sp.price, ss.stock 
-from soap_stock ss
+from soap_weight ss
 join soap_shape sp on sp.Price_SN = ss.PRICE_SN
 order by ss.SHAPE_W, sp.SHAPE; /*weight major order */
 
 /* given shape and weight find price record */
-select ss.STOCK_SN, stock from soap_stock ss
+select ss.STOCK_SN, stock from soap_weight ss
 join soap_shape sp on sp.price_sn = ss.PRICE_SN 
 	and ss.SHAPE_W = 0 and sp.SHAPE = 0;
