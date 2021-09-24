@@ -79,6 +79,13 @@ div.soapTxt {
 	width: 500px;
 }
 
+.wideBox {
+	size: "90";
+}
+
+.readonly {
+	background-color: lightgray;
+}
 div.below {
 	clear: both;
 }

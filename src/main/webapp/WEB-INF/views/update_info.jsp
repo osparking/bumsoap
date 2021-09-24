@@ -32,10 +32,10 @@
 						<legend>비누 갱신</legend>
 						<table class="updateSoap">
 							<tr>
-								<th><label for="bssn">상품 번호(고정 값)</label></th>
+								<th><label for="bssn">상품 번호</label></th>
 								<td><form:input name="stock" path="bssn" 
 										value="${soapBfr.bssn}" type="text"
-										readonly="true"/>
+										readonly="true" class="readonly"/>(변경 불가)
 								</td>
 							</tr>
 							<tr>
@@ -69,8 +69,8 @@
 							<tr>
 								<th><label for="specFunc">효과</label></th>
 								<td><form:input name="specFunc" 
-									value="${soapBfr.specFunc}"
-									path="specFunc" type="text" />
+									value="${soapBfr.specFunc}" path="specFunc" 
+									type="text" size="80" />
 								</td>
 							</tr>
 							<tr>
@@ -82,8 +82,8 @@
 							<tr>
 								<th><label for="mallLink">쇼핑몰</label></th>
 								<td><form:input name="mallLink" 
-									value="${soapBfr.mallLink}"
-									path="mallLink" type="text" size="80"/>
+									value="${soapBfr.mallLink}"	path="mallLink" 
+									type="text" size="80"/>
 								</td>
 							</tr>
 						</table>
