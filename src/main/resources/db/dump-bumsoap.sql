@@ -72,7 +72,7 @@ CREATE TABLE `soap` (
 
 LOCK TABLES `soap` WRITE;
 /*!40000 ALTER TABLE `soap` DISABLE KEYS */;
-INSERT INTO `soap` VALUES (1,'올리브오일 수제비누','올리브오일 엑스트라 버진','비자나무향','엑스트라 버진 올리브 오일을 저온처리과정으로 비누화 하였습니다. 범이비누는 pH 가 10.7 이어서 강력한 세정효과를 드림니다. 올리브 오일( 특히, 엑스트라 버진)에 천연 글리세린비누 많이 함유되어 있다고 합니다. 글리세린은 공기 중의 수분을 흡수하여 피부를 촉촉하게 지켜줄 것입니다.','고 세정력, 피부 관리(care), 피부 수분 유지, 건성 및 지성 피부용',0,'카스틸 CP 여드름 알칼리성 율무 어성초 비누');
+INSERT INTO `soap` VALUES (1,'올리브오일 수제비누','올리브오일 엑스트라 버진','비자나무향','엑스트라 버진 올리브 오일을 저온처리과정으로 비누화 하였습니다. 범이비누는 pH 가 10.7 이어서 강력한 세정효과를 드림니다. 올리브 오일( 특히, 엑스트라 버진)에 천연 글리세린비누 많이 함유되어 있다고 합니다. 글리세린은 공기 중의 수분을 흡수하여 피부를 촉촉하게 지켜줄 것입니다.','고 세정력, 피부 보습, 건성 및 지성 피부 용, 피부 관리(스킨 캐어)',0,'https://smartstore.naver.com/bumsoap/products/5335155773');
 /*!40000 ALTER TABLE `soap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-24 21:28:06
+-- Dump completed on 2021-09-25 21:26:03
