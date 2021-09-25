@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>범이비누 목록</title>
+<title><spring:message code='up_stk.title'/></title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/body.css'/>">
 </head>
@@ -18,13 +18,12 @@
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		<div class="container">
-			<h1>범이비누</h1>
-			<p>재고 수량(개)</p>
+			<h1><spring:message code='up_stk.h1'/></h1>
+			<p><spring:message code='up_stk.p.legend'/></p>
 		</div>
-
 		<table>
 			<tr>
-				<th>구분</th>
+				<th><spring:message code='up_stk.th.categ'/></th>
 				<th>${Shapes.NORMAL.descrp}</th>
 				<th>${Shapes.MEAJOO.descrp}</th>
 				<th>${Shapes.WHITE.descrp}</th>
@@ -45,13 +44,16 @@
 		<form:form method="POST" modelAttribute="soapStock"
 			name="updateForm" onsubmit="return checkStockValue()">
 			<fieldset>
-				<legend>재고 갱신</legend>
+				<legend><spring:message code='up_stk.form.legend'/>
+				</legend>
+				
 				<form:select path="shape">
 					<c:forEach items="${Shapes.values()}" var="shape">
 						<form:option value="${shape}">
 							${shape.descrp}</form:option>
 					</c:forEach>
 				</form:select>
+				
 				<form:select path="shape_w">
 					<c:forEach items="${Shape_w.values()}" var="shape_w">
 						<form:option value="${shape_w}">
@@ -68,11 +70,14 @@
 					path="incType" value="${IncType.values()[1]}"/>
 					
 				<div>
-					<label for="stock">재고</label>
+					<label for="stock">
+						<spring:message code='up_stk.label.stock'/>
+					</label>
 					<form:input name="stock" id="stock" 
 						path="stock" type="text" />
 				</div>
-				<input type="submit" id="btnAdd" value="갱신" />
+				<input type="submit" id="btnAdd" 
+					value="<spring:message code='up_stk.input.btnAdd'/>" />
 			</fieldset>
 		</form:form>
 	</div>
