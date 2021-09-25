@@ -1,10 +1,11 @@
-<%@ page language="java" 
-	contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"
+	contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" 
 	uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" 
 	uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" 
+		uri="http://www.springframework.org/tags"%>	
 <%@ page import="com.bumsoap.store.types.*" %>
 <!DOCTYPE html>
 <html>
@@ -23,46 +24,51 @@
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		<div class="container">
-			<h1>범이비누</h1>
-			<h4 id="info">상세정보</h4>
+			<h1><spring:message code='soaps.title'/></h1>
+			<h4 id="info">
+				<spring:message code='menu.soaps.detail'/>
+			</h4>
 		</div>
 		<div class="container">
 			<div class="updateSoap">
 				<form:form method="POST" modelAttribute="soap"
 					name="updateForm" onsubmit="return checkStockValue()">
 					<fieldset class="updateSoap">
-						<legend>비누 갱신</legend>
+						<legend>
+						<spring:message code='up_soap.form.legend'/>
+						</legend>
 						<table class="updateSoap">
 							<tr>
-								<th><label for="bssn">상품 번호</label></th>
-								<td><form:input name="stock" path="bssn" 
-										value="${soapBfr.bssn}" type="text"
-										readonly="true" class="readonly"/>(변경 불가)
-								</td>
-							</tr>
-							<tr>
-								<th><label for="bsName">상품명</label></th>
+								<th><label for="bsName">
+									<spring:message code='soaps.detail.name'/>
+									</label></th>
 								<td><form:input name="bsName" 
 										value="${soapBfr.bsName}"
 										path="bsName" type="text" />
 								</td>
 							</tr>
 							<tr>
-								<th><label for="ingridi1">주 재료</label></th>
+								<th><label for="ingridi1">
+									<spring:message code='soaps.detail.mater'/>
+									</label></th>
 								<td><form:input name="ingridi1" 
 										value="${soapBfr.ingridi1}"
 										path="ingridi1" type="text" />
 								</td>
 							</tr>
 							<tr>
-								<th><label for="fragrance">비누 향</label></th>
+								<th><label for="fragrance">
+									<spring:message code='soaps.detail.frag'/>
+									</label></th>
 								<td><form:input name="fragrance" 
 										value="${soapBfr.fragrance}"
 										path="fragrance" type="text" />
 								</td>
 							</tr>
 							<tr>
-								<th><label for="target">용도</label></th>
+								<th><label for="target">
+									<spring:message code='soaps.detail.use'/>
+									</label></th>
 								<td>
 									<form:select path="target">
 										<c:forEach items="${Target.values()}" 
@@ -86,20 +92,26 @@
 								</td>
 							</tr>
 							<tr>
-								<th><label for="specFunc">효과</label></th>
+								<th><label for="specFunc">
+								<spring:message code='soaps.title'/>
+								효과</label></th>
 								<td><form:input name="specFunc" 
 									value="${soapBfr.specFunc}" path="specFunc" 
 									type="text" size="80" />
 								</td>
 							</tr>
 							<tr>
-								<th><label for="descrip">설명</label></th>
+								<th><label for="descrip">
+									<spring:message code='soaps.detail.effe'/>
+									</label></th>
 								<td><form:textarea name="descrip" id="descrip"
 									path="descrip" cols="40" rows="5"/>
 								</td>
 							</tr>
 							<tr>
-								<th><label for="mallLink">쇼핑몰</label></th>
+								<th><label for="mallLink">
+									<spring:message code='soaps.detail.mall'/>
+									</label></th>
 								<td><form:input name="mallLink" 
 									value="${soapBfr.mallLink}"	path="mallLink" 
 									type="text" size="80"/>
@@ -107,7 +119,8 @@
 							</tr>
 							<tr>
 								<th colspan="2" class="submitBtn">
-									<input type="submit" id="btnAdd" value="갱신" />
+									<input type="submit" id="btnAdd" value=
+									"<spring:message code='up_stk.input.btnAdd'/>" />
 								</th>
 							</tr>
 						</table>
