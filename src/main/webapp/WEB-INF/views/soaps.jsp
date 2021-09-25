@@ -6,6 +6,8 @@
 		uri="http://www.springframework.org/tags"%>
 <%@ page import="com.bumsoap.store.types.Shapes" %>
 <%@ page import="com.bumsoap.store.types.Shape_w" %>
+<%@ taglib prefix="fmt" 
+		uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,7 +102,13 @@
 					<tr>
 						<th>${Shape_w.SMALL2.descrp}</th>
 						<c:forEach items="${smalls}" var="small">
-							<td>${small.priceStr}원(${small.stockStr}
+							<td>					
+								<fmt:setLocale value="ko_KR"/>
+								<fmt:formatNumber type="currency" 
+									value="${small.price}" 
+									currencySymbol="₩"
+									pattern="¤ #,##0"/>									
+								(${small.stockStr}
 								<spring:message code="soaps.pr_st.note"/>)</td>
 						</c:forEach>
 					</tr>
@@ -155,7 +163,7 @@
 				</table>
 			</div>
 		</div>
-	</div>
+	</div>	
 	<script>
 		function changeMainPic(fileName) {
 			var mainPic = document.getElementById("mainPic");
