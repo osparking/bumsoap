@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" 
+		uri="http://www.springframework.org/tags"%>
 <script src="https://code.jquery.com/jquery-3.6.0.js" 
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
 	crossorigin="anonymous">
@@ -11,7 +13,8 @@
 	<div class="dropdown" id="home">
 		<a href="<c:url value='/'/>">
 			<button class="dropbtn" id="home">
-				<img alt="범이홈" height=25px 
+				<img height=25px 
+					alt="<spring:message code='menu.home.img'/>"
 					src="<c:url value='/img/home-24.png'/>"/>
 			</button>		
 		</a> 
@@ -19,45 +22,67 @@
 	<div class="dropdown">
 		<a href="<c:url value='/intro'/>">
 			<button class="dropbtn" id="intro">
-				범이 소개</button>
+				<spring:message code='menu.intro.button'/>
+			</button>
 		</a>
 		<div class="dropdown-content">
-			<a href="#">공개 자료</a> 
-			<a href="#">수제비누란?</a>
-			<a href="<c:url value='/intro'/>">개발 취지</a> 
+			<a href="#">
+				<spring:message code='menu.intro.openDT'/></a> 
+			<a href="#">
+				<spring:message code='menu.intro.hmSoap'/></a>
+			<a href="<c:url value='/intro'/>">
+				<spring:message code='menu.intro.devInt'/></a> 
 		</div>
 	</div>
+	
 	<div class="dropdown">
 		<a href="<c:url value='/soaps'/>">
-			<button class="dropbtn">판매 비누</button>
+			<button class="dropbtn">
+				<spring:message code='menu.soaps.button'/>
+			</button>
 		</a>
 		<div class="dropdown-content">
-			<a href="<c:url value='/soaps#info'/>">상세정보</a> 
-			<a href="<c:url value='/soaps#price_stock'/>">가격(재고)</a> 
-			<a href="<c:url value='/soaps#ingredients'/>">전 성분</a> 
-			<a href="<c:url value='/soaps#sell_price'/>">판매 원가</a>
-			<a href="#">제조 공정</a>
-			<a href="<c:url value='/soaps/update/stock'/>">갱신-재고</a>
+			<a href="<c:url value='/soaps#info'/>">
+				<spring:message code='menu.soaps.detail'/></a> 
+			<a href="<c:url value='/soaps#price_stock'/>">
+				<spring:message code='menu.soaps.priSto'/></a> 
+			<a href="<c:url value='/soaps#ingredients'/>">
+				<spring:message code='menu.soaps.all_ing'/></a> 
+			<a href="<c:url value='/soaps#sell_price'/>">
+				<spring:message code='menu.soaps.selPrc'/></a>
+			<a href="#">
+				<spring:message code='menu.soaps.prdPro'/></a>
+			<a href="<c:url value='/soaps/update/stock'/>">
+				<spring:message code='menu.soaps.updSto'/></a>
 		</div>
 	</div>
+	
 	<div class="dropdown">
-		<button class="dropbtn">질문 답변</button>
+		<button class="dropbtn">
+			<spring:message code='menu.q_a.button'/>
+		</button>
 		<div class="dropdown-content">
 			<a href="#">Link 1</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
 		</div>
 	</div>
+	
 	<div class="dropdown">
-		<button class="dropbtn">나의 구매</button>
+		<button class="dropbtn">
+			<spring:message code='menu.purHis.button'/>
+		</button>
 		<div class="dropdown-content">
 			<a href="#">Link 1</a> 
 			<a href="#">Link 2</a> 
 			<a href="#">Link 3</a>
 		</div>
 	</div>
+	
 	<div class="dropdown">
-		<button class="dropbtn">나의 계정</button>
+		<button class="dropbtn">
+			<spring:message code='menu.accnt.button'/>
+		</button>
 		<div class="dropdown-content">
 			<a href="#">Link 1</a> 
 			<a href="#">Link 2</a> 
