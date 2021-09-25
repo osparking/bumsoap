@@ -69,9 +69,11 @@
 	</div>
 	
 	<div class="dropdown">
-		<button class="dropbtn">
-			<spring:message code='menu.purHis.button'/>
-		</button>
+		<a href="<c:url value='/history'/>">
+			<button class="dropbtn">
+				<spring:message code='menu.purHis.button'/>
+			</button>
+		</a>
 		<div class="dropdown-content">
 			<a href="#">Link 1</a> 
 			<a href="#">Link 2</a> 

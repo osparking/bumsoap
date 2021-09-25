@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       "/login?accessDenied");
     httpSecurity.authorizeRequests().antMatchers("/")
       .permitAll().antMatchers("/**/add").access("hasRole('ADMIN')")
-      .antMatchers("/**/soaps/**").access("hasRole('USER')");
+      .antMatchers("/**/history/**").access("hasRole('USER')");
     httpSecurity.csrf().disable();
   }
 }
