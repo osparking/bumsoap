@@ -13,6 +13,12 @@
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>
+	<section>
+		<div class="pull_right" style="padding-right: 50px">
+			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
+		</div>
+	</section>
+
 	<div id="body_div">
 	<jsp:include page="top_menu.jsp"/>
 		<div class="notice">

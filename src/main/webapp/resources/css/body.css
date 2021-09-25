@@ -12,6 +12,11 @@ div#body_div {
 	height: 100%;
 }
 
+div.pull_right {
+	float: right;
+	margin-top:100px;
+}
+
 .notice {
 	position: absolute;
 	padding-left: 0.5em;

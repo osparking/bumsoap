@@ -19,6 +19,12 @@
 	href="<c:url value='/resources/css/top_menu.css'/>">
 </head>
 <body>
+	<section>
+		<div class="pull_right" style="padding-right: 50px">
+			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
+		</div>
+	</section>
+	
 	<jsp:include page="top_menu.jsp" />
 	<div id="body_div">
 		<div class="container">
