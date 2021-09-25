@@ -30,8 +30,8 @@ public class BumSoapServiceImpl implements BumSoapService{
 	}
 
 	@Override
-	public List<SoapStock> getSoapStocks() {
-		return bumSoapRepo.getSoapStocks();
+	public List<SoapStock> getSoapStocks(String language) {
+		return bumSoapRepo.getSoapStocks(language);
 	}
 
 	@Override

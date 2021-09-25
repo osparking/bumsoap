@@ -101,20 +101,14 @@
 					<tr>
 						<th>${Shape_w.NORMAL.descrp}</th>
 						<c:forEach items="${normals}" var="normal">
-							<td>${normal.priceStr}원(${normal.stockStr}
+							<td>${normal.priceStr}(${normal.stockStr}
 								<spring:message code="soaps.pr_st.note"/>)</td>
 						</c:forEach>
 					</tr>
 					<tr>
 						<th>${Shape_w.SMALL2.descrp}</th>
 						<c:forEach items="${smalls}" var="small">
-							<td>					
-								<fmt:setLocale value="ko_KR"/>
-								<fmt:formatNumber type="currency" 
-									value="${small.price}" 
-									currencySymbol="₩"
-									pattern="¤ #,##0"/>									
-								(${small.stockStr}
+							<td>${small.priceStr}(${small.stockStr}
 								<spring:message code="soaps.pr_st.note"/>)</td>
 						</c:forEach>
 					</tr>

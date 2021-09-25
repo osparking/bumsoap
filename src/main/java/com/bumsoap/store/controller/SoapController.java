@@ -1,6 +1,7 @@
 package com.bumsoap.store.controller;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,6 @@ import com.bumsoap.store.domain.Soap;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.service.BumSoapService;
 import com.bumsoap.store.types.Shape_w;
-import com.bumsoap.store.types.Shapes;
 
 @Controller
 @RequestMapping("soaps")
@@ -31,13 +31,14 @@ public class SoapController {
 				getServletContext().getRealPath("/");
 		var soaps = service.getSoaps(root);
 		model.addAttribute("soap", soaps.get(0));
-		addPriceStock(model);
+		var language = request.getParameter("language");
+		addPriceStock(model, language);
 		model.addAttribute("ingredients", service.getIngredients());
 		return "soaps";
 	}
 	
-	private void addPriceStock(Model model) {
-		var wholeList = service.getSoapStocks();
+	private void addPriceStock(Model model, String language) {
+		var wholeList = service.getSoapStocks(language);
 		List<SoapStock> normalList = wholeList.stream().
 				filter(s->s.getShape_w() == Shape_w.NORMAL).
 				collect(Collectors.toList());
@@ -72,9 +73,12 @@ public class SoapController {
 	@RequestMapping(value="/update/stock", 
 			method = RequestMethod.GET)
 	public String updateStock(@ModelAttribute("soapStock") 
-				SoapStock soapStock, Model model) {
-		addPriceStock(model);
-		return "update_stock";
+				SoapStock soapStock, Model model, 
+				HttpServletRequest request ) {
+    var language = request.getParameter("language");
+    addPriceStock(model, language);	  
+
+    return "update_stock";
 	}
 	
 	@RequestMapping(value="/update/stock", 

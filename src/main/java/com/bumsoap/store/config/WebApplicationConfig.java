@@ -27,7 +27,7 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {      
-    registry.addInterceptor(new TimeLogInterceptor());
+//    registry.addInterceptor(new TimeLogInterceptor());
     LocaleChangeInterceptor localeChangeInterceptor = 
         new LocaleChangeInterceptor();
       localeChangeInterceptor.setParamName("language");

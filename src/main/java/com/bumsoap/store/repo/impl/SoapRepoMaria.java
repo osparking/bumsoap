@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import com.bumsoap.store.types.Shape_w;
 import com.bumsoap.store.types.Shapes;
 import com.bumsoap.store.types.Target;
 
+//@formatter:off
 @Repository
 public class SoapRepoMaria implements SoapRepo {
 
@@ -163,7 +165,7 @@ public class SoapRepoMaria implements SoapRepo {
 	}
 	
 	@Override
-	public List<SoapStock> getSoapStocks() {
+	public List<SoapStock> getSoapStocks(String language) {
 		var sql = new StringBuilder();
 		sql.append("select ss.SHAPE_W, sp.SHAPE");
 		sql.append(", sp.price, ss.stock ");
@@ -174,64 +176,76 @@ public class SoapRepoMaria implements SoapRepo {
 		
 	    var params = new HashMap<String, Object>();
 	    var result = jdbcTemplate.query(sql.toString(), 
-	    		params, new SoapStockMapper());
+	    		params, new SoapStockMapper(language));
 	    return result;
 	}
 	
-	private static final class SoapStockMapper 
-			implements RowMapper<SoapStock> {
+  private static final class SoapStockMapper 
+                      implements RowMapper<SoapStock> {
+    Locale locale;
 
-		@Override
-		public SoapStock mapRow(ResultSet rs, int rowNum) 
-				throws SQLException {
-			
-			var bumSoap = new SoapStock();
-			
-			int ord = rs.getInt("SHAPE_W");
-			bumSoap.setShape_w(Shape_w.values()[ord]);
-			
-			ord = rs.getInt("SHAPE");
-			bumSoap.setShape(Shapes.values()[ord]);
-			
-			bumSoap.setPrice(rs.getDouble("price"));
-			bumSoap.setStock(rs.getInt("stock"));
-			
-			return bumSoap;
-		}
-	}
+    SoapStockMapper(String lang) {
+	    switch (lang) {
+	    case "en": 
+	      locale = new Locale(lang, "US");
+	      break;
+	    default:
+	      locale = new Locale("ko", "KR");
+	      break;
+	    }
+	  }
 
-	@Override
-	public List<Ingredient> getIngredients() {
-		var sql = new StringBuilder();
-		sql.append("select * from ingredients i ");
-		sql.append("where i.BSSN = :BSSN");
-		
-	    var params = new HashMap<String, Object>();
-	    params.put("BSSN", 1);
-	    
-	    var result = jdbcTemplate.query(sql.toString(), 
-	    		params, new IngredientMapper());
-	    return result;
-	}
-	
-	private static final class IngredientMapper 
-		implements RowMapper<Ingredient> {
-	
-		@Override
-		public Ingredient mapRow(ResultSet rs, int rowNum) 
-				throws SQLException {
-			
-			var ingredent = new Ingredient();
-			
-			ingredent.setEffects(rs.getString("effects"));
-			ingredent.setIng_Name(rs.getString("ing_name"));
-			ingredent.setIng_SN(rs.getInt("Ing_SN"));
-			ingredent.setPercent(rs.getFloat("percent"));
-			ingredent.setWeight(rs.getFloat("weight"));
-			
-			return ingredent;
-		}
-	}
+    @Override
+    public SoapStock mapRow(ResultSet rs, int rowNum) 
+                                  throws SQLException {
+
+      var bumSoap = new SoapStock();
+
+      int ord = rs.getInt("SHAPE_W");
+      bumSoap.setShape_w(Shape_w.values()[ord]);
+
+      ord = rs.getInt("SHAPE");
+      bumSoap.setShape(Shapes.values()[ord]);
+
+      bumSoap.setPrice(rs.getDouble("price"), locale);
+      bumSoap.setStock(rs.getInt("stock"));
+
+      return bumSoap;
+    }
+  }
+
+  @Override
+  public List<Ingredient> getIngredients() {
+    var sql = new StringBuilder();
+    sql.append("select * from ingredients i ");
+    sql.append("where i.BSSN = :BSSN");
+
+    var params = new HashMap<String, Object>();
+    params.put("BSSN", 1);
+
+    var result = jdbcTemplate.query(sql.toString(), params, 
+                                    new IngredientMapper());
+    return result;
+  }
+
+  private static final class IngredientMapper 
+                         implements RowMapper<Ingredient> {
+
+    @Override
+    public Ingredient mapRow(ResultSet rs, int rowNum) 
+        throws SQLException {
+
+      var ingredent = new Ingredient();
+
+      ingredent.setEffects(rs.getString("effects"));
+      ingredent.setIng_Name(rs.getString("ing_name"));
+      ingredent.setIng_SN(rs.getInt("Ing_SN"));
+      ingredent.setPercent(rs.getFloat("percent"));
+      ingredent.setWeight(rs.getFloat("weight"));
+
+      return ingredent;
+    }
+  }
 
   @Override
   public void updateSoap(Soap soap) {
@@ -244,22 +258,16 @@ public class SoapRepoMaria implements SoapRepo {
     sql.append("WHERE BSSN=:BSSN");
 
     var params = new HashMap<String, Object>();
-    
-    params.put("bs_name", soap.getBsName()); 
-    params.put("ingridi_1", soap.getIngridi1()); 
-    params.put("fragrance", soap.getFragrance()); 
-    params.put("descrip", soap.getDescrip()); 
-    params.put("spec_func", soap.getSpecFunc()); 
-    params.put("target", soap.getTarget().getOrdVal()); 
-    params.put("mall_link", soap.getMallLink()); 
-    params.put("BSSN", soap.getBssn()); 
+
+    params.put("bs_name", soap.getBsName());
+    params.put("ingridi_1", soap.getIngridi1());
+    params.put("fragrance", soap.getFragrance());
+    params.put("descrip", soap.getDescrip());
+    params.put("spec_func", soap.getSpecFunc());
+    params.put("target", soap.getTarget().getOrdVal());
+    params.put("mall_link", soap.getMallLink());
+    params.put("BSSN", soap.getBssn());
 
     jdbcTemplate.update(sql.toString(), params);
-  }	
+  }
 }
-
-
-
-
-
-

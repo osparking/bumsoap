@@ -1,6 +1,9 @@
 package com.bumsoap.store.domain;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Currency;
+import java.util.Locale;
 
 import com.bumsoap.store.types.IncType;
 import com.bumsoap.store.types.Shape_w;
@@ -26,9 +29,10 @@ public class SoapStock {
 	
 	private static DecimalFormat df = new DecimalFormat("#,###");
 	
-	public void setPrice(double price) {
+	public void setPrice(double price, Locale lo) {
 		this.price = price;
-		this.setPriceStr(df.format(price));
+		var numFmt = NumberFormat.getCurrencyInstance(lo);
+		this.setPriceStr(numFmt.format(price));
 	}
 
 	public void setStock(int stock) {

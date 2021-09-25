@@ -9,7 +9,7 @@ import com.bumsoap.store.domain.SoapStock;
 public interface BumSoapService {
 	List<Soap> getSoaps(String root);
 	int updateStock(SoapStock soapStock);
-	List<SoapStock> getSoapStocks();
+	List<SoapStock> getSoapStocks(String language);
 	List<Ingredient> getIngredients();
   void updateSoap(Soap soap);
 }
