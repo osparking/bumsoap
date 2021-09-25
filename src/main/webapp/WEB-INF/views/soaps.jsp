@@ -21,7 +21,13 @@
 <body>
 	<section>
 		<div class="pull_right" style="padding-right: 50px">
-			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
+			<a href="?language=ko">
+				<spring:message code="login.a.lang_ko"/></a>|
+				<a href="?language=en">
+				<spring:message code="login.a.lang_en"/></a>
+			<a href="<c:url value="/logout" />">
+				<spring:message code="login.a.logout"/>
+			</a>
 		</div>
 	</section>
 	

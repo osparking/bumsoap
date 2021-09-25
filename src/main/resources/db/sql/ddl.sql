@@ -83,3 +83,11 @@ CREATE TABLE `ingrids` (
   KEY `ingrids_FK` (`BSSN`),
   CONSTRAINT `ingrids_FK` FOREIGN KEY (`BSSN`) REFERENCES `bumsoap` (`BSSN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='비누 제품 별 전 성분(ingridients)';
+
+CREATE TABLE `users` (
+  `username` varchar(40) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

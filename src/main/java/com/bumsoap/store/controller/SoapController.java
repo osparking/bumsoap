@@ -32,6 +32,7 @@ public class SoapController {
 		var soaps = service.getSoaps(root);
 		model.addAttribute("soap", soaps.get(0));
 		var language = request.getParameter("language");
+		language = (language == null ? "ko" : language); 
 		addPriceStock(model, language);
 		model.addAttribute("ingredients", service.getIngredients());
 		return "soaps";
