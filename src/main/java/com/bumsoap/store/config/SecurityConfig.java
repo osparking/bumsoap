@@ -1,5 +1,6 @@
 package com.bumsoap.store.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //@formatter:off
@@ -35,15 +36,21 @@ public class SecurityConfig
     List<User> users = userService.getAllUsers();
     
     for (User u : users) {
-      if ("admin".equals(u.getUserId())) {
-       auth.inMemoryAuthentication().withUser(u.getUserId())
-       .password(u.getPassword()).roles("USER", "ADMIN")
-       .and().passwordEncoder(passwordEncoder);
-      } else {
-       auth.inMemoryAuthentication().withUser(u.getUserId())
-       .password(u.getPassword()).roles("USER")
-       .and().passwordEncoder(passwordEncoder);
+      var roles = new ArrayList<String>();
+      
+      switch (u.getRole()) {
+      case ROOT: 
+        roles.add("ROOT");
+      case ADMIN: 
+        roles.add("ADMIN");
+      default:
+        roles.add("USER");
       }
+      
+      auth.inMemoryAuthentication().withUser(u.getUserId())
+        .password(u.getPassword())
+        .roles(roles.toArray(new String[0]))
+        .and().passwordEncoder(passwordEncoder);
     }
   }
   
