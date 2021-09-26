@@ -82,9 +82,11 @@
 	</div>
 	
 	<div class="dropdown">
-		<button class="dropbtn">
-			<spring:message code='menu.accnt.button'/>
-		</button>
+		<a href="<c:url value='/account'/>">
+			<button class="dropbtn">
+				<spring:message code='menu.accnt.button'/>
+			</button>
+		</a>
 		<div class="dropdown-content">
 			<a href="#">Link 1</a> 
 			<a href="#">Link 2</a> 

@@ -29,7 +29,7 @@ public class UserRepoMaria implements UserRepo {
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
       User user = new User();
       
-      user.setUsername(rs.getString("username"));
+      user.setUserId(rs.getString("userid"));
       user.setEmail(rs.getString("email"));
       user.setPassword(rs.getString("password"));
       Timestamp ts = rs.getTimestamp("create_time");

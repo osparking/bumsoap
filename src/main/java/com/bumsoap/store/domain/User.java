@@ -9,9 +9,12 @@ import lombok.Setter;
 @Getter @Setter
 public class User implements Serializable {
   private static final long serialVersionUID = -6129080127370056318L;
-  private String username;
-  private String email;
+  private int sn;
+  private String userId;
+  private int role;
   private String password;
+  private String email;
   private LocalDateTime create_time;
-
+  private boolean deleted;
+  private LocalDateTime delete_time;
 }

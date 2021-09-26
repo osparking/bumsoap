@@ -4,6 +4,7 @@ import java.util.List;
 
 //@formatter:off
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.
   authentication.builders.AuthenticationManagerBuilder;
@@ -13,6 +14,8 @@ import org.springframework.security.config.annotation.
   web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.
   web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.bumsoap.store.domain.User;
 import com.bumsoap.store.service.UserService;
@@ -30,15 +33,26 @@ public class SecurityConfig
       AuthenticationManagerBuilder auth) throws Exception {
 
     List<User> users = userService.getAllUsers();
+    
     for (User u : users) {
-      if ("admin".equals(u.getUsername())) {
-        auth.inMemoryAuthentication().withUser(u.getUsername()).
-        password(u.getPassword()).roles("USER", "ADMIN");
+      if ("admin".equals(u.getUserId())) {
+       auth.inMemoryAuthentication().withUser(u.getUserId())
+       .password(u.getPassword()).roles("USER", "ADMIN")
+       .and().passwordEncoder(passwordEncoder);
       } else {
-        auth.inMemoryAuthentication().withUser(u.getUsername()).
-        password(u.getPassword()).roles("USER");
+       auth.inMemoryAuthentication().withUser(u.getUserId())
+       .password(u.getPassword()).roles("USER")
+       .and().passwordEncoder(passwordEncoder);
       }
     }
+  }
+  
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
+  @Bean 
+  public PasswordEncoder passwordEncoder() {
+      return new BCryptPasswordEncoder();
   }
 
   @Override
