@@ -6,4 +6,5 @@ import com.bumsoap.store.domain.User;
 
 public interface UserService {
   List<User> getAllUsers();
+  void register(User user);
 }

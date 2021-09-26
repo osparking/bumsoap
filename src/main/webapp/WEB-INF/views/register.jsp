@@ -13,7 +13,7 @@
 </head>
 <body>
 	<section>
-		<div class="pull_right" style="padding-right: 50px">
+		<div style="padding-right: 50px">
 			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
 		</div>
 	</section>
@@ -24,30 +24,27 @@
 			<spring:message code="accnt.register.msg" />
 			<div class="panel-body">
 				<c:url var="register" value="/register" />
-				<form action="${register}" method="post" modelAttribute="user" 
-						class="form-horizontal">
+				<form:form method="POST" modelAttribute="user"
+						name="registerForm">
 					<div>
 						<label for="userId">아이디 
 						</label> 
+						<spring:message 
+									code="login.form.userId" var="idHolder"/>
 						<form:input type="text" path="userId"
-							id="userId" name="userId"
-							placeholder="<spring:message code='login.form.userId'/>"
-							required/>
+							id="userId" name="userId" value="${idHolder}"
+							required="true"/>
 					</div>
 					<div>
 						<label for="password">비밀번호
 						</label> 
-						<input type="password"
-							id="password" name="password"
-							placeholder="<spring:message code='login.form.password'/>"
-							required>
+						<form:input type="password" path="password"
+							id="password" name="password" required="true"/>
 					</div>
 		
-					<div>
-						<input type="submit"
-							value="<spring:message code='login.form.submit'/>">
-					</div>
-				</form>
+					<input type="submit"
+						value="<spring:message code='login.form.submit'/>"/>
+				</form:form>
 			</div>			
 			
 			<div>아니면</div>

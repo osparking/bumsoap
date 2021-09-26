@@ -1,5 +1,9 @@
 /* 새 명령 위에 삽입 */
 
+INSERT INTO bumsoap.users
+(userId, `role`, password, email, delete_time)
+VALUES('kdhong2', 2, 'dddfddff#$56', null, null);
+
 /* root 로써 실행해야 됨 */
 insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
 values (1, 2, 'jpg',
