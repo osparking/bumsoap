@@ -46,15 +46,14 @@ public class SecurityConfig
       throws Exception {
     httpSecurity.formLogin().loginPage("/login").
       usernameParameter("userId").passwordParameter("password");
-    httpSecurity.formLogin().defaultSuccessUrl(
-      "/history").failureUrl("/login?error");
+    httpSecurity.formLogin().failureUrl("/login?error");
     httpSecurity.logout().logoutSuccessUrl("/login?logout");
 
     httpSecurity.exceptionHandling().accessDeniedPage(
       "/login?accessDenied");
     httpSecurity.authorizeRequests()
       .antMatchers("/").permitAll()
-      .antMatchers("/**/add").access("hasRole('ADMIN')")
+      .antMatchers("/**/update/**").access("hasRole('ADMIN')")
       .antMatchers("/**/history/**").access("hasRole('USER')");
     httpSecurity.csrf().disable();
   }

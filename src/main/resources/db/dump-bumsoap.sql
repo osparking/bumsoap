@@ -32,7 +32,7 @@ CREATE TABLE `ingredients` (
   PRIMARY KEY (`Ing_SN`),
   KEY `ingrids_FK` (`BSSN`),
   CONSTRAINT `ingrids_FK` FOREIGN KEY (`BSSN`) REFERENCES `soap` (`BSSN`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='비누 제품 별 전 성분(ingridients)';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='비누 제품 별 전 성분(ingridients)';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,6 +166,32 @@ INSERT INTO `soap_weight` VALUES (7,1,0,800),(8,2,0,80),(9,3,0,800),(10,1,1,0),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `username` varchar(40) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('admin','1234','','2021-09-26 01:40:48'),('hong','1234',NULL,'2021-09-26 00:23:21');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'bumsoap'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +204,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 21:26:03
+-- Dump completed on 2021-09-26 10:41:40

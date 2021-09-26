@@ -77,6 +77,7 @@ public class SoapController {
 				SoapStock soapStock, Model model, 
 				HttpServletRequest request ) {
     var language = request.getParameter("language");
+    language = (language == null ? "ko" : language);     
     addPriceStock(model, language);	  
 
     return "update_stock";
