@@ -18,7 +18,7 @@
 			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
 			<c:choose>
 				<c:when test="${userId == null}">
-					<a href="<c:url value="/logout" />">
+					<a href="<c:url value="/login" />">
 						<spring:message code="login.a.login"/>
 					</a>				
 				</c:when>

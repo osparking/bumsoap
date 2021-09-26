@@ -44,10 +44,17 @@ public class SecurityConfig
   @Override
   protected void configure(HttpSecurity httpSecurity) 
       throws Exception {
-    httpSecurity.formLogin().loginPage("/login").
-      usernameParameter("userId").passwordParameter("password");
-    httpSecurity.formLogin().failureUrl("/login?error");
-//    httpSecurity.logout().logoutSuccessUrl("/login?logout");
+    httpSecurity.formLogin().loginPage("/login")
+      .usernameParameter("userId")
+      .passwordParameter("password");
+    httpSecurity.formLogin()
+      /**
+       * In case of protected page trial,
+       * user lands on that page. O.W., below Url. 
+       */
+      .defaultSuccessUrl("/soaps") 
+      .failureUrl("/login?error");
+    httpSecurity.logout().logoutSuccessUrl("/soaps");
 
     httpSecurity.exceptionHandling().accessDeniedPage(
       "/login?accessDenied");

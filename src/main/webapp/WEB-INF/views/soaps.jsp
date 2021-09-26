@@ -27,7 +27,7 @@
 				<spring:message code="login.a.lang_en"/></a>
 			<c:choose>
 				<c:when test="${userId == null}">
-					<a href="<c:url value="/logout" />">
+					<a href="<c:url value="/login" />">
 						<spring:message code="login.a.login"/>
 					</a>				
 				</c:when>
