@@ -47,7 +47,7 @@ public class SecurityConfig
     httpSecurity.formLogin().loginPage("/login").
       usernameParameter("userId").passwordParameter("password");
     httpSecurity.formLogin().failureUrl("/login?error");
-    httpSecurity.logout().logoutSuccessUrl("/login?logout");
+//    httpSecurity.logout().logoutSuccessUrl("/login?logout");
 
     httpSecurity.exceptionHandling().accessDeniedPage(
       "/login?accessDenied");

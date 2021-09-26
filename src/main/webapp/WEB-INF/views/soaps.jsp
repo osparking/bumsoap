@@ -25,9 +25,18 @@
 				<spring:message code="login.a.lang_ko"/></a>|
 				<a href="?language=en">
 				<spring:message code="login.a.lang_en"/></a>
-			<a href="<c:url value="/logout" />">
-				<spring:message code="login.a.logout"/>
-			</a>
+			<c:choose>
+				<c:when test="${userId == null}">
+					<a href="<c:url value="/logout" />">
+						<spring:message code="login.a.login"/>
+					</a>				
+				</c:when>
+				<c:otherwise>
+					<a href="<c:url value="/logout" />">
+						<spring:message code="login.a.logout"/>
+					</a>				
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</section>
 	

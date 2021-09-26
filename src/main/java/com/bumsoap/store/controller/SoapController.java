@@ -1,7 +1,7 @@
 package com.bumsoap.store.controller;
 
+import java.security.Principal;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,15 +26,21 @@ public class SoapController {
 	private BumSoapService service;
 	
 	@RequestMapping
-	public String list(HttpServletRequest request, Model model) {
+	public String list(HttpServletRequest request, Model model,
+	    Principal principal) {
 		String root = request.getSession().
 				getServletContext().getRealPath("/");
 		var soaps = service.getSoaps(root);
-		model.addAttribute("soap", soaps.get(0));
 		var language = request.getParameter("language");
+		
 		language = (language == null ? "ko" : language); 
 		addPriceStock(model, language);
+		model.addAttribute("soap", soaps.get(0));
 		model.addAttribute("ingredients", service.getIngredients());
+		if (principal != null) {
+		  model.addAttribute("userId", principal.getName());
+		}
+		
 		return "soaps";
 	}
 	

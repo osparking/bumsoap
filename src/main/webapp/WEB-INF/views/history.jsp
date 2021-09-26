@@ -15,9 +15,18 @@
 	<section>
 		<div class="pull_right" style="padding-right: 50px">
 			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
-			<a href="<c:url value="/logout" />">
-				<spring:message code="login.a.logout"/>
-			</a>			
+			<c:choose>
+				<c:when test="${userId == null}">
+					<a href="<c:url value="/logout" />">
+						<spring:message code="login.a.login"/>
+					</a>				
+				</c:when>
+				<c:otherwise>
+					<a href="<c:url value="/logout" />">
+						<spring:message code="login.a.logout"/>
+					</a>				
+				</c:otherwise>
+			</c:choose>		
 		</div>
 	</section>
 
