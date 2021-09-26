@@ -17,15 +17,18 @@ import org.springframework.security.config.annotation.
 import com.bumsoap.store.domain.User;
 import com.bumsoap.store.service.UserService;
 
+//@formatter:off
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig 
+              extends WebSecurityConfigurerAdapter {
   @Autowired
   private UserService userService;
 
   @Autowired
   public void configureGlobalSecurity(
       AuthenticationManagerBuilder auth) throws Exception {
+
     List<User> users = userService.getAllUsers();
     for (User u : users) {
       if ("admin".equals(u.getUsername())) {
@@ -44,13 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     httpSecurity.formLogin().loginPage("/login").
       usernameParameter("userId").passwordParameter("password");
     httpSecurity.formLogin().defaultSuccessUrl(
-      "/market/products/add").failureUrl("/login?error");
+      "/history").failureUrl("/login?error");
     httpSecurity.logout().logoutSuccessUrl("/login?logout");
 
     httpSecurity.exceptionHandling().accessDeniedPage(
       "/login?accessDenied");
-    httpSecurity.authorizeRequests().antMatchers("/")
-      .permitAll().antMatchers("/**/add").access("hasRole('ADMIN')")
+    httpSecurity.authorizeRequests()
+      .antMatchers("/").permitAll()
+      .antMatchers("/**/add").access("hasRole('ADMIN')")
       .antMatchers("/**/history/**").access("hasRole('USER')");
     httpSecurity.csrf().disable();
   }

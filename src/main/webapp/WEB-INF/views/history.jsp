@@ -8,14 +8,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
-<spring:message code='menu.intro.button'/>
-범이비누</title>	
+<spring:message code='history.title'/></title>	
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>
 	<section>
 		<div class="pull_right" style="padding-right: 50px">
 			<a href="?language=ko">한글</a>|<a href="?language=en">English</a>
+			<a href="<c:url value="/logout" />">
+				<spring:message code="login.a.logout"/>
+			</a>			
 		</div>
 	</section>
 
@@ -29,8 +31,9 @@
 				iconsdb.com</a></p>
 		</div>
 		<div id="slogan_text">
-			<p><spring:message code='welcome.tagline'/></p>
-			<h1><spring:message code='welcome.greeting'/></h1>
+			<p>'${userId}' 
+				<spring:message code='history.name_suffix'/></p>
+			<h1><spring:message code='history.h1'/></h1>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.js" 
