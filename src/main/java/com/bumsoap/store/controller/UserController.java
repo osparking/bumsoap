@@ -48,7 +48,7 @@ public class UserController {
   }
   
   @RequestMapping(value = "/register",method = RequestMethod.GET)
-  public String register(@ModelAttribute BumUser user, Model model) {
+  public String register(@ModelAttribute BumUser bumUser, Model model) {
     return "register";
   }
   

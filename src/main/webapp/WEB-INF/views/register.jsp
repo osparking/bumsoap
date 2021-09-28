@@ -24,7 +24,7 @@
 			<spring:message code="accnt.register.msg" />
 			<div class="panel-body">
 				<c:url var="register" value="/register" />
-				<form:form method="POST" modelAttribute="user"
+				<form:form method="POST" modelAttribute="bumUser"
 						name="registerForm">
 					<div>
 						<label for="userId">아이디 
