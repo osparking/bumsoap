@@ -2,9 +2,9 @@ package com.bumsoap.store.repo;
 
 import java.util.List;
 
-import com.bumsoap.store.domain.User;
+import com.bumsoap.store.domain.BumUser;
 
 public interface UserRepo {
-  List<User> getAllUsers();
-  void register(User user);
+  List<BumUser> getAllUsers();
+  void register(BumUser user);
 }

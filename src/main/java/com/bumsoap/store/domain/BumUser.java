@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class User implements Serializable {
+public class BumUser implements Serializable {
   private static final long serialVersionUID = -6129080127370056318L;
   private int sn;
   private String userId;

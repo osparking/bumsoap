@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.bumsoap.store.domain.User;
+import com.bumsoap.store.domain.BumUser;
 import com.bumsoap.store.repo.UserRepo;
 import com.bumsoap.store.types.UserRoles;
 
@@ -21,15 +21,15 @@ public class UserRepoMaria implements UserRepo {
   private NamedParameterJdbcTemplate jdbcTemplate;
   
   @Override
-  public List<User> getAllUsers() {
+  public List<BumUser> getAllUsers() {
     String sql = "SELECT * FROM users";
-    List<User> result = jdbcTemplate.query(sql, new UserMapper());
+    List<BumUser> result = jdbcTemplate.query(sql, new UserMapper());
     return result;
   }
   
-  private static final class UserMapper implements RowMapper<User> {
-    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-      User user = new User();
+  private static final class UserMapper implements RowMapper<BumUser> {
+    public BumUser mapRow(ResultSet rs, int rowNum) throws SQLException {
+      BumUser user = new BumUser();
       
       user.setSn(rs.getInt("sn"));
       user.setUserId(rs.getString("userid"));
@@ -56,7 +56,7 @@ public class UserRepoMaria implements UserRepo {
   }
 
   @Override
-  public void register(User user) {
+  public void register(BumUser user) {
     var sql = new StringBuilder("INSERT INTO users");
     sql.append(" (userId, `role`, password, email, delete_time)");
     sql.append(" VALUES(:userId, :role, :password, :email, null)");

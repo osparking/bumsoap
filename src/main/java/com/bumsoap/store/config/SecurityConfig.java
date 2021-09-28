@@ -15,10 +15,13 @@ import org.springframework.security.config.annotation.
   web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.
   web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import com.bumsoap.store.domain.User;
+import com.bumsoap.store.domain.BumUser;
 import com.bumsoap.store.service.UserService;
 
 //@formatter:off
@@ -32,31 +35,33 @@ public class SecurityConfig
   @Autowired
   public void configureGlobalSecurity(
       AuthenticationManagerBuilder auth) throws Exception {
-
-    List<User> users = userService.getAllUsers();
-    
-    for (User u : users) {
-      var roles = new ArrayList<String>();
-      
-      switch (u.getRole()) {
-      case ROOT: 
-        roles.add("ROOT");
-      case ADMIN: 
-        roles.add("ADMIN");
-      default:
-        roles.add("USER");
-      }
-      
-      auth.inMemoryAuthentication().withUser(u.getUserId())
-        .password(u.getPassword())
-        .roles(roles.toArray(new String[0]))
-        .and().passwordEncoder(passwordEncoder);
-    }
+  	auth.userDetailsService(inMemoryUserDetailsManager());
   }
   
-  @Autowired
-  private PasswordEncoder passwordEncoder;
-
+	@Bean
+	public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+		List<UserDetails> userDetailsList = new ArrayList<>();
+	  List<BumUser> users = userService.getAllUsers();
+	  
+	  for (BumUser u : users) {
+	    var roles = new ArrayList<String>();
+	    
+	    switch (u.getRole()) {
+	    case ROOT: 
+	      roles.add("ROOT");
+	    case ADMIN: 
+	      roles.add("ADMIN");
+	    default:
+	      roles.add("USER");
+	    }
+	    userDetailsList.add(
+	    		User.withUsername(u.getUserId())
+	    				.password(u.getPassword())
+	    				.roles(roles.toArray(new String[0])).build());
+	  }		
+		return new InMemoryUserDetailsManager(userDetailsList);
+	}
+  
   @Bean 
   public PasswordEncoder passwordEncoder() {
       return new BCryptPasswordEncoder();
