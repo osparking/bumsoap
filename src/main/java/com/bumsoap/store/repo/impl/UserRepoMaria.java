@@ -68,7 +68,16 @@ public class UserRepoMaria implements UserRepo {
     params.put("email", user.getEmail());
  
     jdbcTemplate.update(sql.toString(), params);
-  } 
+  }
+
+	@Override
+	public BumUser loadUserByUsername(String username) {
+		var sql = "select * from users";
+		var params = new HashMap<String, Object>();
+		
+		return jdbcTemplate.queryForObject(sql, params, 
+				new UserMapper());
+	} 
 }
 
 

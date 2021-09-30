@@ -5,13 +5,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,9 +24,9 @@ public class UserController {
   @Autowired
   private UserService userService;
   
-	@Autowired
-	public InMemoryUserDetailsManager inMemoryUserDetailsManager;
-	
+//	@Autowired
+//	public InMemoryUserDetailsManager inMemoryUserDetailsManager;
+//	
 	@Autowired
 	public PasswordEncoder passwordEncoder;	
   
@@ -62,9 +59,9 @@ public class UserController {
 				= new ArrayList<>();
 		grantedAuthoritiesList.add(
 				new SimpleGrantedAuthority(user.getRole().toString()));
-    inMemoryUserDetailsManager.createUser(
-    		new User(user.getUserId(), user.getPassword(),
-    				grantedAuthoritiesList));
+//    inMemoryUserDetailsManager.createUser(
+//    		new User(user.getUserId(), user.getPassword(),
+//    				grantedAuthoritiesList));
     
     userService.register(user);   
     return "accnt";
