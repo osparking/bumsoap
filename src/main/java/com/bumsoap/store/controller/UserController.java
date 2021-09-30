@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bumsoap.store.domain.BumUser;
 import com.bumsoap.store.service.UserService;
-import com.bumsoap.store.types.UserRoles;
+import com.bumsoap.store.types.UserRole;
 
 @Controller
 public class UserController {
@@ -53,7 +53,7 @@ public class UserController {
   public String register(@ModelAttribute BumUser user, Model model,
       HttpServletRequest request) {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
-    user.setRole(UserRoles.USER);
+    user.setRole(UserRole.USER);
     
 		ArrayList<GrantedAuthority> grantedAuthoritiesList 
 				= new ArrayList<>();

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bumsoap.store.domain.BumUser;
 import com.bumsoap.store.repo.UserRepo;
-import com.bumsoap.store.types.UserRoles;
+import com.bumsoap.store.types.UserRole;
 
 @Repository
 public class UserRepoMaria implements UserRepo {
@@ -35,7 +35,7 @@ public class UserRepoMaria implements UserRepo {
       user.setUserId(rs.getString("userid"));
       
       int roleIdx = rs.getInt("role");      
-      user.setRole(UserRoles.values()[roleIdx]);
+      user.setRole(UserRole.values()[roleIdx]);
       
       user.setPassword(rs.getString("password"));
       user.setEmail(rs.getString("email"));
