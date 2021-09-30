@@ -72,8 +72,10 @@ public class UserRepoMaria implements UserRepo {
 
 	@Override
 	public BumUser loadUserByUsername(String username) {
-		var sql = "select * from users";
+		var sql = "select * from users "
+				+ "where userId = :username";
 		var params = new HashMap<String, Object>();
+		params.put("username", username);
 		
 		return jdbcTemplate.queryForObject(sql, params, 
 				new UserMapper());

@@ -31,8 +31,6 @@ public class UserController {
 	public PasswordEncoder passwordEncoder;	
   
   @RequestMapping(value = "/account", method = RequestMethod.GET)
-  
-  
   public String login(HttpServletRequest request, Model model, 
       @ModelAttribute BumUser user, Principal principal) {
     
@@ -55,16 +53,16 @@ public class UserController {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setRole(UserRole.USER);
     
-		ArrayList<GrantedAuthority> grantedAuthoritiesList 
-				= new ArrayList<>();
-		grantedAuthoritiesList.add(
-				new SimpleGrantedAuthority(user.getRole().toString()));
+//		ArrayList<GrantedAuthority> grantedAuthoritiesList 
+//				= new ArrayList<>();
+//		grantedAuthoritiesList.add(
+//				new SimpleGrantedAuthority(user.getRole().toString()));
 //    inMemoryUserDetailsManager.createUser(
 //    		new User(user.getUserId(), user.getPassword(),
 //    				grantedAuthoritiesList));
     
     userService.register(user);   
-    return "accnt";
+    return "login";
   }
 }
 

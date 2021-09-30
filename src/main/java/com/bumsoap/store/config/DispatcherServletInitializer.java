@@ -27,7 +27,8 @@ public class DispatcherServletInitializer extends
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { WebApplicationConfig.class };
+        return new Class[] { WebApplicationConfig.class
+        		, SecurityConfig.class};
 	}
 
 	@Override

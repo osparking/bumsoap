@@ -21,6 +21,7 @@ public class BumUserDetailService implements UserDetailsService {
   public UserDetails loadUserByUsername(String username) 
   				throws UsernameNotFoundException {
       final BumUser bumUser = userRepo.loadUserByUsername(username);
+      
       if (bumUser == null) {
           throw new UsernameNotFoundException(username);
       }
@@ -32,3 +33,4 @@ public class BumUserDetailService implements UserDetailsService {
       return user;
   }	
 }
+
