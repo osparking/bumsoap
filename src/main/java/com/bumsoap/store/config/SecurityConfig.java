@@ -42,11 +42,11 @@ public class SecurityConfig
   @Override
   protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
-      		.antMatchers("/soaps", "/register", "/login*").permitAll()
+      		.antMatchers("/soaps", "/register").permitAll()
       		.antMatchers("/soaps/update/**").hasRole("ADMIN")
           .and()
           .formLogin()
-          	.loginPage("/login")
+//          	.loginPage("/login")
           	.defaultSuccessUrl("/soaps");
 //      		.antMatchers("/account/").hasRole("USER")
 //          .and()

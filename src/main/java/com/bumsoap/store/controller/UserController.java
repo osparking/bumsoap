@@ -51,7 +51,7 @@ public class UserController {
     user.setRole(UserRole.USER);
     userService.register(user);   
     
-    return "login";
+    return "redirect:/login";
   }
 }
 
