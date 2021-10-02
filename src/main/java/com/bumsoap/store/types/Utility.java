@@ -9,11 +9,11 @@ public class Utility {
     
     switch (role) {
     case ROOT: 
-      roles.add("ROOT");
+      roles.add("ROLE_ROOT");
     case ADMIN: 
-      roles.add("ADMIN");
+      roles.add("ROLE_ADMIN");
     default:
-      roles.add("USER");
+      roles.add("ROLE_USER");
     }
 		return roles;
 	}

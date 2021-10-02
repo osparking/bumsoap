@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.
   authentication.builders.AuthenticationManagerBuilder;
@@ -25,7 +26,7 @@ public class SecurityConfig
   private UserDetailsService userDetailsService;
   
   @Bean
-  public DaoAuthenticationProvider authProvider() {
+  public AuthenticationProvider authProvider() {
       var authProvider = new DaoAuthenticationProvider();
       authProvider.setUserDetailsService(userDetailsService);
       authProvider.setPasswordEncoder(passwordEncoder());
@@ -41,8 +42,16 @@ public class SecurityConfig
   @Override
   protected void configure(HttpSecurity http) throws Exception {
       http.authorizeRequests()
-      		.anyRequest().authenticated()
-          .and().httpBasic();
+      		.antMatchers("/soaps", "/register", "/login*").permitAll()
+      		.antMatchers("/soaps/update/**").hasRole("ADMIN")
+          .and()
+          .formLogin()
+          	.loginPage("/login")
+          	.defaultSuccessUrl("/soaps");
+//      		.antMatchers("/account/").hasRole("USER")
+//          .and()
+//          .logout().logoutUrl("/soaps");
+//          .httpBasic();
   }
   
   @Bean

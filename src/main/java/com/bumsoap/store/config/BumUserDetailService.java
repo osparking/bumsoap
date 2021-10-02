@@ -20,7 +20,8 @@ public class BumUserDetailService implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String username) 
   				throws UsernameNotFoundException {
-      final BumUser bumUser = userRepo.loadUserByUsername(username);
+      final BumUser bumUser = 
+      		userRepo.loadUserByUsername(username);
       
       if (bumUser == null) {
           throw new UsernameNotFoundException(username);
@@ -29,7 +30,7 @@ public class BumUserDetailService implements UserDetailsService {
       									 .toArray(new String[0]);
       UserDetails user = User.withUsername(bumUser.getUserId())
                           .password(bumUser.getPassword())
-                          .authorities(roles).build();
+                          .authorities(roles).build(); 
       return user;
   }	
 }

@@ -24,9 +24,6 @@ public class UserController {
   @Autowired
   private UserService userService;
   
-//	@Autowired
-//	public InMemoryUserDetailsManager inMemoryUserDetailsManager;
-//	
 	@Autowired
 	public PasswordEncoder passwordEncoder;	
   
@@ -52,16 +49,8 @@ public class UserController {
       HttpServletRequest request) {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setRole(UserRole.USER);
-    
-//		ArrayList<GrantedAuthority> grantedAuthoritiesList 
-//				= new ArrayList<>();
-//		grantedAuthoritiesList.add(
-//				new SimpleGrantedAuthority(user.getRole().toString()));
-//    inMemoryUserDetailsManager.createUser(
-//    		new User(user.getUserId(), user.getPassword(),
-//    				grantedAuthoritiesList));
-    
     userService.register(user);   
+    
     return "login";
   }
 }
