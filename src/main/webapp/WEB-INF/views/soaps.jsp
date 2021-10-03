@@ -21,10 +21,11 @@
 <body>
 	<section>
 		<div class="pull_right" style="padding-right: 50px">
+			<c:set var="engAhr">
+				<spring:message code="login.a.lang_en"/></c:set>
 			<a href="?language=ko">
-				<spring:message code="login.a.lang_ko"/></a>|
-				<a href="?language=en">
-				<spring:message code="login.a.lang_en"/></a>
+				<spring:message code="login.a.lang_ko"/></a>|<a
+				 href="?language=en">${engAhr}</a>,
 			<c:choose>
 				<c:when test="${userId == null}">
 					<a href="<c:url value="/login" />">
@@ -32,7 +33,7 @@
 					</a>				
 				</c:when>
 				<c:otherwise>
-					<a href="<c:url value="/logout" />">
+					${userId}:<a href="<c:url value="/logout" />">
 						<spring:message code="login.a.logout"/>
 					</a>				
 				</c:otherwise>
