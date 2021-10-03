@@ -33,7 +33,16 @@
 									code="login.form.userId" var="idHolder"/>
 						<form:input type="text" path="userId"
 							id="userId" name="userId" value="${idHolder}"
-							required="true"/>
+							required="true" class="usertype"/>
+					</div>
+					<div>
+						<label for="email">이메일
+						</label> 
+						<spring:message code="register.form.email" 
+														var="emailHolder"/>
+						<form:input type="text" path="email" size="30"
+							id="email" name="email" value="${emailHolder}"
+							required="true" class="typewriter usertype" />
 					</div>
 					<div>
 						<label for="password">비밀번호

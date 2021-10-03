@@ -46,9 +46,12 @@
 		<div class="container">
 			<h1><spring:message code="soaps.h1"/></h1>
 			<h4 id="info"><spring:message code="soaps.id_info"/>
-			<c:set var="upAnchor"><spring:message code='soaps.id_info.a'/></c:set>
+			<c:set var="upAnchor"><spring:message code=
+															'soaps.id_info.a'/></c:set>
 			<c:if test="${userId == 'admin'}">
-				(<a href="<c:url value= '/soaps/update/soap?bssn=${soap.bssn}'/>">${upAnchor}</a>)
+				(<a href="<c:url value= 
+					'/soaps/update/soap?bssn=${soap.bssn}'/>">${
+																					upAnchor}</a>)
 			</c:if>
 			</h4>				
 		</div>

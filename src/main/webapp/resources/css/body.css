@@ -18,19 +18,32 @@ div.pull_right {
 	margin-top:100px;
 }
 
+.usertype {
+	font-size: m;
+}
+
 .notice {
 	position: absolute;
 	padding-left: 0.5em;
 	font-size: 1.1px;
 }
 
-textarea {
-	margin: 0 0.3em;
-	font-size: 0.8em;
+.typewriter {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
 }
 
 .submitBtn {
 	text-align: center;
+}
+
+#email {
+	size: "40";
+}
+
+textarea {
+	margin: 0 0.3em;
+	font-size: 0.8em;
 }
 
 div#slogan_text {
