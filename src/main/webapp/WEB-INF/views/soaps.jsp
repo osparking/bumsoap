@@ -13,10 +13,10 @@
 <head>
 <meta charset="UTF-8">
 <title><spring:message code="soaps.title"/></title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/body.css'/>">	
+<spring:url value="/resources/css/body.css" var="body" />
+<link href="${body}" rel="stylesheet" /> 	
 <link rel="stylesheet" type="text/css" 
-	href="<c:url value='/resources/css/top_menu.css'/>">
+			href="<c:url value='/resources/css/top_menu.css'/>">
 </head>
 <body>
 	<section>
@@ -44,10 +44,12 @@
 	<div id="body_div">
 		<div class="container">
 			<h1><spring:message code="soaps.h1"/></h1>
-			<h4 id="info"><spring:message code="soaps.id_info"/>(
-				<a href="<c:url 
-					value='/soaps/update/soap?bssn=${soap.bssn}'/>">
-				<spring:message code="soaps.id_info.a"/></a>)</h4>				
+			<h4 id="info"><spring:message code="soaps.id_info"/>
+			<c:set var="upAnchor"><spring:message code='soaps.id_info.a'/></c:set>
+			<c:if test="${userId == 'admin'}">
+				(<a href="<c:url value= '/soaps/update/soap?bssn=${soap.bssn}'/>">${upAnchor}</a>)
+			</c:if>
+			</h4>				
 		</div>
 		<div class="container">
 			<div class="soapImg" style="width: 35%; float: left;">
@@ -57,6 +59,7 @@
 			</div>
 			<div class="soapTxt">
 				<div>
+					<!-- 비누 속성 표 -->
 					<table class="bumsoap">
 						<tr>
 							<th><spring:message code="soaps.detail.name"/></th>

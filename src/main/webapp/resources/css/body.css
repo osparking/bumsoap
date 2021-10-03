@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
-body {
+body, textarea {
 	font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
-	font-size: 14px;
+	/* font-family: 'Courier New', Courier, monospace; */
+	font-size: 1.2em;
 	line-height: 1.43;
 }
 
@@ -20,7 +21,12 @@ div.pull_right {
 .notice {
 	position: absolute;
 	padding-left: 0.5em;
-	font-size: 13px;
+	font-size: 1.1px;
+}
+
+textarea {
+	margin: 0 0.3em;
+	font-size: 0.8em;
 }
 
 .submitBtn {

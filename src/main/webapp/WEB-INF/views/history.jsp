@@ -7,8 +7,6 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<c:set var="titleMsg">
-	<spring:message code="history.title"/></c:set>
 <title><spring:message code="history.title"/></title>	
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
