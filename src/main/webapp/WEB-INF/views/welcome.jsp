@@ -7,9 +7,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>
-<spring:message code='menu.intro.button'/>
-범이비누</title>	
+<title><spring:message code="welcome.title"/></title>	
 <link rel="stylesheet" type="text/css" href="resources/css/body.css">	
 </head>
 <body>

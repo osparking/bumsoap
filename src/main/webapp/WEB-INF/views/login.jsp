@@ -21,9 +21,9 @@
 	<jsp:include page="top_menu.jsp"/>
 
 	<div class="panel-heading" style="margin-top: 300px">
-		<h3 class="panel-title">
+		<h1 class="panel-title">
 			<spring:message code="login.h3.top" />
-		</h3>
+		</h1>
 	</div>
 	<div class="panel-body">
 		<c:url var="loginUrl" value="/login" />

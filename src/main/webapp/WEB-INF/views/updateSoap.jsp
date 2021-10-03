@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>범이비누 목록</title>
+<title><spring:message code='updateSoap.title'/></title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/body.css'/>">	
 <link rel="stylesheet" type="text/css" 

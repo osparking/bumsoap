@@ -15,7 +15,11 @@ public class HistoryController {
   public String login(HttpServletRequest request, Model model, 
       Principal principal) {
     
-    model.addAttribute("userId", principal.getName());
-    return "history";
+    if (principal == null) {
+      return "redirect:/login";
+    } else {
+      model.addAttribute("userId", principal.getName());
+      return "history";
+    }    
   }
 }
