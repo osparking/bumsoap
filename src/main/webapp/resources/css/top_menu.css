@@ -3,15 +3,15 @@
 .dropbtn {
 	background-color: #04AA6D;
 	color: white;
-	padding: 16px;
+	padding: 10px;
 	font-size: 16px;
 	border: none;
 	width: 100%;
 }
 
-div#home {
+/* div#home {
 	top: 6px;
-}
+} */
 
 button#home {
 	padding: 14px;

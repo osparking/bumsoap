@@ -39,16 +39,16 @@
 			<p>비누에 들어가는 모든 재료입니다.</p>
 			<p>비누에 제조 및 판매 원가입니다.</p>
 		</div>
-		<div> <!-- 비누 제조 취지 -->
-			<h4><a id="devInt">
-				<spring:message code="menu.intro.devInt"/></a></h4>
+		<div class="section"> <!-- 비누 제조 취지 -->
+			<h4 id="devInt" class="section">
+				<spring:message code="menu.intro.devInt"/></h4>
 			<div class="para">
 				<p>범이는 약 20년 동안 가을만 되면 피부에 뭐가 났고, 가려워 긁고, 
-				피부과 병원에 가서 약 받아 발랐습니다. 그러다가 이듬해 3월경이 되서야 피부가
+				피부과 병원에 가서 연고 처방을 받아야 했습니다. 그러다가 이듬해 3월경이 되서야 피부가
 				좀 괜찮아지곤 했습니다.
 				</p>
 				<p>그러던 중 2019년 봄 채석강 근처에서 한 과일 식초 비누를 접했습니다. 
-				그리고 그해 가을 범이 다리 피부는 아무 일 없었습니다. 문제는 그 후, 
+				그리고 그 후에는 피부과 갈 일이 없어졌습니다. 문제는 그 후, 
 				그 비누 가격이 급등하면서 가계에 부담이 된 것입니다. 급기야 범이는 유투브 
 				동영상을 보고 "올리브오일 엑스트라 버진" 수제비누를 만들어 사용하였고 품질은 
 				만족스러웠습니다 -
@@ -69,6 +69,52 @@
 				</p>
 			</div>
 		</div>
+		<div > <!-- 명사 명언 -->
+			<h4 id="ethics" class="section">
+				<spring:message code="intro.ethics.h4"/></h4>
+			<div class="para boxed last">
+				<blockquote>
+					<spring:message code="intro.ethics.proverb"/>
+				</blockquote>
+			</div>
+		</div>
+		<div > <!-- 명사 명언 -->
+			<h4 id="ethics" class="section">
+				<spring:message code="intro.ethics.h4"/></h4>
+			<div class="para boxed last">
+				<blockquote>
+					<spring:message code="intro.ethics.proverb"/>
+				</blockquote>
+			</div>
+		</div>
+		<div > <!-- 명사 명언 -->
+			<h4 class="section">
+				<spring:message code="intro.ethics.h4"/></h4>
+			<div class="para boxed last">
+				<blockquote>
+					<spring:message code="intro.ethics.proverb"/>
+				</blockquote>
+			</div>
+		</div>
+		<div > <!-- 명사 명언 -->
+			<h4 class="section">
+				<spring:message code="intro.ethics.h4"/></h4>
+			<div class="para boxed last">
+				<blockquote>
+					<spring:message code="intro.ethics.proverb"/>
+				</blockquote>
+			</div>
+		</div>
+		<div > <!-- 명사 명언 -->
+			<h4 class="section">
+				<spring:message code="intro.ethics.h4"/></h4>
+			<div class="para boxed last">
+				<blockquote>
+					<spring:message code="intro.ethics.proverb"/>
+				</blockquote>
+			</div>
+		</div>
+				
 	</div>
 </body>
 </html>

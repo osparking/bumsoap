@@ -6,7 +6,6 @@ h4 {
 
 body, textarea {
 	font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
-	/* font-family: 'Courier New', Courier, monospace; */
 	font-size: 1.2em;
 	line-height: 1.43;
 }
@@ -15,15 +14,36 @@ div.para p {
 	text-indent: 1em;
 }
 
+blockquote {
+	color: crimson;
+	margin-bottom: 1em;
+	font-family: 'Courier New', Courier, monospace;	
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
 .brown {
 	color: #900C3F;
 	font-weight: bold;
 }
 
+.boxed {
+	border: 2px dashed navy;	
+}
+
+.last {
+	margin-bottom: 1em;
+}
+
 div#body_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
-	height: 100%;
+	padding-bottom: 500px;
+	/* height: 100%; */
+}
+
+.section {
+	padding-top: 100px;
 }
 
 .para {

@@ -13,7 +13,7 @@
 	<div class="dropdown" id="home">
 		<a href="<c:url value='/'/>">
 			<button class="dropbtn" id="home">
-				<img height=25px 
+				<img  
 					alt="<spring:message code='menu.home.img'/>"
 					src="<c:url value='/img/home-24.png'/>"/>
 			</button>		
@@ -31,7 +31,9 @@
 			<a href="#">
 				<spring:message code='menu.intro.hmSoap'/></a>
 			<a href="<c:url value='/intro#devInt'/>">
-				<spring:message code='menu.intro.devInt'/></a> 
+				<spring:message code='menu.intro.devInt'/></a>
+			<a href="<c:url value='/intro#ethics'/>">
+				<spring:message code='menu.intro.ethics'/></a> 
 		</div>
 	</div>
 	
