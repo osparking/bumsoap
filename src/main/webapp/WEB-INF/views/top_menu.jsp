@@ -30,7 +30,7 @@
 				<spring:message code='menu.intro.openDT'/></a> 
 			<a href="#">
 				<spring:message code='menu.intro.hmSoap'/></a>
-			<a href="<c:url value='/intro'/>">
+			<a href="<c:url value='/intro#devInt'/>">
 				<spring:message code='menu.intro.devInt'/></a> 
 		</div>
 	</div>
