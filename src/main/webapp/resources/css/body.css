@@ -7,6 +7,11 @@ body, textarea {
 	line-height: 1.43;
 }
 
+.brown {
+	color: #900C3F;
+	font-weight: bold;
+}
+
 div#body_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
