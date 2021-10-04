@@ -6,12 +6,12 @@ h4 {
 
 body, textarea {
 	font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
-	font-size: 1.2em;
+	font-size: 1em;
 	line-height: 1.43;
 }
 
 div.para p {
-	text-indent: 1em;
+	text-indent: 1.2em;
 }
 
 blockquote {
@@ -19,7 +19,7 @@ blockquote {
 	margin-bottom: 1em;
 	font-family: 'Courier New', Courier, monospace;	
 	font-weight: bold;
-	font-size: 0.9em;
+	font-size: 1.1em;
 }
 
 .brown {
@@ -57,7 +57,7 @@ div.pull_right {
 }
 
 .usertype {
-	font-size: m;
+	font-size: 1.1em;
 }
 
 .notice {
