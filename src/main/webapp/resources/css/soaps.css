@@ -13,15 +13,13 @@ table#stock_price {
 
 td 
 
-.sbar_h {
+div.sbarHori {
+	border: 1px solid red;
 	overflow: auto;
 }
 
-div#ingredients {	
-	width: 85%;
-}
-
 table#ingredients {
+	min-width: 880px;	
 	width: 85%;
 }
 

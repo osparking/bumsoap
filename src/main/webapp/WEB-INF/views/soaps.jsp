@@ -15,38 +15,39 @@
 <title><spring:message code="soaps.title"/></title>
 <spring:url value="/resources/css/body.css" var="body" />
 <link href="${body}" rel="stylesheet" /> 	
-<link rel="stylesheet" type="text/css" 
-			href="<c:url value='/resources/css/top_menu.css'/>">
-<link rel="stylesheet" type="text/css" 
-			href="<c:url value='/resources/css/soaps.css'/>">
+<spring:url value="/resources/css/soaps.css" var="soaps" />
+<link href="${soaps}" rel="stylesheet" /> 
+<spring:url value="/resources/css/top_menu.css" var="top_menu" />
+<link href="${top_menu}" rel="stylesheet" /> 
 </head>
 <body>
-	<section>
-		<div class="pull_right" style="padding-right: 50px">
-			<c:set var="engAhr">
-				<spring:message code="login.a.lang_en"/></c:set>
-			<a href="?language=ko">
-				<spring:message code="login.a.lang_ko"/></a>|<a
-				 href="?language=en">${engAhr}</a>,
-			<c:choose>
-				<c:when test="${userId == null}">
-					<a href="<c:url value="/login" />">
-						<spring:message code="login.a.login"/>
-					</a>				
-				</c:when>
-				<c:otherwise>
-					${userId}:<a href="<c:url value="/logout" />">
-						<spring:message code="login.a.logout"/>
-					</a>				
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</section>
-	
 	<jsp:include page="top_menu.jsp" />
-	<div id="body_div" class="section">
-		<div class="container"  class="section">
-			<h1><spring:message code="soaps.h1"/></h1>
+	<div id="body_div">
+		<div style="margin-top:60px">
+			<div id="pageTitle">
+				<h1><spring:message code="soaps.h1"/></h1>
+			</div>
+			<div id="threeLinks" style="padding-right: 50px">
+				<c:set var="engAhr">
+					<spring:message code="login.a.lang_en"/></c:set>
+				<a href="?language=ko">
+					<spring:message code="login.a.lang_ko"/></a>|<a
+					 href="?language=en">${engAhr}</a>,
+				<c:choose>
+					<c:when test="${userId == null}">
+						<a href="<c:url value="/login" />">
+							<spring:message code="login.a.login"/>
+						</a>				
+					</c:when>
+					<c:otherwise>
+						${userId}:<a href="<c:url value="/logout" />">
+							<spring:message code="login.a.logout"/>
+						</a>				
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+		<div class="container">
 			<h4 id="info"><spring:message code="soaps.id_info"/>
 			<c:set var="upAnchor"><spring:message code=
 															'soaps.id_info.a'/></c:set>
@@ -112,10 +113,10 @@
 					</c:forEach>
 				</div>
 			</div>
-			<div class="below section sbar_h" style="clear:both">
-				<h4><a id="price_stock" class="section">
+			<div class="below" style="clear:both">
+				<h4><a id="price_stock" class="subsection">
 					<spring:message code="soaps.pr_st.a"/></a></h4>	
-				<div class="sbar_h">		
+				<div class="sbarHori">		
 					<table id="stock_price">
 						<tr class="header_cell">
 							<th rowspan="2">
@@ -152,9 +153,9 @@
 					</table>
 				</div>
 				
-				<h4><a id="ingredients" class="section">
+				<h4><a id="ingredients" class="subsection">
 					<spring:message code="soaps.ingre.h4.a"/></a></h4>
-				<div id="ingredients">
+				<div class="sbarHori" style="overflow:auto">
 					<table id="ingredients">
 						<tr class="header_cell">
 							<th><spring:message code="soaps.ingre.th.name"/></th>
@@ -182,7 +183,7 @@
 					</table>
 				</div>
 			
-				<h4><a id="sell_price" class="section">
+				<h4><a id="sell_price" class="subsection">
 					<spring:message code="soaps.price.h4.a"/></a></h4>
 				<table>
 					<tr>

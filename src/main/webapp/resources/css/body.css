@@ -22,6 +22,14 @@ blockquote {
 	font-size: 1.1em;
 }
 
+#pageTitle {
+	float: left;
+}
+
+#threeLinks {
+	float: right;
+}
+
 .brown {
 	color: #900C3F;
 	font-weight: bold;
@@ -46,7 +54,7 @@ div#body_div {
 	background-color: #aFffff;
 }
 
-.section {
+.subsection {
 	padding-top: 100px;
 }
 
@@ -67,7 +75,6 @@ td.w130 {
 }
 div.pull_right {
 	float: right;
-	margin-top:100px;
 }
 
 .usertype {
