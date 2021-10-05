@@ -1,56 +1,65 @@
 @charset "UTF-8";
 
+table#nav td {
+	padding: 3px 5px;
+	text-align: center;
+	min-width: 106px;
+	margin: 0 auto;
+	width: auto;
+	background-color: rgba(255, 255, 240, 0.8);
+}
+
 .dropbtn {
 	background-color: #04AA6D;
 	color: white;
 	padding: 10px;
 	font-size: 16px;
+	font-weight: bold;
 	border: none;
-	width: 100%;
+	width: 95px;
+	height: 39px;
 }
 
-/* div#home {
-	top: 6px;
-} */
-
-button#home {
-	padding: 14px;
-}
-
-.homeBtn {
-	background: url(/store/resources/images/home-24.png) no-repeat;
-	cursor: pointer;
-	border: none;
+img.put-mid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: -2px;
+  position: relative;
 }
 
 .dropdown {
 	position: relative;
 	display: inline-block;
-	width: 16%;
+	width: 95px;
 }
 
 .dropdown-content {
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
-	min-width: 160px;
+	width: 110px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 
 .dropdown-content a {
 	color: black;
-	padding: 12px 16px;
+	padding: 6px 8px;
 	text-decoration: none;
 	display: block;
+	font-size: 0.8em
 }
 
 .dropdown-content a:hover {
-	background-color: #ddd;
+	background-color: #004000;
+	color: ivory;
+	font-weight: bold;
 }
 
 .dropdown:hover .dropdown-content {
 	display: block;
+	border: 2px solid darkgreen;
 }
 
 .dropdown:hover .dropbtn {
@@ -64,8 +73,9 @@ button#home {
 div#nav {
 	width: 100%;
 	text-align: center;
-	max-height: 53px;
+	height: 39px;
   position: fixed;
+  top: 3px;
 }
 	
 div.sticky {

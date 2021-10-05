@@ -10,92 +10,107 @@
 <link rel="stylesheet" type="text/css" 
 		href="<c:url value='/resources/css/top_menu.css'/>">
 <div id="nav" class="sticky">
-	<div class="dropdown" id="home">
-		<a href="<c:url value='/'/>">
-			<button class="dropbtn" id="home">
-				<img  
-					alt="<spring:message code='menu.home.img'/>"
-					src="<c:url value='/img/home-24.png'/>"/>
-			</button>		
-		</a> 
-	</div>
-	<div class="dropdown">
-		<a href="<c:url value='/intro'/>">
-			<button class="dropbtn" id="intro">
-				<spring:message code='menu.intro.button'/>
-			</button>
-		</a>
-		<div class="dropdown-content">
-			<a href="#">
-				<spring:message code='menu.intro.openDT'/></a> 
-			<a href="#">
-				<spring:message code='menu.intro.hmSoap'/></a>
-			<a href="<c:url value='/intro#devInt'/>">
-				<spring:message code='menu.intro.devInt'/></a>
-			<a href="<c:url value='/intro#ethics'/>">
-				<spring:message code='menu.intro.ethics'/></a> 
-		</div>
-	</div>
-	
-	<div class="dropdown">
-		<a href="<c:url value='/soaps'/>">
-			<button class="dropbtn">
-				<spring:message code='menu.soaps.button'/>
-			</button>
-		</a>
-		<div class="dropdown-content">
-			<a href="<c:url value='/soaps#info'/>">
-				<spring:message code='menu.soaps.detail'/></a> 
-			<a href="<c:url value='/soaps#price_stock'/>">
-				<spring:message code='menu.soaps.priSto'/></a> 
-			<a href="<c:url value='/soaps#ingredients'/>">
-				<spring:message code='menu.soaps.all_ing'/></a> 
-			<a href="<c:url value='/soaps#sell_price'/>">
-				<spring:message code='menu.soaps.selPrc'/></a>
-			<a href="#">
-				<spring:message code='menu.soaps.prdPro'/></a>
-			<c:if test="${userId == 'admin'}">				
-				<a href="<c:url value='/soaps/update/stock'/>">
-					<spring:message code='menu.soaps.updSto'/></a>
-			</c:if>
-		</div>
-	</div>
-	
-	<div class="dropdown">
-		<button class="dropbtn">
-			<spring:message code='menu.q_a.button'/>
-		</button>
-		<div class="dropdown-content">
-			<a href="#">Link 1</a> 
-			<a href="#">Link 2</a> 
-			<a href="#">Link 3</a>
-		</div>
-	</div>
-	
-	<div class="dropdown">
-		<a href="<c:url value='/history'/>">
-			<button class="dropbtn">
-				<spring:message code='menu.purHis.button'/>
-			</button>
-		</a>
-		<div class="dropdown-content">
-			<a href="#">Link 1</a> 
-			<a href="#">Link 2</a> 
-			<a href="#">Link 3</a>
-		</div>
-	</div>
-	
-	<div class="dropdown">
-		<a href="<c:url value='/account'/>">
-			<button class="dropbtn">
-				<spring:message code='menu.accnt.button'/>
-			</button>
-		</a>
-		<div class="dropdown-content">
-			<a href="#">Link 1</a> 
-			<a href="#">Link 2</a> 
-			<a href="#">Link 3</a>
-		</div>
-	</div>
+<table id="nav">
+	<tr>
+		<td>
+			<div class="dropdown" id="home">
+				<a href="<c:url value='/'/>">
+					<button class="dropbtn" id="home">
+						<img class="put-mid" 
+							alt="<spring:message code='menu.home.img'/>"
+							src="<c:url value='/img/home-24.png'/>"/>
+					</button>		
+				</a> 
+			</div>
+		</td>
+		
+		<td>
+			<div class="dropdown">
+				<a href="<c:url value='/intro'/>">
+					<button class="dropbtn" id="intro">
+						<spring:message code='menu.intro.button'/>
+					</button>
+				</a>
+				<div class="dropdown-content">
+					<a href="#">
+						<spring:message code='menu.intro.openDT'/></a> 
+					<a href="#">
+						<spring:message code='menu.intro.hmSoap'/></a>
+					<a href="<c:url value='/intro#devInt'/>">
+						<spring:message code='menu.intro.devInt'/></a>
+					<a href="<c:url value='/intro#ethics'/>">
+						<spring:message code='menu.intro.ethics'/></a> 
+				</div>
+			</div>
+		</td>
+		
+		<td>
+			<div class="dropdown">
+				<a href="<c:url value='/soaps'/>">
+					<button class="dropbtn">
+						<spring:message code='menu.soaps.button'/>
+					</button>
+				</a>
+				<div class="dropdown-content">
+					<a href="<c:url value='/soaps#info'/>">
+						<spring:message code='menu.soaps.detail'/></a> 
+					<a href="<c:url value='/soaps#price_stock'/>">
+						<spring:message code='menu.soaps.priSto'/></a> 
+					<a href="<c:url value='/soaps#ingredients'/>">
+						<spring:message code='menu.soaps.all_ing'/></a> 
+					<a href="<c:url value='/soaps#sell_price'/>">
+						<spring:message code='menu.soaps.selPrc'/></a>
+					<a href="#">
+						<spring:message code='menu.soaps.prdPro'/></a>
+					<c:if test="${userId == 'admin'}">				
+						<a href="<c:url value='/soaps/update/stock'/>">
+							<spring:message code='menu.soaps.updSto'/></a>
+					</c:if>
+				</div>
+			</div>
+		</td>
+		
+		<td>
+			<div class="dropdown">
+				<button class="dropbtn">
+					<spring:message code='menu.q_a.button'/>
+				</button>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a> 
+					<a href="#">Link 2</a> 
+					<a href="#">Link 3</a>
+				</div>
+			</div>
+		</td>
+		
+		<td>
+			<div class="dropdown">
+				<a href="<c:url value='/history'/>">
+					<button class="dropbtn">
+						<spring:message code='menu.purHis.button'/>
+					</button>
+				</a>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a> 
+					<a href="#">Link 2</a> 
+					<a href="#">Link 3</a>
+				</div>
+			</div>
+		</td>
+		
+		<td>
+			<div class="dropdown">
+				<a href="<c:url value='/account'/>">
+					<button class="dropbtn">
+						<spring:message code='menu.accnt.button'/>
+					</button>
+				</a>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a> 
+					<a href="#">Link 2</a> 
+					<a href="#">Link 3</a>
+				</div>
+			</div>
+		</td>
+</table>
 </div>
-
