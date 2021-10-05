@@ -17,6 +17,8 @@
 <link href="${body}" rel="stylesheet" /> 	
 <link rel="stylesheet" type="text/css" 
 			href="<c:url value='/resources/css/top_menu.css'/>">
+<link rel="stylesheet" type="text/css" 
+			href="<c:url value='/resources/css/soaps.css'/>">
 </head>
 <body>
 	<section>
@@ -42,8 +44,8 @@
 	</section>
 	
 	<jsp:include page="top_menu.jsp" />
-	<div id="body_div">
-		<div class="container">
+	<div id="body_div" class="section">
+		<div class="container"  class="section">
 			<h1><spring:message code="soaps.h1"/></h1>
 			<h4 id="info"><spring:message code="soaps.id_info"/>
 			<c:set var="upAnchor"><spring:message code=
@@ -110,60 +112,79 @@
 					</c:forEach>
 				</div>
 			</div>
-			<div class="below" style="clear:both">
-				<h4><a id="price_stock">
-					<spring:message code="soaps.pr_st.a"/></a></h4>			
-				<table>
-					<tr>
-						<th><spring:message code="soaps.pr_st.unit"/></th>
-						<th>${Shapes.NORMAL.descrp}</th>
-						<th>${Shapes.MEAJOO.descrp}</th>
-						<th>${Shapes.WHITE.descrp}</th>
-					</tr>
-					<tr>
-						<th>${Shape_w.NORMAL.descrp}</th>
-						<c:forEach items="${normals}" var="normal">
-							<td>${normal.priceStr}(${normal.stockStr}
-								<spring:message code="soaps.pr_st.note"/>)</td>
-						</c:forEach>
-					</tr>
-					<tr>
-						<th>${Shape_w.SMALL2.descrp}</th>
-						<c:forEach items="${smalls}" var="small">
-							<td>${small.priceStr}(${small.stockStr}
-								<spring:message code="soaps.pr_st.note"/>)</td>
-						</c:forEach>
-					</tr>
-				</table>
-			
-				<h4><a id="ingredients">
-					<spring:message code="soaps.ingre.h4.a"/></a></h4>
-				<table class="bumsoap">
-					<tr>
-						<th><spring:message code="soaps.ingre.th.name"/></th>
-						<th><spring:message code="soaps.ingre.th.weig"/></th>
-						<th><spring:message code="soaps.ingre.th.perc"/></th>
-						<th><spring:message code="soaps.ingre.th.effe"/></th>
-					</tr>
-					<c:forEach items="${ingredients}" var="ing">
-						<tr>
-							<td>${ing.ing_Name}</td>
-							<td>${ing.weightStr}</td>
-							<td>${ing.percentStr}</td>
-							<td>${ing.effects}</td>
+			<div class="below section sbar_h" style="clear:both">
+				<h4><a id="price_stock" class="section">
+					<spring:message code="soaps.pr_st.a"/></a></h4>	
+				<div class="sbar_h">		
+					<table id="stock_price">
+						<tr class="header_cell">
+							<th rowspan="2">
+								<spring:message code="soaps.pr_st.unit"/></th>
+							<th colspan="2" class="col">
+								<spring:message code="soaps.pr_st.normal"/></th>
+							<th colspan="2" class="col">
+								<spring:message code="soaps.pr_st.maejoo"/></th>
+							<th colspan="2" class="col">
+								<spring:message code="soaps.pr_st.sWhite"/></th>
 						</tr>
-					</c:forEach>
-					<tr>
-						<td><spring:message code="soaps.ingre.td.sum"/></td>
-						<td>126.3(g)</td>
-						<td>100(%)</td>
-						<td></td>
-					</tr>
-				</table>
+						<tr>
+							<c:forEach var="shape" items="${Shapes.values()}">
+								<th><spring:message code="soaps.pr_st.price"/></th>
+								<th><spring:message code="soaps.pr_st.stock"/></th>
+							</c:forEach>
+						</tr>
+						<tr>
+							<th class="row">${Shape_w.NORMAL.descrp}</th>
+							<c:forEach items="${normals}" var="normal">
+								<td class="number">${normal.priceStr}</td>
+								<td class="number">(${normal.stockStr}<
+									spring:message code="soaps.pr_st.note"/>)</td>
+							</c:forEach>
+						</tr>
+						<tr>
+							<th class="row">${Shape_w.SMALL2.descrp}</th>
+							<c:forEach items="${smalls}" var="small">
+								<td class="number">${small.priceStr}</td>
+								<td class="number">(${small.stockStr}<
+									spring:message code="soaps.pr_st.note"/>)</td>
+							</c:forEach>
+						</tr>
+					</table>
+				</div>
+				
+				<h4><a id="ingredients" class="section">
+					<spring:message code="soaps.ingre.h4.a"/></a></h4>
+				<div id="ingredients">
+					<table id="ingredients">
+						<tr class="header_cell">
+							<th><spring:message code="soaps.ingre.th.name"/></th>
+							<th><spring:message code="soaps.ingre.th.weig"/></th>
+							<th><spring:message code="soaps.ingre.th.perc"/></th>
+							<th><spring:message code="soaps.ingre.th.effe"/></th>
+						</tr>
+						<c:forEach items="${ingredients}" var="ing">
+							<tr class="ingre_row">
+								<td class="mater_name">${ing.ing_Name}</td>
+								<td class="number w130">${ing.weightStr}</td>
+								<td class="number w130">${ing.percentStr}</td>
+								<td class="effe_stmt">${ing.effects}</td>
+							</tr>
+						</c:forEach>
+						<tr class="header_cell">
+							<th style="text-align: center">
+								<spring:message code="soaps.ingre.td.sum"/></th>
+							<td class="total" 
+									style="text-align:center">126.3(g)</td>
+							<td class="total"
+									style="text-align:center">100(%)</td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
 			
-				<h4><a id="sell_price">
+				<h4><a id="sell_price" class="section">
 					<spring:message code="soaps.price.h4.a"/></a></h4>
-				<table class="bumsoap">
+				<table>
 					<tr>
 						<td><img alt=
 							"<spring:message code="soaps.price.alt.all"/>"

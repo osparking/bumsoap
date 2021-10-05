@@ -38,12 +38,26 @@ blockquote {
 div#body_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
-	padding-bottom: 500px;
+	padding-bottom: 100px;
 	/* height: 100%; */
+}
+
+.header_cell {
+	background-color: #aFffff;
 }
 
 .section {
 	padding-top: 100px;
+}
+
+.number {
+	text-align: right;
+	white-space: nowrap;
+}
+
+td.w130 {
+	min-width: 130px;
+	padding-right: 1.5em;
 }
 
 .para {
@@ -100,7 +114,7 @@ div#slogan_text {
 table {
 	border-collapse: collapse;
 	margin: 0 auto;
-	width: 40%;
+	width: 67%;
 }
 
 th, td {
@@ -108,7 +122,11 @@ th, td {
 	padding: 8px 5px;
 }
 
-th {
+th.col {
+	text-align: center;
+}
+
+th.row {
 	text-align: right;
 }
 

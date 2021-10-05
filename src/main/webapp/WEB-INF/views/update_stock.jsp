@@ -13,6 +13,8 @@
 <title><spring:message code='up_stk.title'/></title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/resources/css/body.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/resources/css/update_stock.css'/>">
 </head>
 <body>
 	<div id="body_div">
@@ -21,7 +23,7 @@
 			<h1><spring:message code='up_stk.h1'/></h1>
 			<p><spring:message code='up_stk.p.legend'/></p>
 		</div>
-		<table>
+		<table id="soap_stock">
 			<tr>
 				<th><spring:message code='up_stk.th.categ'/></th>
 				<th>${Shapes.NORMAL.descrp}</th>
@@ -31,19 +33,19 @@
 			<tr>
 				<th>${Shape_w.NORMAL.descrp}</th>
 				<c:forEach items="${normals}" var="normal">
-					<td>${normal.stockStr}</td>
+					<td class="number">${normal.stockStr}</td>
 				</c:forEach>
 			</tr>
 			<tr>
 				<th>${Shape_w.SMALL2.descrp}</th>
 				<c:forEach items="${smalls}" var="small">
-					<td>${small.stockStr}</td>
+					<td class="number">${small.stockStr}</td>
 				</c:forEach>
 			</tr>
 		</table>
 		<form:form method="POST" modelAttribute="soapStock"
 			name="updateForm" onsubmit="return checkStockValue()">
-			<fieldset>
+			<fieldset id="stock_update">
 				<legend><spring:message code='up_stk.form.legend'/>
 				</legend>
 				

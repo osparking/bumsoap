@@ -54,8 +54,10 @@
 				<spring:message code='menu.soaps.selPrc'/></a>
 			<a href="#">
 				<spring:message code='menu.soaps.prdPro'/></a>
-			<a href="<c:url value='/soaps/update/stock'/>">
-				<spring:message code='menu.soaps.updSto'/></a>
+			<c:if test="${userId == 'admin'}">				
+				<a href="<c:url value='/soaps/update/stock'/>">
+					<spring:message code='menu.soaps.updSto'/></a>
+			</c:if>
 		</div>
 	</div>
 	

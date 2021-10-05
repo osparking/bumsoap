@@ -1,0 +1,44 @@
+@charset "UTF-8";
+table#stock_price {
+	min-width: 535px;
+	width: 67%;
+	overflow: auto;
+}
+
+table#stock_price {
+	min-width: 535px;
+	width: 67%;
+	overflow: auto;
+}
+
+td 
+
+.sbar_h {
+	overflow: auto;
+}
+
+div#ingredients {	
+	width: 85%;
+}
+
+table#ingredients {
+	width: 85%;
+}
+
+td.mater_name {
+	min-width: 250px;
+	white-space: nowrap;
+	text-align: right;
+}
+
+td.effe_stmt {
+	min-width: 250px;
+}
+
+tr.ingre_row {
+	height: 75px;
+}
+
+td.total {
+	text-align: center;
+}

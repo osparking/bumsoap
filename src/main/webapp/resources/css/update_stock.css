@@ -1,0 +1,7 @@
+@charset "UTF-8";
+table#soap_stock, #stock_update {
+	min-width: 400px;
+	min-height: 136px;
+	width: 40%;
+}
+
