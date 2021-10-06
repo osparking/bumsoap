@@ -108,3 +108,7 @@ table#navTab td {
 	background-color: rgba(255, 255, 240, 0.8);
 }
 
+table#navTab th, table#navTab td {
+	border: 0;
+}
+

@@ -124,7 +124,7 @@ table {
 }
 
 th, td {
-	/* border: 1px solid green; */
+	border: 1px solid green;
 	padding: 8px 5px;
 }
 
