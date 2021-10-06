@@ -28,7 +28,8 @@
 						<button class="dropbtn">
 							<img class="put-mid" 
 								alt="<spring:message code='menu.home.img'/>"
-								src="<c:url value='/img/home-21.png'/>"/>
+								src="<c:url value='/img/home-21.png'/>"
+								width="21" height="21" />
 						</button>		
 					</a> 
 				</div>
