@@ -16,8 +16,8 @@
 				<div class="dropdown sides">
 					<a href="?language=ko">
 						<spring:message code="login.a.lang_ko"/></a>|<a
-						 href="?language=en">
-					 	<spring:message code="login.a.lang_en"/>
+						 href="?language=en"><spring:message 
+						 code="login.a.lang_en"/>
 				 	</a>
 				</div>
 			</td>
@@ -25,10 +25,10 @@
 			<td>
 				<div class="dropdown" id="home">
 					<a href="<c:url value='/'/>">
-						<button class="dropbtn" id="home">
+						<button class="dropbtn">
 							<img class="put-mid" 
 								alt="<spring:message code='menu.home.img'/>"
-								src="<c:url value='/img/home-24.png'/>"/>
+								src="<c:url value='/img/home-21.png'/>"/>
 						</button>		
 					</a> 
 				</div>
@@ -141,11 +141,18 @@
 				</div>
 			</td>
 		</tr>
+		<tr class="notice">
+			<td class="notice">
+				<div class="dropdown sides">
+				</div>
+			</td>			
+			<td colspan="7" class="notice">
+				<div class="notice">
+					<p><spring:message code='menu.home.icon'/>: 
+					<a href="https://www.iconsdb.com/white-icons/home-icon.html">
+						iconsdb.com</a></p>
+				</div>
+			</td>
+		</tr>
 	</table>
-	<div class="notice">
-		<p><spring:message code='menu.intro.button'/>
-			홈-Icon: 
-		<a href="https://www.iconsdb.com/white-icons/home-icon.html">
-			iconsdb.com</a></p>
-	</div>
 </div>

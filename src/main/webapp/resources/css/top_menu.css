@@ -70,9 +70,16 @@ div#navInner {
   width: auto;
 }
 
-.notice {
+div.notice {
 	padding-left: 0.5em;
 	font-size: 0.7em;
+	text-align: left;
+	vertical-align: top;
+}
+
+td.notice {
+	font-size: 14px;
+	line-height: 0px;
 }
 
 div.sides {
@@ -89,7 +96,8 @@ div.sides a {
 
 table#navTab {
 	width: auto;
-	background-color: rgba(255, 255, 240, 0.9);
+	background-color: rgba(255, 255, 240, 0.5);
+	border: 2px solid #DA80C2;
 }
 
 table#navTab td {
