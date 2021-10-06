@@ -27,25 +27,6 @@
 			<div id="pageTitle">
 				<h1><spring:message code="soaps.h1"/></h1>
 			</div>
-			<div id="threeLinks" style="padding-right: 50px">
-				<c:set var="engAhr">
-					<spring:message code="login.a.lang_en"/></c:set>
-				<a href="?language=ko">
-					<spring:message code="login.a.lang_ko"/></a>|<a
-					 href="?language=en">${engAhr}</a>,
-				<c:choose>
-					<c:when test="${userId == null}">
-						<a href="<c:url value="/login" />">
-							<spring:message code="login.a.login"/>
-						</a>				
-					</c:when>
-					<c:otherwise>
-						${userId}:<a href="<c:url value="/logout" />">
-							<spring:message code="login.a.logout"/>
-						</a>				
-					</c:otherwise>
-				</c:choose>
-			</div>
 		</div>
 		<div class="container">
 			<h4 id="info"><spring:message code="soaps.id_info"/>

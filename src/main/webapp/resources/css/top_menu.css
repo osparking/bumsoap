@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-table#nav td {
-	padding: 3px 5px;
-	text-align: center;
-	min-width: 106px;
-	margin: 0 auto;
-	width: auto;
-	background-color: rgba(255, 255, 240, 0.8);
-}
-
 .dropbtn {
 	background-color: #04AA6D;
 	color: white;
@@ -48,7 +39,7 @@ img.put-mid {
 	padding: 6px 8px;
 	text-decoration: none;
 	display: block;
-	font-size: 0.8em
+	font-size: 0.8em;
 }
 
 .dropdown-content a:hover {
@@ -71,18 +62,30 @@ img.put-mid {
 }
 
 div#nav {
-	width: 100%;
+	width: 96%;
 	text-align: center;
-	height: 39px;
   position: fixed;
-  top: 3px;
+  top: 2px;
+  overflow-x: auto;
 }
-	
-div.sticky {
-  position: fixed;
-  top: 0;
-}	
 
-div#nav, div#body_div {
-	min-width: 880px;
+button#intro {
+	font-size: 0.9em;
+}
+
+div.sides {
+	background-color: transparent;
+	font-size: 0.9em;
+}
+
+table#nav {
+	width: auto;
+}
+
+table#nav td {
+	padding: 2px 3px;
+	text-align: center;
+	width: 106px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 240, 0.8);
 }
