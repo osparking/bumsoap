@@ -7,8 +7,7 @@
 	font-size: 16px;
 	font-weight: bold;
 	border: none;
-	width: 95px;
-	height: 39px;
+	min-width: 60px;
 }
 
 img.put-mid {
@@ -22,7 +21,6 @@ img.put-mid {
 .dropdown {
 	position: relative;
 	display: inline-block;
-	width: 95px;
 }
 
 .dropdown-content {
@@ -61,31 +59,44 @@ img.put-mid {
 	background-color: deeppink;
 }
 
-div#nav {
+div#navDiv {
+	position: fixed;
 	width: 96%;
-	text-align: center;
-  position: fixed;
-  top: 2px;
-  overflow-x: auto;
+	margin: 0 auto;
 }
 
-button#intro {
-	font-size: 0.9em;
+div#navInner {
+  margin: 0 auto;
+  width: auto;
+}
+
+.notice {
+	padding-left: 0.5em;
+	font-size: 0.7em;
 }
 
 div.sides {
 	background-color: transparent;
 	font-size: 0.9em;
-}
-
-table#nav {
-	width: auto;
-}
-
-table#nav td {
-	padding: 2px 3px;
+	font-weight: bold;
+	text-decoration: none;
 	text-align: center;
-	width: 106px;
+}
+
+div.sides a {
+	text-decoration: none;
+}
+
+table#navTab {
+	width: auto;
+	background-color: rgba(255, 255, 240, 0.9);
+}
+
+table#navTab td {
+	padding: 0 3px;
+	text-align: center;
 	margin: 0 auto;
+	min-width: 60px;
 	background-color: rgba(255, 255, 240, 0.8);
 }
+

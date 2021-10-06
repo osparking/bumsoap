@@ -23,7 +23,7 @@ blockquote {
 }
 
 #pageTitle {
-	float: left;
+	margin: 0 auto;
 }
 
 #threeLinks {
@@ -43,10 +43,15 @@ blockquote {
 	margin-bottom: 1em;
 }
 
+div#heading1 {
+	padding-top: 60px;
+}
+
 div#body_div {
 	margin: 0 .15em;
 	background-color: #DFffff;
 	padding-bottom: 100px;
+	overflow-x: auto;
 	/* height: 100%; */
 }
 
@@ -79,12 +84,6 @@ div.pull_right {
 
 .usertype {
 	font-size: 1.1em;
-}
-
-.notice {
-	position: absolute;
-	padding-left: 0.5em;
-	font-size: 1.1px;
 }
 
 .typewriter {

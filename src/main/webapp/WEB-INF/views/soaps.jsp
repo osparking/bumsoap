@@ -21,13 +21,15 @@
 <link href="${top_menu}" rel="stylesheet" /> 
 </head>
 <body>
-	<jsp:include page="top_menu.jsp" />
 	<div id="body_div">
-		<div style="margin-top:60px">
+		<jsp:include page="top_menu.jsp" />
+		
+		<div id="heading1">
 			<div id="pageTitle">
 				<h1><spring:message code="soaps.h1"/></h1>
 			</div>
 		</div>
+		
 		<div class="container">
 			<h4 id="info"><spring:message code="soaps.id_info"/>
 			<c:set var="upAnchor"><spring:message code=

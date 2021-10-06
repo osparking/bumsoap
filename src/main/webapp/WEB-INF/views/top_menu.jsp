@@ -9,8 +9,8 @@
 </script>
 <link rel="stylesheet" type="text/css" 
 		href="<c:url value='/resources/css/top_menu.css'/>">
-<div id="nav">
-	<table id="nav">
+<div id="navDiv">
+	<table id="navTab">
 		<tr>
 			<td>
 				<div class="dropdown sides">
@@ -122,6 +122,7 @@
 					</div>
 				</div>
 			</td>
+
 			<td>
 				<div class="dropdown sides">
 					<c:choose>
@@ -139,5 +140,12 @@
 					</c:choose>
 				</div>
 			</td>
+		</tr>
 	</table>
+	<div class="notice">
+		<p><spring:message code='menu.intro.button'/>
+			홈-Icon: 
+		<a href="https://www.iconsdb.com/white-icons/home-icon.html">
+			iconsdb.com</a></p>
+	</div>
 </div>
