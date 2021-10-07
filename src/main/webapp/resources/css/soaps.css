@@ -1,4 +1,8 @@
 @charset "UTF-8";
+table#soapDesc {
+	min-width: 300px;
+}
+
 table#stock_price {
 	min-width: 535px;
 	width: 67%;
@@ -12,7 +16,6 @@ table#stock_price {
 }
 
 td 
-
 div.sbarHori {
 	border: 1px solid red;
 	overflow: auto;

@@ -1,0 +1,80 @@
+div#soapDetailSection {
+  display: flex;
+  margin: 0 1em;
+}
+
+div#sqImageDiv {
+  width: 45%;
+  height: 0;
+  padding-top: 45%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 2px solid brown;
+}
+
+div#soapDescDiv {
+  width: 52%;
+  height: 0;
+  padding-top: 40%;
+}
+
+div.paddingDiv {
+  flex: 1 1;
+  min-width: 100%;
+}
+
+div#thumbbox {
+  left: .5em;
+  bottom: .5em;
+  flex: 0 0 74px;
+  min-width: 97%;
+  max-height: 90px;
+  overflow-x: auto;
+  margin: 5px 5px 0;
+}
+
+.no-wrap {
+  clear: both;
+}
+
+div.contLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+div.contRight {
+  position: relative;
+  background-color: deeppink;
+}
+
+div#descTab {
+  left: 1%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+div#descTxt {
+  min-width: 97%;
+  overflow: auto;
+}
+
+div#descTab table {
+  border-collapse: collapse;
+  display: block;
+  min-width: 97%;
+  margin: 5px;
+}
+
+td,
+th {
+  border: 2px solid black;
+}
+
+div.thumb,
+img.thumb {
+  float: left;
+  border: solid black 1px;
+}

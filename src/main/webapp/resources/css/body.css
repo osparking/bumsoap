@@ -22,8 +22,8 @@ blockquote {
 	font-size: 1.1em;
 }
 
-#pageTitle {
-	margin: 0 auto;
+#pageHeaderDiv {
+	text-align: center;
 }
 
 #threeLinks {
@@ -147,22 +147,23 @@ tr th {
 }
 
 div.container {
-	margin: 0 10%;
-	overflow: hidden;
+	padding: 0 1em;
+	overflow: auto;
 }
 
-img.soapImg {
+div.soapImg img {
 	width: 100%;
 }
 
 div.soapImg {
-	width: 35%;
+	width: 50%;
 	float: left;
 	border:solid red 2px;
 }
 
 div.soapTxt {
-	margin-left: 600px;
+	width: 50%;
+	float: right;
 }
 
 .updateSoap {
