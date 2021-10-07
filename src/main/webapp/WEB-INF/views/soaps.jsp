@@ -93,18 +93,18 @@
 					</table>
 				</div>
 	      <div class="paddingDiv"></div>
-					<div class="thumbbox">
-						<c:forEach items="${soap.pics}" var="pic">
-							<div class="thumb">
-								<a onclick="return changeMainPic('${pic.FName}')">
-								  <img class="thumb" 
-								  	   src="<c:url value='/img/${pic.FName}'/>"
-								  	   onmouseover=
-								  	   	"changeMainPic('${pic.FName}')">				  
-								</a>
-							</div>						
-						</c:forEach>
-					</div>
+				<div class="thumbbox">
+					<c:forEach items="${soap.pics}" var="pic">
+						<div class="thumb">
+							<a onclick="return changeMainPic('${pic.FName}')">
+							  <img class="thumb" 
+							  	   src="<c:url value='/img/${pic.FName}'/>"
+							  	   onmouseover=
+							  	   	"changeMainPic('${pic.FName}')">				  
+							</a>
+						</div>						
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 		<div class="no-wrap"></div>
@@ -205,8 +205,9 @@
 	</div>
 	<script>
 		function changeMainPic(fileName) {
-			var mainPic = document.getElementById("mainPic");
-			mainPic.src = "<c:url value='/img/" + fileName + "'/>";
+			var sqImageDiv = document.getElementById("sqImageDiv");
+			sqImageDiv.style.backgroundImage = 
+				"url(img/" + fileName + ")";
 			return false;
 		}
 	</script>

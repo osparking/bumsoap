@@ -32,6 +32,8 @@ div#thumbbox {
   max-height: 90px;
   overflow-x: auto;
   margin: 5px 5px 0;
+  border: solid pink 2px;
+  background-color: pink;
 }
 
 .no-wrap {
@@ -76,5 +78,8 @@ th {
 div.thumb,
 img.thumb {
   float: left;
+ 	width: 100px;
+	height: 100px;
   border: solid black 1px;
+  margin: 0 2px;
 }
