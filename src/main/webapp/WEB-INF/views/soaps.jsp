@@ -33,29 +33,33 @@
 			</div>
 		</div>
 		
-		<!-- Head 4 Detail Info&Update -->
-		<div>
-			<h4 id="info">
-				<spring:message code="soaps.id_info"/>
-				<c:set var="upAnchor"><spring:message code=
-															'soaps.id_info.a'/></c:set>
-				<c:if test="${userId == 'admin'}">
-					(<a href="<c:url  value= 
-						'/soaps/update/soap?bssn=${soap.bssn}'/>">${
-																						upAnchor}</a>)
-				</c:if>
-			</h4>				
-		</div>
 		<div class="no-wrap body_width">
 		
+			<a id="toTop" href="<c:url value='/soaps'/>">
+				<img alt="<spring:message code='menu.icon.to_top'/>"
+						src="<c:url value='/img/arrow-180-48G.png'/>"
+						width="48" height="48" />
+			</a>
+			<a id="toTopB" href="<c:url value='/soaps'/>">
+				<img alt="<spring:message code='menu.icon.to_top'/>"
+						src="<c:url value='/img/arrow-180-48B.png'/>"
+						width="48" height="48" />
+			</a>
 		
-		
-		
-			
-			
-			
-			
-			
+			<!-- Head 4 Detail Info&Update -->
+			<div>
+				<h4 id="info" class="subsection"
+					style="padding-top: 0;">
+					<spring:message code="soaps.id_info"/>
+					<c:set var="upAnchor"><spring:message code=
+																'soaps.id_info.a'/></c:set>
+					<c:if test="${userId == 'admin'}">
+						(<a href="<c:url  value= 
+							'/soaps/update/soap?bssn=${soap.bssn}'/>">${
+																							upAnchor}</a>)
+					</c:if>
+				</h4>				
+			</div>
 	
 			<!-- Detail Info&Update -->
 			<div id="soapDetailSection">
@@ -118,20 +122,7 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			
-			
-			
-			
-			
-			
-		
-		
-		
-		
-		
-		
+
 			<h4><a id="price_stock" class="subsection">
 				<spring:message code="soaps.pr_st.a"/></a></h4>	
 			<div class="sbarHori">		
@@ -177,8 +168,10 @@
 				<table id="ingredients">
 					<tr class="header_cell">
 						<th><spring:message code="soaps.ingre.th.name"/></th>
-						<th><spring:message code="soaps.ingre.th.weig"/></th>
-						<th><spring:message code="soaps.ingre.th.perc"/></th>
+						<th class="w130">
+							<spring:message code="soaps.ingre.th.weig"/></th>
+						<th class="w130">
+							<spring:message code="soaps.ingre.th.perc"/></th>
 						<th><spring:message code="soaps.ingre.th.effe"/></th>
 					</tr>
 					<c:forEach items="${ingredients}" var="ing">
@@ -193,9 +186,9 @@
 						<!-- style="text-align: center" -->
 						<th><spring:message code="soaps.ingre.td.sum"/></th>
 						<!-- style="text-align:center" -->
-						<td class="total">126.3(g)</td>
+						<td class="total w130">126.3(g)</td>
 						<!-- style="text-align:center" -->
-						<td class="total">100(%)</td>
+						<td class="total w130">100(%)</td>
 						<td></td>
 					</tr>
 				</table>
@@ -203,7 +196,7 @@
 		
 			<h4><a id="sell_price" class="subsection">
 				<spring:message code="soaps.price.h4.a"/></a></h4>
-			<table>
+			<table id="sell_price_tab">
 				<tr>
 					<td><img alt=
 						"<spring:message code="soaps.price.alt.all"/>"

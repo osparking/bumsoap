@@ -60,8 +60,8 @@ img.put-mid {
 }
 
 div#navDiv {
-	position: fixed;
-	width: 96%;
+	/* position: fixed; */
+	width: auto;
 	margin: 0 auto;
 	max-width: 1250px;
 }
@@ -78,10 +78,14 @@ div.notice {
 	vertical-align: top;
 }
 
+tr.notice {
+	border-top: 2px solid #F5eaa5;
+}
+
 td.notice {
 	font-size: 14px;
 	line-height: 0px;
-	border-top: 2px solid hotpink;
+	border-top: 2px solid #F5eaa5;
 }
 
 div.sides {
@@ -99,7 +103,7 @@ div.sides a {
 table#navTab {
 	width: auto;
 	background-color: rgba(255, 255, 240, 0.5);
-	border: 2px solid #DA80C2;
+	border: 2px solid #F5eaa5;
 }
 
 table#navTab td {

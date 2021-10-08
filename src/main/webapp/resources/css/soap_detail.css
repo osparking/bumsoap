@@ -1,6 +1,6 @@
 div#soapDetailSection {
   display: flex;
-  margin: 0 1em;
+  margin: 0 4.5em;
 }
 
 div#sqImageDiv {
@@ -21,7 +21,7 @@ div#soapDescDiv {
 
 div.paddingDiv {
   flex: 1 1;
-  min-width: 100%;
+  min-width: 77%;
 }
 
 div#thumbbox {
@@ -52,6 +52,7 @@ div#descTab {
   flex: 2;
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
 
 div#descTxt {
@@ -62,13 +63,8 @@ div#descTxt {
 div#descTab table {
   border-collapse: collapse;
   display: block;
-  min-width: 97%;
-  margin: 5px;
-}
-
-td,
-th {
-  border: 2px solid black;
+  min-width: 77%;
+  margin: 0;
 }
 
 div.thumb,

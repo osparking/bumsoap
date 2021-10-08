@@ -1,4 +1,17 @@
 @charset "UTF-8";
+div#soapDetailSection {
+	margin: auto;
+}
+
+div#descTab {
+	min-width: 550px;	
+}
+
+table#soapDesc textarea {
+	width: 470px;
+	height: 120px;	
+}
+
 table#soapDesc {
 	min-width: 300px;
 }
@@ -15,29 +28,29 @@ table#stock_price {
 	overflow: auto;
 }
 
+table#sell_price_tab tr {
+	padding: 5px 0;
+}
+
+table#sell_price_tab td {
+	text-align: center;
+	background-color: #DCFFD5;
+	border: none;
+}
+
 td 
 div.sbarHori {
 	border: 1px solid red;
 	overflow: auto;
 }
 
-table#ingredients {
-	min-width: 880px;	
-	width: 85%;
-}
-
 td.mater_name {
-	min-width: 250px;
 	white-space: nowrap;
 	text-align: right;
 }
 
 td.effe_stmt {
 	min-width: 250px;
-}
-
-tr.ingre_row {
-	height: 75px;
 }
 
 td.total {

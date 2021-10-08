@@ -55,10 +55,6 @@ blockquote {
 	margin-bottom: 1em;
 }
 
-div#heading1 {
-	padding-top: 60px;
-}
-
 .header_cell {
 	background-color: #aFffff;
 }
@@ -75,18 +71,36 @@ div#heading1 {
 	max-width: 1250px;
 }
 
+h4 {
+	margin-top: 60px;
+}
+
 .subsection {
 	padding-top: 100px;
+	padding-left: 125px;
+	font-size: 1.3em;
+}
+
+a#toTop {
+	position: fixed;
+	top: 50%;
+	left: 30px;
+}
+
+a#toTopB {
+	position: fixed;
+	top: 50%;
+	right: 30px;
 }
 
 .number {
 	text-align: right;
 	white-space: nowrap;
+	padding-right: 1.5em;
 }
 
-td.w130 {
+.w130 {
 	min-width: 130px;
-	padding-right: 1.5em;
 }
 
 .para {
@@ -115,11 +129,6 @@ div.pull_right {
 	width: "40";
 }
 
-textarea {
-	margin: 0 0.3em;
-	font-size: 0.8em;
-}
-
 div#slogan_text {
 	font-size: 1.3em;
 	display: table;
@@ -141,7 +150,11 @@ table {
 
 th, td {
 	border: 1px solid green;
-	padding: 8px 5px;
+	padding: 4px;
+}
+
+td {
+	font-size: 0.9em;
 }
 
 th.col {
@@ -155,6 +168,7 @@ th.row {
 textarea {
 	width: 45em;
 	height: 5em;
+	margin: 0 0.3em;
 }
 
 tr th {
@@ -187,7 +201,7 @@ div.soapTxt {
 }
 
 .wideBox {
-	size: "90";
+	width: "90";
 }
 
 .readonly {
