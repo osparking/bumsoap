@@ -46,70 +46,92 @@
 				</c:if>
 			</h4>				
 		</div>
-		<!-- Detail Info&Update -->
-		<div id="soapDetailSection">
-			<div id='sqImageDiv' 
-				style="background-image: url(img/${soap.pics[0].FName})" >
-	      <div>
-	        <div class="contLeft">
-	        </div>
-	      </div>
+		<div class="no-wrap body_width">
+		
+		
+		
+		
+			
+			
+			
+			
+			
+	
+			<!-- Detail Info&Update -->
+			<div id="soapDetailSection">
+				<div id='sqImageDiv' 
+					style="background-image: url(img/${soap.pics[0].FName})" >
+		      <div>
+		        <div class="contLeft">
+		        </div>
+		      </div>
+				</div>
+				
+				<div id="descTab">
+					<div id="descTxt">
+						<!-- 비누 속성 표 -->
+						<table id="soapDesc">
+							<tr>
+								<th><spring:message code="soaps.detail.name"/></th>
+								<td>${soap.bsName}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.mater"/></th>
+								<td>${soap.ingridi1}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.frag"/></th>
+								<td>${soap.fragrance}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.use"/></th>
+								<td>${soap.target.descrp}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.effe"/></th>
+								<td>${soap.specFunc}</td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.expl"/></th>
+								<td><textarea>${soap.descrip}</textarea></td>
+							</tr>
+							<tr>
+								<th><spring:message code="soaps.detail.mall"/></th>
+								<td><a href="${soap.mallLink}" target="blank">
+										<spring:message code="soaps.detail.mall.a"/>
+										</a></td>
+							</tr>
+						</table>
+					</div>
+		      <div class="paddingDiv"></div>
+					<div class="thumbbox">
+						<c:forEach items="${soap.pics}" var="pic">
+							<div class="thumb">
+								<a onclick="return changeMainPic('${pic.FName}')">
+								  <img class="thumb" 
+								  	   src="<c:url value='/img/${pic.FName}'/>"
+								  	   onmouseover=
+								  	   	"changeMainPic('${pic.FName}')">				  
+								</a>
+							</div>						
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 			
-			<div id="descTab">
-				<div id="descTxt">
-					<!-- 비누 속성 표 -->
-					<table id="soapDesc">
-						<tr>
-							<th><spring:message code="soaps.detail.name"/></th>
-							<td>${soap.bsName}</td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.mater"/></th>
-							<td>${soap.ingridi1}</td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.frag"/></th>
-							<td>${soap.fragrance}</td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.use"/></th>
-							<td>${soap.target.descrp}</td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.effe"/></th>
-							<td>${soap.specFunc}</td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.expl"/></th>
-							<td><textarea>${soap.descrip}</textarea></td>
-						</tr>
-						<tr>
-							<th><spring:message code="soaps.detail.mall"/></th>
-							<td><a href="${soap.mallLink}" target="blank">
-									<spring:message code="soaps.detail.mall.a"/>
-									</a></td>
-						</tr>
-					</table>
-				</div>
-	      <div class="paddingDiv"></div>
-				<div class="thumbbox">
-					<c:forEach items="${soap.pics}" var="pic">
-						<div class="thumb">
-							<a onclick="return changeMainPic('${pic.FName}')">
-							  <img class="thumb" 
-							  	   src="<c:url value='/img/${pic.FName}'/>"
-							  	   onmouseover=
-							  	   	"changeMainPic('${pic.FName}')">				  
-							</a>
-						</div>						
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-		<div class="no-wrap"></div>
+			
+			
+			
+			
+			
+			
+			
 		
-		<div class="below" style="clear:both">
+		
+		
+		
+		
+		
 			<h4><a id="price_stock" class="subsection">
 				<spring:message code="soaps.pr_st.a"/></a></h4>	
 			<div class="sbarHori">		
@@ -151,7 +173,7 @@
 			
 			<h4><a id="ingredients" class="subsection">
 				<spring:message code="soaps.ingre.h4.a"/></a></h4>
-			<div class="sbarHori" style="overflow:auto">
+			<div class="sbarHori">
 				<table id="ingredients">
 					<tr class="header_cell">
 						<th><spring:message code="soaps.ingre.th.name"/></th>
@@ -167,13 +189,13 @@
 							<td class="effe_stmt">${ing.effects}</td>
 						</tr>
 					</c:forEach>
-					<tr class="header_cell">
-						<th style="text-align: center">
-							<spring:message code="soaps.ingre.td.sum"/></th>
-						<td class="total" 
-								style="text-align:center">126.3(g)</td>
-						<td class="total"
-								style="text-align:center">100(%)</td>
+					<tr class="header_cell col_header">
+						<!-- style="text-align: center" -->
+						<th><spring:message code="soaps.ingre.td.sum"/></th>
+						<!-- style="text-align:center" -->
+						<td class="total">126.3(g)</td>
+						<!-- style="text-align:center" -->
+						<td class="total">100(%)</td>
 						<td></td>
 					</tr>
 				</table>

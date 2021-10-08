@@ -36,10 +36,6 @@ div#thumbbox {
   background-color: pink;
 }
 
-.no-wrap {
-  clear: both;
-}
-
 div.contLeft {
   position: absolute;
   top: 0;

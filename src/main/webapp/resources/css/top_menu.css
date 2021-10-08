@@ -63,6 +63,7 @@ div#navDiv {
 	position: fixed;
 	width: 96%;
 	margin: 0 auto;
+	max-width: 1250px;
 }
 
 div#navInner {
@@ -80,6 +81,7 @@ div.notice {
 td.notice {
 	font-size: 14px;
 	line-height: 0px;
+	border-top: 2px solid hotpink;
 }
 
 div.sides {

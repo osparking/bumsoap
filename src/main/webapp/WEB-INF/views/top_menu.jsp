@@ -63,7 +63,7 @@
 						</button>
 					</a>
 					<div class="dropdown-content">
-						<a href="<c:url value='/soaps#info'/>">
+						<a href="<c:url value='/soaps#heading1'/>">
 							<spring:message code='menu.soaps.detail'/></a> 
 						<a href="<c:url value='/soaps#price_stock'/>">
 							<spring:message code='menu.soaps.priSto'/></a> 
