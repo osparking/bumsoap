@@ -3,28 +3,7 @@ div#soapDetailSection {
 	margin: auto;
 }
 
-div#descTab {
-	min-width: 550px;	
-}
-
-table#soapDesc textarea {
-	width: 470px;
-	height: 120px;	
-}
-
-table#soapDesc {
-	min-width: 300px;
-}
-
 table#stock_price {
-	min-width: 535px;
-	width: 67%;
-	overflow: auto;
-}
-
-table#stock_price {
-	min-width: 535px;
-	width: 67%;
 	overflow: auto;
 }
 
@@ -38,6 +17,24 @@ table#sell_price_tab td {
 	border: none;
 }
 
+a#toLeft {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+}
+
+a#toRight {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 2;
+}
+
 td 
 div.sbarHori {
 	border: 1px solid red;
@@ -47,10 +44,6 @@ div.sbarHori {
 td.mater_name {
 	white-space: nowrap;
 	text-align: right;
-}
-
-td.effe_stmt {
-	min-width: 250px;
 }
 
 td.total {

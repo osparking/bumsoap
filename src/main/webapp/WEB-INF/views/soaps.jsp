@@ -46,7 +46,7 @@
 						width="48" height="48" />
 			</a>
 		
-			<!-- Head 4 Detail Info&Update -->
+			<!-- 소 제목: 비누 상세 사양 -->
 			<div>
 				<h4 id="info" class="subsection"
 					style="padding-top: 0;">
@@ -56,21 +56,67 @@
 					<c:if test="${userId == 'admin'}">
 						(<a href="<c:url  value= 
 							'/soaps/update/soap?bssn=${soap.bssn}'/>">${
-																							upAnchor}</a>)
+													    upAnchor}</a>)
 					</c:if>
 				</h4>				
 			</div>
 	
 			<!-- Detail Info&Update -->
 			<div id="soapDetailSection">
-				<div id='sqImageDiv' 
-					style="background-image: url(img/${soap.pics[0].FName})" >
-		      <div>
+				<!-- 큰 사진 구역 -->
+				<!-- 큰 사진 -->
+				<%! int mii = 0; %> <!-- mii: main image index -->
+				<div id='elevenImgs'> 
+						<%-- style="background-image: url(img/${soap.pics[0].FName})" > --%>
+		      <div id="contLeft" 
+		      		 style="background-image: url(img/${soap.pics[0].FName})">
+		        <div id='bigImage'>
+		          <a id="toLeft" 
+		          	 onclick="return slideMainPic('left', <%=mii%>)">
+		            <img alt="<spring:message code='menu.icon.to_left'/>" 
+		            	src="<c:url value='/img/icons/arrow-92-48.png'/>" />
+		          </a>
+		          <a id="toRight" onclick="return slideMainPic('right')">
+		            <img alt="<spring:message code='menu.icon.to_top'/>" 
+		            	src="<c:url value='/img/icons/arrow-28-48.png'/>" 
+		            	width="48" height="48" />
+		          </a>
+		        </div>
+		      </div>					
+					<!-- 이동 아이콘 -->
+<%-- 					<a id="toLeft"
+						 onclick="return slideMainPic('left', <%=mii%>)">
+						<img alt="<spring:message code='menu.icon.to_left'/>"
+								src="<c:url value='/img/icons/arrow-92-48.png'/>"
+								width="48" height="48" />
+					</a>
+					<a id="toRight" 
+						 onclick="return slideMainPic('right')">
+						<img alt="<spring:message code='menu.icon.to_top'/>"
+								src="<c:url value='/img/icons/arrow-28-48.png'/>"
+								width="48" height="48" />
+					</a>	 --%>				
+<!-- 		      <div>
 		        <div class="contLeft">
 		        </div>
-		      </div>
+		      </div> -->
+		      
+					<div id="thumbs">
+						<c:forEach items="${soap.pics}" var="pic">
+							<div class="thumb">
+								<a onclick="return changeMainPic('${pic.FName}')">
+								  <img class="thumb" 
+								  	   src="<c:url value='/img/${pic.FName}'/>"
+								  	   onmouseover=
+								  	   	"changeMainPic('${pic.FName}')">				  
+								</a>
+							</div>						
+						</c:forEach>
+					</div>		      
+		      
 				</div>
 				
+				<!-- 비누 사양 -->
 				<div id="descTab">
 					<div id="descTxt">
 						<!-- 비누 속성 표 -->
@@ -108,18 +154,7 @@
 						</table>
 					</div>
 		      <div class="paddingDiv"></div>
-					<div class="thumbbox">
-						<c:forEach items="${soap.pics}" var="pic">
-							<div class="thumb">
-								<a onclick="return changeMainPic('${pic.FName}')">
-								  <img class="thumb" 
-								  	   src="<c:url value='/img/${pic.FName}'/>"
-								  	   onmouseover=
-								  	   	"changeMainPic('${pic.FName}')">				  
-								</a>
-							</div>						
-						</c:forEach>
-					</div>
+
 				</div>
 			</div>
 
@@ -167,24 +202,27 @@
 			<div class="sbarHori">
 				<table id="ingredients">
 					<tr class="header_cell">
-						<th><spring:message code="soaps.ingre.th.name"/></th>
+						<th>
+							<spring:message code="soaps.ingre.th.name"/></th>
 						<th class="w130">
 							<spring:message code="soaps.ingre.th.weig"/></th>
 						<th class="w130">
 							<spring:message code="soaps.ingre.th.perc"/></th>
-						<th><spring:message code="soaps.ingre.th.effe"/></th>
+						<th class="multLine">
+							<spring:message code="soaps.ingre.th.effe"/></th>
 					</tr>
 					<c:forEach items="${ingredients}" var="ing">
 						<tr class="ingre_row">
 							<td class="mater_name">${ing.ing_Name}</td>
 							<td class="number w130">${ing.weightStr}</td>
 							<td class="number w130">${ing.percentStr}</td>
-							<td class="effe_stmt">${ing.effects}</td>
+							<td class="effe_stmt multLine">${ing.effects}</td>
 						</tr>
 					</c:forEach>
 					<tr class="header_cell col_header">
 						<!-- style="text-align: center" -->
-						<th><spring:message code="soaps.ingre.td.sum"/></th>
+						<th>
+							<spring:message code="soaps.ingre.td.sum"/></th>
 						<!-- style="text-align:center" -->
 						<td class="total w130">126.3(g)</td>
 						<!-- style="text-align:center" -->
@@ -223,6 +261,13 @@
 			var sqImageDiv = document.getElementById("sqImageDiv");
 			sqImageDiv.style.backgroundImage = 
 				"url(img/" + fileName + ")";
+			return false;
+		}
+		function slideMainPic(direction, mii) {
+			alert("direction: " + direction + "mii:" + mii);
+			/* var sqImageDiv = document.getElementById("sqImageDiv");
+			sqImageDiv.style.backgroundImage = 
+				"url(img/" + fileName + ")"; */
 			return false;
 		}
 	</script>
