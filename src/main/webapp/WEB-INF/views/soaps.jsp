@@ -34,7 +34,7 @@
 		</div>
 		
 		<div class="no-wrap body_width">
-		
+			<!-- 이동 아이콘 -->
 			<a id="toTopL" href="<c:url value='/soaps'/>">
 				<img alt="<spring:message code='menu.icon.to_top'/>"
 						src="<c:url value='/img/icons/arrow-180-48G.png'/>"
@@ -45,10 +45,6 @@
 						src="<c:url value='/img/icons/arrow-180-48B.png'/>"
 						width="48" height="48" />
 			</a>
-<%-- 	    <a id="toBottomL" href="#bottom">
-	      <img alt="<spring:message code='menu.icon.to_bottom'/>" 
-	      src="img/arrow-246-48B.png" width="48" height="48" />
-	    </a> --%>
 	    <a id="toBottomL" href="#bottom">
 	      <img alt="<spring:message code='menu.icon.to_bottom'/>" 
 	      		src="<c:url value='/img/icons/arrow-246-48B.png'/>" 
@@ -96,24 +92,7 @@
 		          </a>
 		        </div>
 		      </div>					
-					<!-- 이동 아이콘 -->
-<%-- 					<a id="toLeft"
-						 onclick="return slideMainPic('left', <%=mii%>)">
-						<img alt="<spring:message code='menu.icon.to_left'/>"
-								src="<c:url value='/img/icons/arrow-92-48.png'/>"
-								width="48" height="48" />
-					</a>
-					<a id="toRight" 
-						 onclick="return slideMainPic('right')">
-						<img alt="<spring:message code='menu.icon.to_top'/>"
-								src="<c:url value='/img/icons/arrow-28-48.png'/>"
-								width="48" height="48" />
-					</a>	 --%>				
-<!-- 		      <div>
-		        <div class="bigImgDiv">
-		        </div>
-		      </div> -->
-		      
+					<!-- 손톱 크기 사진 -->
 					<div id="thumbs">
 						<c:forEach items="${soap.pics}" var="pic">
 							<div class="thumb">
