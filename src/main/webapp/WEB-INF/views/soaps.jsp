@@ -35,16 +35,30 @@
 		
 		<div class="no-wrap body_width">
 		
-			<a id="toTop" href="<c:url value='/soaps'/>">
+			<a id="toTopL" href="<c:url value='/soaps'/>">
 				<img alt="<spring:message code='menu.icon.to_top'/>"
-						src="<c:url value='/img/arrow-180-48G.png'/>"
+						src="<c:url value='/img/icons/arrow-180-48G.png'/>"
 						width="48" height="48" />
 			</a>
-			<a id="toTopB" href="<c:url value='/soaps'/>">
+			<a id="toTopR" href="<c:url value='/soaps'/>">
 				<img alt="<spring:message code='menu.icon.to_top'/>"
-						src="<c:url value='/img/arrow-180-48B.png'/>"
+						src="<c:url value='/img/icons/arrow-180-48B.png'/>"
 						width="48" height="48" />
 			</a>
+<%-- 	    <a id="toBottomL" href="#bottom">
+	      <img alt="<spring:message code='menu.icon.to_bottom'/>" 
+	      src="img/arrow-246-48B.png" width="48" height="48" />
+	    </a> --%>
+	    <a id="toBottomL" href="#bottom">
+	      <img alt="<spring:message code='menu.icon.to_bottom'/>" 
+	      		src="<c:url value='/img/icons/arrow-246-48B.png'/>" 
+	      		width="48" height="48" />
+	    </a>
+	    <a id="toBottomR" href="#bottom">
+	      <img alt="<spring:message code='menu.icon.to_bottom'/>"
+	      		src="<c:url value='/img/icons/arrow-246-48G.png'/>" 
+	      		width="48" height="48" />
+	    </a>
 		
 			<!-- 소 제목: 비누 상세 사양 -->
 			<div>
@@ -66,9 +80,8 @@
 				<!-- 큰 사진 구역 -->
 				<!-- 큰 사진 -->
 				<%! int mii = 0; %> <!-- mii: main image index -->
-				<div id='elevenImgs'> 
-						<%-- style="background-image: url(img/${soap.pics[0].FName})" > --%>
-		      <div id="contLeft" 
+				<div id='elevenImgs'>
+		      <div id="bigImgDiv" 
 		      		 style="background-image: url(img/${soap.pics[0].FName})">
 		        <div id='bigImage'>
 		          <a id="toLeft" 
@@ -97,7 +110,7 @@
 								width="48" height="48" />
 					</a>	 --%>				
 <!-- 		      <div>
-		        <div class="contLeft">
+		        <div class="bigImgDiv">
 		        </div>
 		      </div> -->
 		      
@@ -255,12 +268,12 @@
 				</tr>
 			</table>
 		</div>
+  	<div id="bottom"></div>		
 	</div>
 	<script>
 		function changeMainPic(fileName) {
-			var sqImageDiv = document.getElementById("sqImageDiv");
-			sqImageDiv.style.backgroundImage = 
-				"url(img/" + fileName + ")";
+			var bigImgDiv = document.getElementById("bigImgDiv");
+			bigImgDiv.style.backgroundImage = "url(img/" + fileName + ")";
 			return false;
 		}
 		function slideMainPic(direction, mii) {
