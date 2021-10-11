@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" 
-		uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="spring" 
-		uri="http://www.springframework.org/tags"%>
+		uri="http://www.springframework.org/tags" %>
 <%@ page import="com.bumsoap.store.types.Shapes" %>
 <%@ page import="com.bumsoap.store.types.Shape_w" %>
 <%@ taglib prefix="fmt" 
@@ -23,7 +23,7 @@
 <spring:url value="/resources/css/top_menu.css" var="top_menu" />
 <link href="${top_menu}" rel="stylesheet" /> 
 </head>
-<body>
+<body onload="initThumbArray (${fn:length(soap.pics)})">
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		
@@ -47,12 +47,12 @@
 			</a>
 	    <a id="toBottomL" href="#bottom">
 	      <img alt="<spring:message code='menu.icon.to_bottom'/>" 
-	      		src="<c:url value='/img/icons/arrow-246-48B.png'/>" 
+	      		src="<c:url value='/img/icons/arrow-242-48B.png'/>" 
 	      		width="48" height="48" />
 	    </a>
 	    <a id="toBottomR" href="#bottom">
 	      <img alt="<spring:message code='menu.icon.to_bottom'/>"
-	      		src="<c:url value='/img/icons/arrow-246-48G.png'/>" 
+	      		src="<c:url value='/img/icons/arrow-242-48G.png'/>" 
 	      		width="48" height="48" />
 	    </a>
 		
@@ -75,17 +75,17 @@
 			<div id="soapDetailSection">
 				<!-- 큰 사진 구역 -->
 				<!-- 큰 사진 -->
-				<%! int mii = 0; %> <!-- mii: main image index -->
 				<div id='elevenImgs'>
 		      <div id="bigImgDiv" 
 		      		 style="background-image: url(img/${soap.pics[0].FName})">
 		        <div id='bigImage'>
 		          <a id="toLeft" 
-		          	 onclick="return slideMainPic('left', <%=mii%>)">
+		          	 onclick="return slideMainPic(this, false)">
 		            <img alt="<spring:message code='menu.icon.to_left'/>" 
 		            	src="<c:url value='/img/icons/arrow-92-48.png'/>" />
 		          </a>
-		          <a id="toRight" onclick="return slideMainPic('right')">
+		          <a id="toRight" 
+		          	 onclick="return slideMainPic(this, true)">
 		            <img alt="<spring:message code='menu.icon.to_top'/>" 
 		            	src="<c:url value='/img/icons/arrow-28-48.png'/>" 
 		            	width="48" height="48" />
@@ -94,13 +94,12 @@
 		      </div>					
 					<!-- 손톱 크기 사진 -->
 					<div id="thumbs">
-						<c:forEach items="${soap.pics}" var="pic">
+						<c:forEach items="${soap.pics}" var="pic" varStatus="loop">
 							<div class="thumb">
 								<a onclick="return changeMainPic('${pic.FName}')">
-								  <img class="thumb" 
+								  <img class="thumb" id="thumb${loop.index}"
 								  	   src="<c:url value='/img/${pic.FName}'/>"
-								  	   onmouseover=
-								  	   	"changeMainPic('${pic.FName}')">				  
+								  	   onmouseover="changeMainPic('${pic.FName}')">				  
 								</a>
 							</div>						
 						</c:forEach>
@@ -141,7 +140,8 @@
 								<th><spring:message code="soaps.detail.mall"/></th>
 								<td><a href="${soap.mallLink}" target="blank">
 										<spring:message code="soaps.detail.mall.a"/>
-										</a></td>
+										</a></
+										td>
 							</tr>
 						</table>
 					</div>
@@ -250,16 +250,56 @@
   	<div id="bottom"></div>		
 	</div>
 	<script>
+		var bigImgDiv;
+		const thumbArray = [];
+		var thmMax;
+		var thmIdx = 0;
+		
+		function initThumbArray(size) {
+			bigImgDiv = document.getElementById("bigImgDiv");
+			for (var i = 0; i<size; i++) {
+				thumbArray[i] = document.getElementById("thumb" + i);
+			}
+			thmMax = size;
+		}
+		
 		function changeMainPic(fileName) {
-			var bigImgDiv = document.getElementById("bigImgDiv");
+			/* var bigImgDiv = document.getElementById("bigImgDiv"); */
 			bigImgDiv.style.backgroundImage = "url(img/" + fileName + ")";
 			return false;
 		}
-		function slideMainPic(direction, mii) {
-			alert("direction: " + direction + "mii:" + mii);
-			/* var sqImageDiv = document.getElementById("sqImageDiv");
-			sqImageDiv.style.backgroundImage = 
-				"url(img/" + fileName + ")"; */
+		
+		function slideMainPic(btn, increase) {
+			var preIdx = thmIdx;
+			if (increase) { /* go right */
+				if (thmIdx < thmMax) {
+					var toLeft = document.getElementById("toLeft");
+					if (toLeft.disabled)
+						toLeft.disabled = false;
+						
+					if (++thmIdx === thmMax)
+						btn.disabled = true;
+				} else {
+					alert("No more image");
+				}
+			} else { /* go left */
+				if (thmIdx > 0) {
+					var toRight = document.getElementById("toRight");
+					if (toRight.disabled) 
+						toRight.disabled = false;
+					
+					if (--thmIdx === 0)
+						btn.disabled = true;
+				} else {
+					alert("No more image");
+				}
+			}
+			if (preIdx !== thmIdx) {
+	      var fullpath = thumbArray[thmIdx].src;
+	      var itemArr = fullpath.split('/');
+	      var resoName = "img/" + itemArr[itemArr.length - 1];
+  	    bigImgDiv.style.backgroundImage = "url('" + resoName + "')";
+			}
 			return false;
 		}
 	</script>

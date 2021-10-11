@@ -23,4 +23,5 @@ public class Soap implements Serializable{
 	private Target target;
 	private String mallLink;
 	private List<SoapPic> pics;
+	private int thmIdx = 0; // thumb index
 }
