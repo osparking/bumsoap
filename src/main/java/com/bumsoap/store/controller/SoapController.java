@@ -1,6 +1,7 @@
 package com.bumsoap.store.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bumsoap.store.domain.Soap;
+import com.bumsoap.store.domain.SoapPic;
 import com.bumsoap.store.domain.SoapStock;
 import com.bumsoap.store.service.BumSoapService;
 import com.bumsoap.store.types.Shape_w;
@@ -35,6 +37,7 @@ public class SoapController {
 		
 		language = (language == null ? "ko" : language); 
 		addPriceStock(model, language);
+//		soaps.get(0).setPics(new ArrayList<SoapPic>());
 		model.addAttribute("soap", soaps.get(0));
 		model.addAttribute("ingredients", service.getIngredients());
 		if (principal != null) {

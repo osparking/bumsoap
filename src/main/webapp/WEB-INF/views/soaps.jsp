@@ -23,7 +23,8 @@
 <spring:url value="/resources/css/top_menu.css" var="top_menu" />
 <link href="${top_menu}" rel="stylesheet" /> 
 </head>
-<body onload="initThumbArray (${fn:length(soap.pics)})">
+<body onload="initThumbArray (${fn:length(soap.pics)}, 
+															'${soap.pics[0].FName}')">
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		
@@ -76,8 +77,7 @@
 				<!-- 큰 사진 구역 -->
 				<!-- 큰 사진 -->
 				<div id='elevenImgs'>
-		      <div id="bigImgDiv" 
-		      		 style="background-image: url(img/${soap.pics[0].FName})">
+		      <div id="bigImgDiv">
 		        <div id='bigImage'>
 		          <a id="toLeft" 
 		          	 onclick="return slideMainPic(this, false)">
@@ -255,12 +255,16 @@
 		var thmMax;
 		var thmIdx = 0;
 		
-		function initThumbArray(size) {
+		function initThumbArray(size, fName) {
 			bigImgDiv = document.getElementById("bigImgDiv");
 			for (var i = 0; i<size; i++) {
 				thumbArray[i] = document.getElementById("thumb" + i);
 			}
 			thmMax = size;
+			
+			var backImage = (size === 0) ? 
+					"url(img/no_img_12_10.png)" : "url(img/" + fName + ")";
+			bigImgDiv.style.backgroundImage = backImage;
 		}
 		
 		function changeMainPic(fileName) {
