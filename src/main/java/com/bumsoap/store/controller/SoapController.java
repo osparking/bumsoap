@@ -37,7 +37,6 @@ public class SoapController {
 		
 		language = (language == null ? "ko" : language); 
 		addPriceStock(model, language);
-//		soaps.get(0).setPics(new ArrayList<SoapPic>());
 		model.addAttribute("soap", soaps.get(0));
 		model.addAttribute("ingredients", service.getIngredients());
 		if (principal != null) {

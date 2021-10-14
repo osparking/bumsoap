@@ -17,14 +17,17 @@
 <link href="${body}" rel="stylesheet" /> 	
 <spring:url value="/resources/css/soaps.css" var="soaps" />
 <link href="${soaps}" rel="stylesheet" /> 
-<spring:url value="/resources/css/soap_detail.css" 
-						var="soap_detail" />
+<spring:url value="/resources/css/soap_detail.css" var="soap_detail" />
 <link href="${soap_detail}" rel="stylesheet" /> 
+<link rel="shortcut icon" href="#"/>
 <spring:url value="/resources/css/top_menu.css" var="top_menu" />
-<link href="${top_menu}" rel="stylesheet" /> 
+<link href="${top_menu}" rel="stylesheet" />
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="<c:url value='/resources/js/soaps.js' />"></script>
 </head>
-<body onload="initThumbArray (${fn:length(soap.pics)}, 
-															'${soap.pics[0].FName}')">
+<body>
 	<div id="body_div">
 		<jsp:include page="top_menu.jsp" />
 		
@@ -80,12 +83,13 @@
 		      <div id="bigImgDiv">
 		        <div id='bigImage'>
 		          <a id="toLeft" 
-		          	 onclick="return slideMainPic(this, false)">
+		          	 onclick="return slideMainPic(event, this, false)">
 		            <img alt="<spring:message code='menu.icon.to_left'/>" 
 		            	src="<c:url value='/img/icons/arrow-92-48.png'/>" />
 		          </a>
-		          <a id="toRight" 
-		          	 onclick="return slideMainPic(this, true)">
+		          
+		          	 <!-- onclick="return slideMainPic(event, this, true)" -->
+		          <a id="toRight">
 		            <img alt="<spring:message code='menu.icon.to_top'/>" 
 		            	src="<c:url value='/img/icons/arrow-28-48.png'/>" 
 		            	width="48" height="48" />
@@ -93,7 +97,7 @@
 		        </div>
 		      </div>					
 					<!-- 손톱 크기 사진 -->
-					<div id="thumbs">
+					<div id="thumbs"> 
 						<c:forEach items="${soap.pics}" var="pic" varStatus="loop">
 							<div class="thumb">
 								<a onclick="return changeMainPic('${pic.FName}')">
@@ -249,63 +253,5 @@
 		</div>
   	<div id="bottom"></div>		
 	</div>
-	<script>
-		var bigImgDiv;
-		const thumbArray = [];
-		var thmMax;
-		var thmIdx = 0;
-		
-		function initThumbArray(size, fName) {
-			bigImgDiv = document.getElementById("bigImgDiv");
-			for (var i = 0; i<size; i++) {
-				thumbArray[i] = document.getElementById("thumb" + i);
-			}
-			thmMax = size;
-			
-			var backImage = (size === 0) ? 
-					"url(img/no_img_12_10.png)" : "url(img/" + fName + ")";
-			bigImgDiv.style.backgroundImage = backImage;
-		}
-		
-		function changeMainPic(fileName) {
-			/* var bigImgDiv = document.getElementById("bigImgDiv"); */
-			bigImgDiv.style.backgroundImage = "url(img/" + fileName + ")";
-			return false;
-		}
-		
-		function slideMainPic(btn, increase) {
-			var preIdx = thmIdx;
-			if (increase) { /* go right */
-				if (thmIdx < thmMax) {
-					var toLeft = document.getElementById("toLeft");
-					if (toLeft.disabled)
-						toLeft.disabled = false;
-						
-					if (++thmIdx === thmMax)
-						btn.disabled = true;
-				} else {
-					alert("No more image");
-				}
-			} else { /* go left */
-				if (thmIdx > 0) {
-					var toRight = document.getElementById("toRight");
-					if (toRight.disabled) 
-						toRight.disabled = false;
-					
-					if (--thmIdx === 0)
-						btn.disabled = true;
-				} else {
-					alert("No more image");
-				}
-			}
-			if (preIdx !== thmIdx) {
-	      var fullpath = thumbArray[thmIdx].src;
-	      var itemArr = fullpath.split('/');
-	      var resoName = "img/" + itemArr[itemArr.length - 1];
-  	    bigImgDiv.style.backgroundImage = "url('" + resoName + "')";
-			}
-			return false;
-		}
-	</script>
 </body>
 </html>
