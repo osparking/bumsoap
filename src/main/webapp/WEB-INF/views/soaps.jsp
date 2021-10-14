@@ -82,13 +82,10 @@
 				<div id='elevenImgs'>
 		      <div id="bigImgDiv">
 		        <div id='bigImage'>
-		          <a id="toLeft" 
-		          	 onclick="return slideMainPic(event, this, false)">
+		          <a id="toLeft">
 		            <img alt="<spring:message code='menu.icon.to_left'/>" 
 		            	src="<c:url value='/img/icons/arrow-92-48.png'/>" />
 		          </a>
-		          
-		          	 <!-- onclick="return slideMainPic(event, this, true)" -->
 		          <a id="toRight">
 		            <img alt="<spring:message code='menu.icon.to_top'/>" 
 		            	src="<c:url value='/img/icons/arrow-28-48.png'/>" 
@@ -102,8 +99,7 @@
 							<div class="thumb">
 								<a onclick="return changeMainPic('${pic.FName}')">
 								  <img class="thumb" id="thumb${loop.index}"
-								  	   src="<c:url value='/img/${pic.FName}'/>"
-								  	   onmouseover="changeMainPic('${pic.FName}')">				  
+								  	   src="<c:url value='/img/${pic.FName}'/>">				  
 								</a>
 							</div>						
 						</c:forEach>
