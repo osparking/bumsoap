@@ -6,9 +6,30 @@ $(document).ready(function () {
   var thmCnt = $("div#thumbs").children('div').length;
   var thmIdx = 0;
 
-  function changeMainPic(idx) {
-    var resoName;
+  function toggleLR_button_Disabled(index) {
+    if (index === thmCnt - 1) {
+      $("#toRight").attr("disabled", "disabled");
+    }
+    if (index > 0 &&
+      $("#toLeft").attr("disabled") === "disabled") {
+      $("#toLeft").removeAttr("disabled");
+    }
 
+    if (index === 0) {
+      $("#toLeft").attr("disabled", "disabled");
+    }
+
+    if (index < thmCnt - 1 &&
+      $("#toRight").attr("disabled") === "disabled") {
+      $("#toRight").removeAttr("disabled");
+    }
+  }
+
+  function changeMainPic(idx) {
+
+    toggleLR_button_Disabled(idx);
+
+    var resoName;
     if (idx === -1) {
       resoName = 'no_img_12_10.png';
     } else {
@@ -37,17 +58,10 @@ $(document).ready(function () {
       e.preventDefault();
       return;
     }
-    if (thmIdx < (thmCnt - 1)) {
-      thmIdx++;
-      if (thmIdx === thmCnt - 1) {
-        $("#toRight").attr("disabled", "disabled");
-      }
-      if ($("#toLeft").attr("disabled") === "disabled") {
-        $("#toLeft").removeAttr("disabled");
-      }
-      changeMainPic(thmIdx);
+    if (thmIdx < thmCnt - 1) {
+      changeMainPic(++thmIdx);
     } else {
-      alert("No more image");
+      alert("No more image"); // 이 경보가 뜨면 안됨!
     }
   });
 
@@ -57,17 +71,9 @@ $(document).ready(function () {
       return;
     }
     if (0 < thmIdx) {
-      thmIdx--;
-
-      if (thmIdx === 0)
-        $("#toLeft").attr("disabled", "disabled");
-
-      if ($("#toRight").attr("disabled") === "disabled")
-        $("#toRight").removeAttr("disabled");
-
-      changeMainPic(thmIdx);
+      changeMainPic(--thmIdx);
     } else {
-      alert("No more image");
+      alert("No more image"); // 이 경보가 뜨면 안됨!
     }
   });
 });

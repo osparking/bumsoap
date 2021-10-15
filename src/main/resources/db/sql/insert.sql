@@ -6,6 +6,11 @@ VALUES('kdhong2', 2, 'dddfddff#$56', null, null);
 
 /* root 로써 실행해야 됨 */
 insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
+values (1, 3, 'jpg',
+  load_file('D:\\ws\\bumsoap\\image\\im_soap\\sml_slimy.jpg'));
+ 
+/* root 로써 실행해야 됨 */
+insert into soap_pic(bssn, DP_ORDER, EXT_NAME, PICTURE)
 values (1, 2, 'jpg',
   load_file('D:\\ws\\bumsoap\\image\\im_soap\\land_boston.jpg'));
 
