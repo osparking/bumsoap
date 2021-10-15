@@ -66,6 +66,14 @@ table#ingredients {
   display: block;
 }
 
+div.pinkBox {
+	border: 2px solid deeppink;
+}
+
+div.greyBox {
+	border: 1px solid grey;
+}
+
 div#thumbs {
   height: 19%;
   width: 99%;
@@ -82,7 +90,6 @@ div#thumbs {
 div.thumb {
   white-space: normal;
   margin-left: 5px;
-	border: solid black 1px;
 }
 
 div.thumb, img.thumb {

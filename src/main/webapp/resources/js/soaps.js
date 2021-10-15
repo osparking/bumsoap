@@ -25,7 +25,14 @@ $(document).ready(function () {
     }
   }
 
-  function changeMainPic(idx) {
+  function changeBorder(imgElt, oldBorder, newBorder) {
+    var imgDiv = imgElt.closest('div');
+
+    imgDiv.removeClass(oldBorder);
+    imgDiv.addClass(newBorder);
+  }
+
+  function changeMainPic(idx, prvIdx) {
 
     toggleLR_button_Disabled(idx);
 
@@ -33,23 +40,31 @@ $(document).ready(function () {
     if (idx === -1) {
       resoName = 'no_img_12_10.png';
     } else {
-      var semiPath = $("#thumb" + idx).attr('src');
+      var prvElt = $("#thumb" + prvIdx);
+      changeBorder(prvElt, "pinkBox", "greyBox");
+
+      var imgElt = $("#thumb" + idx);
+      changeBorder(imgElt, "greyBox", "pinkBox");
+
+      var semiPath = imgElt.attr('src');
       var itemArr = semiPath.split('/');
 
       resoName = itemArr[itemArr.length - 1];
     }
     $('#bigImgDiv').css('background-image', "url('img/" + resoName + "')");
+
   }
 
-  changeMainPic(thmCnt === 0 ? -1 : 0);
+  changeMainPic(thmCnt === 0 ? -1 : 0, -1);
 
   $("img.thumb").mouseenter(function (e) {
     // 5: 'thumb' 문자열 길이
     var idx = parseInt(this.id.substring(5));
 
     if (idx !== thmIdx) {
+      var prvIdx = thmIdx;
       thmIdx = idx;
-      changeMainPic(thmIdx);
+      changeMainPic(thmIdx, prvIdx);
     }
   });
 
@@ -59,7 +74,8 @@ $(document).ready(function () {
       return;
     }
     if (thmIdx < thmCnt - 1) {
-      changeMainPic(++thmIdx);
+      var prvIdx = thmIdx;
+      changeMainPic(++thmIdx, prvIdx);
     } else {
       alert("No more image"); // 이 경보가 뜨면 안됨!
     }
@@ -71,7 +87,8 @@ $(document).ready(function () {
       return;
     }
     if (0 < thmIdx) {
-      changeMainPic(--thmIdx);
+      var prvIdx = thmIdx;
+      changeMainPic(--thmIdx, prvIdx);
     } else {
       alert("No more image"); // 이 경보가 뜨면 안됨!
     }

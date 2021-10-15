@@ -96,14 +96,13 @@
 					<!-- 손톱 크기 사진 -->
 					<div id="thumbs"> 
 						<c:forEach items="${soap.pics}" var="pic" varStatus="loop">
-							<div class="thumb">
+							<div class="thumb greyBox">
 								<a><img class="thumb" id="thumb${loop.index}"
 								  	    src="<c:url value='/img/${pic.FName}'/>">				  
 								</a>
 							</div>						
 						</c:forEach>
 					</div>		      
-		      
 				</div>
 				
 				<!-- 비누 사양 -->
