@@ -6,13 +6,15 @@ $(document).ready(function () {
   var thmCnt = $("div#thumbs").children('div').length;
   var thmIdx = 0;
 
-  function changeMainPic(thmIdx) {
+  function changeMainPic(idx) {
     var resoName;
-    if (thmIdx === -1) {
-      resoName = no_img_12_10.png;
+
+    if (idx === -1) {
+      resoName = 'no_img_12_10.png';
     } else {
-      var semiPath = $("#thumb" + thmIdx).attr('src');
+      var semiPath = $("#thumb" + idx).attr('src');
       var itemArr = semiPath.split('/');
+
       resoName = itemArr[itemArr.length - 1];
     }
     $('#bigImgDiv').css('background-image', "url('img/" + resoName + "')");
@@ -20,8 +22,14 @@ $(document).ready(function () {
 
   changeMainPic(thmCnt === 0 ? -1 : 0);
 
-  $(".thumb").mouseover(function (e) {
-    changeMainPic(parseInt(this.id.substring(5))); // number after 'thumb' 
+  $("img.thumb").mouseenter(function (e) {
+    // 5: 'thumb' 문자열 길이
+    var idx = parseInt(this.id.substring(5));
+
+    if (idx !== thmIdx) {
+      thmIdx = idx;
+      changeMainPic(thmIdx);
+    }
   });
 
   $("#toRight").click(function (e) {
