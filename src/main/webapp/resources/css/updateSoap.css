@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+textarea#descrip {
+	width: 495px;
+	height: 122px;
+}
+
+.updateSoap {
+	margin: 0 auto;
+}
+
+#soap>fieldset:nth-child(1) {
+	margin: 0 auto;
+	width: 620px;
+}
+
+#descrip {
+	width: 440px;
+	height: 117px;
+}
+
+table.updateSoap {
+	width: 620px;
+	margin: 0 auto;
+}

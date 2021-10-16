@@ -13,9 +13,9 @@
 <meta charset="UTF-8">
 <title><spring:message code='updateSoap.title'/></title>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/body.css'/>">	
+	href="<c:url value='/resources/css/body.css'/>">
 <link rel="stylesheet" type="text/css" 
-	href="<c:url value='/resources/css/top_menu.css'/>">
+	href="<c:url value='/resources/css/updateSoap.css'/>">
 </head>
 <%
     request.setCharacterEncoding("utf-8");
@@ -53,7 +53,7 @@
 									</label></th>
 								<td><form:input name="ingridi1" 
 										value="${soapBfr.ingridi1}"
-										path="ingridi1" type="text" />
+										path="ingridi1" type="text" size="65" />
 								</td>
 							</tr>
 							<tr>
@@ -97,7 +97,7 @@
 								효과</label></th>
 								<td><form:input name="specFunc" 
 									value="${soapBfr.specFunc}" path="specFunc" 
-									type="text" size="80" />
+									type="text" size="65" />
 								</td>
 							</tr>
 							<tr>
@@ -105,7 +105,7 @@
 									<spring:message code='soaps.detail.effe'/>
 									</label></th>
 								<td><form:textarea name="descrip" id="descrip"
-									path="descrip" cols="40" rows="5"/>
+									path="descrip" cols="35" rows="7"/>
 								</td>
 							</tr>
 							<tr>
@@ -114,7 +114,7 @@
 									</label></th>
 								<td><form:input name="mallLink" 
 									value="${soapBfr.mallLink}"	path="mallLink" 
-									type="text" size="80"/>
+									type="text" size="65"/>
 								</td>
 							</tr>
 							<tr>
