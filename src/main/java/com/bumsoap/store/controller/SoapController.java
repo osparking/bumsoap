@@ -82,6 +82,30 @@ public class SoapController {
 	  service.updateSoap(soap);
 	  return "redirect:/soaps";
 	}
+	
+	@RequestMapping(value="/update/imgOrder", 
+	    method = RequestMethod.GET)
+	public String updateImgOrder(@ModelAttribute Soap soap, 
+	    @RequestParam String bssn, Model model, 
+	    Principal principal) {
+	  var soaps = service.getSoaps(null);
+	  Soap soapBfr = soaps.get(0);
+	  
+		if (principal != null) {
+		  model.addAttribute("userId", principal.getName());
+		}	  
+	  if (Integer.valueOf(bssn) == soap.getBssn()) {
+	    model.addAttribute("soapPics", soapBfr.getPics());
+	  } 
+	  return "updatePics";
+	}
+
+	@RequestMapping(value="/update/imgOrder", 
+	    method = RequestMethod.POST)
+	public String updateImgOrder(@ModelAttribute Soap soap) {
+	  service.updateSoap(soap);
+	  return "redirect:/soaps";
+	}
 
 	@RequestMapping(value="/update/stock", 
 			method = RequestMethod.GET)

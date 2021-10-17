@@ -76,7 +76,7 @@
 						<c:if test="${userId == 'admin'}">				
 							<a href="<c:url value='/soaps/update/stock'/>">
 								<spring:message code='menu.soaps.updSto'/></a>
-							<a href="<c:url value='/soaps/update/imgOrder'/>">
+							<a href="<c:url value='/soaps/update/imgOrder?bssn=1'/>">
 								<spring:message code='menu.soaps.updImgOrder'/></a>
 						</c:if>
 					</div>
