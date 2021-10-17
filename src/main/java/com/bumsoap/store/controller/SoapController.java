@@ -62,10 +62,14 @@ public class SoapController {
 	@RequestMapping(value="/update/soap", 
 	    method = RequestMethod.GET)
 	public String updateSoap(@ModelAttribute Soap soap, 
-	    @RequestParam String bssn, Model model) {
+	    @RequestParam String bssn, Model model, 
+	    Principal principal) {
 	  var soaps = service.getSoaps(null);
 	  Soap soapBfr = soaps.get(0);
 	  
+		if (principal != null) {
+		  model.addAttribute("userId", principal.getName());
+		}	  
 	  if (Integer.valueOf(bssn) == soap.getBssn()) {
 	    model.addAttribute("soapBfr", soapBfr);
 	  } 
