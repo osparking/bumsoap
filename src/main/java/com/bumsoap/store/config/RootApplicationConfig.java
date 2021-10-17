@@ -20,7 +20,7 @@ public class RootApplicationConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName(org.mariadb.jdbc.Driver.class.getName());
-		ds.setUrl("jdbc:mariadb://localhost:3306/bumsoap");
+		ds.setUrl("jdbc:mariadb://localhost:3306/bumsoap?useUnicode=true");
 		ds.setUsername("bumee");
 		ds.setPassword("1234");
 		return ds;

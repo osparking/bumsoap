@@ -54,10 +54,9 @@ public class WebApplicationConfig implements WebMvcConfigurer {
   
   @Bean
   public MessageSource messageSource() {
-    ResourceBundleMessageSource resource = 
-        new ResourceBundleMessageSource();
-    resource.setBasename("msgs");
+    var resource = new ResourceBundleMessageSource();
     resource.setDefaultEncoding("utf-8");
+    resource.setBasename("msgs");
     return resource;
   }
 
