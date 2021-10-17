@@ -8,20 +8,19 @@ $(document).ready(function () {
 
   function toggleLR_button_Disabled(index) {
     if (index === thmCnt - 1) {
-      $("#toRight").attr("disabled", "disabled");
+      $("#toRight").addClass('hidden');
     }
     if (index > 0 &&
-      $("#toLeft").attr("disabled") === "disabled") {
-      $("#toLeft").removeAttr("disabled");
+      $("#toLeft").hasClass('hidden')) {
+      $("#toLeft").removeClass("hidden");
     }
 
     if (index === 0) {
-      $("#toLeft").attr("disabled", "disabled");
+      $("#toLeft").addClass('hidden');
     }
-
     if (index < thmCnt - 1 &&
-      $("#toRight").attr("disabled") === "disabled") {
-      $("#toRight").removeAttr("disabled");
+      $("#toRight").hasClass('hidden')) {
+      $("#toRight").removeClass("hidden");
     }
   }
 

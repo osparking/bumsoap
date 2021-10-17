@@ -11,6 +11,10 @@ div#body_div {
 	overflow-x: auto;
 }
 
+.hidden {
+	display: none;
+}
+
 h4 {
 	letter-spacing: 0.1em;
 }
